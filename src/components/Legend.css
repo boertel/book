@@ -1,0 +1,20 @@
+.Legend {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    padding-left: 2em;
+}
+
+.Legend h2 {
+    margin-bottom: 1em;
+}
+
+.Legend .ref {
+    border-bottom: 1px dotted orange;
+    cursor: pointer;
+}
+
+.Legend .ref.active, .Legend .ref:hover {
+    color: orange;
+}

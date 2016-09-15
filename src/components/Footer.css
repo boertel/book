@@ -1,0 +1,18 @@
+.Footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em;
+}
+
+.Footer .current {
+    font-size: 1.8em;
+}
+.Footer .total {
+    color: #888;
+}
+
+.Footer .arrow a {
+    font-size: 0.8em;
+}

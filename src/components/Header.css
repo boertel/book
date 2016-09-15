@@ -1,0 +1,21 @@
+.Header {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    padding: 1em 2em 0 2em;
+}
+
+.Header hr {
+    position: absolute;
+    left: 2em;
+    right: 2em;
+    bottom: 0;
+    border: none;
+    border-bottom: 1px solid #000;
+    z-index: -1;
+}
+
+.Header span {
+    background-color: #fff;
+    padding: 0 1em;
+}
