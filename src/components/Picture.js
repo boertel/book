@@ -17,7 +17,7 @@ class Picture extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return nextState.loaded !== this.state.loaded || nextProps.widthContainer !== 0;
+        return nextState.loaded !== this.state.loaded || nextProps.widthContainer !== 0 || nextProps.widthContainer !== this.props.widthContainer;
     }
 
     load() {

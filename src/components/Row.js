@@ -15,9 +15,20 @@ export default class Row extends Component {
         this.state = {
             width: 0,
         };
+
+        this.resize = this.resize.bind(this);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.resize);
     }
 
     componentDidMount() {
+        this.resize();
+        window.addEventListener('resize', this.resize);
+    }
+
+    resize() {
         this.setState({
             width: this._row.offsetWidth,
         });
