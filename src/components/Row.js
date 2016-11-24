@@ -14,6 +14,7 @@ export default class Row extends Component {
 
         this.state = {
             width: 0,
+            height: 0,
         };
 
         this.resize = this.resize.bind(this);
@@ -29,6 +30,7 @@ export default class Row extends Component {
     }
 
     resize() {
+        console.log(this._row.offsetWidth);
         this.setState({
             width: this._row.offsetWidth,
         });
@@ -39,6 +41,7 @@ export default class Row extends Component {
             return ratio + aspectRatio(image.props);
         }, 0);
 
+
         const children = React.Children.map(this.props.children, (child, i) => {
             return React.cloneElement(child, {
                 ratio,
@@ -48,8 +51,10 @@ export default class Row extends Component {
             });
         });
 
+        const style = Object.assign({}, {width: '100%'}, this.props.style);
+
         return (
-            <div className="Row" ref={(row) => { this._row = row }}>
+            <div className="Row" style={style} ref={(row) => { this._row = row }}>
                 {children}
             </div>
         );

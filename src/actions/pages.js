@@ -31,9 +31,13 @@ const pages = {
             ]
         ],
         legend: {
-            title: 'My Title',
             description: {
                 nodes: [
+                    {
+                        kind: 'block',
+                        type: 'heading',
+                        nodes: [ { kind: 'text', text: 'My Title' } ],
+                    },
                     {
                         kind: 'block',
                         type: 'paragraph',
@@ -75,31 +79,35 @@ const pages = {
                 },
                 {
                     id: 7,
-                    src: 'http://placehold.it/350x150',
+                    src: 'http://placehold.it/350x160',
                     width: 350,
                     height: 150,
                 },
                 {
                     id: 8,
-                    src: 'http://placehold.it/350x150',
+                    src: 'http://placehold.it/350x170',
                     width: 350,
                     height: 150,
                 },
             ]
         ],
         legend: {
-            title: 'My Title',
             description: {
                 nodes: [
                     {
                         kind: 'block',
+                        type: 'heading',
+                        nodes: [ { kind: 'text', text: 'My Title' } ],
+                    },
+                    {
+                        kind: 'block',
                         type: 'paragraph',
                         nodes: [
-                            { kind: 'text', text: 'long description', },
+                            { kind: 'text', text: 'lon description', },
                             {
                                 kind: 'block',
                                 type: 'anchor',
-                                reference: '1',
+                                reference: '7',
                                 nodes: [
                                     {
                                         kind: 'block',
@@ -112,7 +120,7 @@ const pages = {
                                 ]
                             },
                         ]
-                    }
+                    },
                 ]
             },
             date: '2016-09-21',

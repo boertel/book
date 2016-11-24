@@ -6,14 +6,6 @@ import Picture from './Picture';
 
 
 class Media extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            width: 0,
-            height: 0,
-        };
-    }
-
     renderRow(row) {
         return row.map((medium) => {
             return <Picture {...medium} key={medium.id} onClick={this.onClick.bind(this)} />
@@ -33,8 +25,9 @@ class Media extends Component {
                 <Row key={i} offset={i}>{this.renderRow(row)}</Row>
             );
         });
+
         return (
-            <div className="Media" ref={(media) => { this._media = media; }}>{rows}</div>
+            <div className="Media">{rows}</div>
         );
     }
 }

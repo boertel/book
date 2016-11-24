@@ -13,7 +13,10 @@ const mapping = {
     'anchor': {
         type: Anchor,
         propKeys: ['reference'],
-    }
+    },
+    'heading': {
+        type: 'h2',
+    },
 };
 
 function generate(nodes, depth) {
@@ -39,7 +42,8 @@ function generate(nodes, depth) {
 
 export default class Description extends Component {
     render() {
-        const children = generate(this.props.description.nodes);
+        const { description, index } = this.props;
+        const children = generate(description.nodes, index);
         return (
             <div className="Description">{children}</div>
         );

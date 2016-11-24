@@ -26,10 +26,10 @@ class Viewer extends Component {
     }
 
     onKeydown(evt) {
-        if (evt.key === 'k') {
+        if (evt.key === 'k' || evt.key === 'ArrowRight') {
             this.next();
         }
-        if (evt.key === 'j') {
+        if (evt.key === 'j' || evt.key === 'ArrowLeft') {
             this.previous();
         }
         if (evt.key === 'Escape') {
@@ -54,9 +54,12 @@ class Viewer extends Component {
 
     render() {
         const { medium } = this.props;
+        const style = {
+            width: window.innerHeight
+        };
         return (
             <div className="Viewer">
-                <Row>
+                <Row style={style}>
                     <Picture {...medium} />
                 </Row>
             </div>

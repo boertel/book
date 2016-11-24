@@ -39,7 +39,9 @@ class Picture extends Component {
     }
 
     onClick() {
-        this.props.onClick(this.props.i);
+        if (this.props.onClick) {
+            this.props.onClick(this.props.i);
+        }
     }
 
     render() {
@@ -53,10 +55,9 @@ class Picture extends Component {
             height,
         };
 
-        let classNames = ["Picture"];
         return (
             <Anchor reference={id}>
-                <div className={classNames.join(' ')} style={style} onClick={this.onClick}>
+                <div className="Picture" style={style} onClick={this.onClick}>
                     {this.state.loaded ? <img src={src} alt={src} /> : null}
                 </div>
             </Anchor>

@@ -16,12 +16,11 @@ class Legend extends Component {
     }
 
     render() {
-        const { title, description, date } = this.props;
+        const { description, date, index } = this.props;
         return (
             <div className="Legend">
                 <div>
-                    <h2>{title}</h2>
-                    <Description description={description} />
+                    <Description description={description} index={index} />
                     <Datetime date={date} />
                 </div>
             </div>
