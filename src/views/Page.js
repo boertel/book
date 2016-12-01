@@ -6,6 +6,7 @@ import { loadBlocks } from '../actions';
 
 import {
     Content,
+    Map,
 } from '../components';
 
 import './Page.css';
@@ -44,6 +45,7 @@ class Page extends Component {
             <div className="Page">
                 {children}
                 <Content root={blocks[0]} index={index} />
+                <Map index={index} />
             </div>
         );
     }

@@ -55,6 +55,7 @@ function generate(nodes, dispatch, index, i) {
             if (data.viewer) {
                 const url = `/pages/${index}/${i}`;
                 const onClick = () => {
+                    // only when not in viewer already
                     dispatch(push(url));
                 };
                 i += 1;

@@ -30,6 +30,8 @@ const pages = {
                             src: 'http://placehold.it/350x160',
                             width: 350,
                             height: 160,
+                            type: 'marker',
+                            coordinates: [ -73.97469444444445, 40.764297222222226 ]
                         }
                     },
                     {
@@ -41,6 +43,8 @@ const pages = {
                             src: 'http://placehold.it/350x170',
                             width: 350,
                             height: 170,
+                            type: 'circle',
+                            coordinates: [ -73.97630277777778, 40.75462777777778 ]
                         }
                     }
                 ]
