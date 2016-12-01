@@ -66,7 +66,8 @@ import _ from 'lodash';
 
 function select(store, props) {
     const index = parseInt(props.params.index, 10);
-    const mediumIndex = parseInt(props.params.medium, 10);
+    let medium, mediumIndex;
+
     // TODO(boertel) selector in case `reselect` is used
     const media = _.chain(store.blocks)
         .pick(store.pages[index].blocks)
@@ -74,6 +75,15 @@ function select(store, props) {
         .values()
         .value();
 
+    if (props.params.medium.indexOf(':') !== -1) {
+        const mediumId = props.params.medium;
+        medium = store.blocks[mediumId];
+    } else {
+        mediumIndex = parseInt(props.params.medium, 10);
+        medium = media[mediumIndex]
+    }
+
+    mediumIndex = media.indexOf(medium);
     // TODO(boertel) media is only one node right now, and always picture
     return {
         nodes: [
@@ -81,9 +91,7 @@ function select(store, props) {
                 type: 'row',
                 kind: 'block',
                 path: `v${index}:${mediumIndex}`,
-                nodes: [
-                    media[mediumIndex]
-                ]
+                nodes: [ medium ]
             }
         ],
         index,

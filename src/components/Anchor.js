@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 
 import {
     deactivate,
@@ -19,6 +20,7 @@ class Anchor extends Component {
 
     onClick() {
         // TODO(boertel) go through actions
+        this.props.click();
     }
 
     onMouseOver() {
@@ -53,11 +55,13 @@ class Anchor extends Component {
 
 function actions(dispatch, props) {
     const { reference } = props;
+    const index = 2;
     return {
         deactivate: () => dispatch(deactivate(reference)),
         activate: () => dispatch(activate(reference)),
         register: () => dispatch(register(reference)),
         unregister: () => dispatch(unregister(reference)),
+        click: () => dispatch(push(`/pages/${index}/${reference}`)),
     }
 }
 
