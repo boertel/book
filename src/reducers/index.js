@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import anchors from './anchors';
+import blocks from './blocks';
 import pages from './pages';
 
 
 export default combineReducers({
-    anchors,
+    blocks,
     pages,
     routing: routerReducer,
 });

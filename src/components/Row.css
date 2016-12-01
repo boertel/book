@@ -5,9 +5,9 @@
 }
 
 .Row > div {
-    padding-right: 1em;
+    margin-right: 1em;
 }
 
 .Row > div:last-child {
-    padding-right: 0;
+    margin-right: 0;
 }

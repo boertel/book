@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router';
 
-import Anchor from './Anchor';
 import './Picture.css';
 
 
 class Picture extends Component {
     constructor(props) {
         super(props);
-
-        this.onClick = this.onClick.bind(this);
 
         this.state = {
             loaded: false,
@@ -38,14 +34,8 @@ class Picture extends Component {
         this.load();
     }
 
-    onClick() {
-        if (this.props.onClick) {
-            this.props.onClick(this.props.i);
-        }
-    }
-
     render() {
-        const { id, src, widthContainer, aspectRatio, ratio } = this.props;
+        const { active, anchor, src, widthContainer, aspectRatio, ratio } = this.props;
 
         const width = Math.floor((widthContainer / ratio) * aspectRatio);
         const height = Math.floor(widthContainer / ratio);
@@ -55,14 +45,20 @@ class Picture extends Component {
             height,
         };
 
+        let classNames = ['Picture'];
+        if (active) {
+            classNames.push('active');
+        }
+        if (anchor) {
+            classNames.push('anchor');
+        }
+
         return (
-            <Anchor reference={id}>
-                <div className="Picture" style={style} onClick={this.onClick}>
-                    {this.state.loaded ? <img src={src} alt={src} /> : null}
-                </div>
-            </Anchor>
+            <div className={classNames.join(' ')} style={style} onMouseOver={this.props.onMouseOver} onMouseOut={this.props.onMouseOut}>
+                {this.state.loaded ? <img src={src} alt={src} onClick={this.props.onClick} /> : null}
+            </div>
         );
     }
 }
 
-export default withRouter(Picture);
+export default Picture;

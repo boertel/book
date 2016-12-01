@@ -1,10 +1,8 @@
-import anchors from './anchors';
-import pages from './pages';
+import blocks from './blocks';
 import navigation from './navigation';
 
 
 module.exports = {
-    ...pages,
-    ...anchors,
+    ...blocks,
     ...navigation,
 };

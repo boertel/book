@@ -5,10 +5,3 @@
     width: 100%;
     padding: 2em 2em 0 2em;
 }
-
-.Media {
-    flex-basis: 60%;
-}
-.Legend {
-    flex-basis: 35%;
-}

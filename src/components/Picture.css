@@ -1,11 +1,27 @@
 .Picture {
+    position: relative;
 }
 
-.Picture.active {
-    border-color: orange;
-    border-style: solid;
-    border-width: 5px;
+.Picture.anchor:after {
+    content: " ";
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255, 165, 0, 0.4);
+    border-radius: 8px;
+    border: 2px solid orange;
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    margin: 4px;
+}
+
+.Picture.anchor:hover {
     cursor: pointer;
+}
+
+.Picture.anchor.active:after, .Picture.anchor:hover:after {
+    background-color: orange;
 }
 
 .Picture img {

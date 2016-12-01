@@ -1,20 +1,16 @@
-import Datetime from './Datetime';
-import Picture from './Picture';
-import Legend from './Legend';
-import Media from './Media';
-import Row from './Row';
-import Header from './Header';
+import Anchor from './Anchor';
+import Content from './Content';
 import Footer from './Footer';
-import Description from './Description';
+import Header from './Header';
+import Picture from './Picture';
+import Row from './Row';
 
 
 export {
-    Datetime,
-    Picture,
-    Legend,
-    Media,
-    Row,
-    Header,
+    Anchor,
+    Content,
     Footer,
-    Description,
+    Header,
+    Picture,
+    Row,
 };

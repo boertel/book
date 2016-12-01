@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router';
+import { connect } from 'react-redux';
 
 import './Footer.css';
-import { nextPage, previousPage } from '../navigation';
+import { nextPage, previousPage } from '../actions';
 
 
 class Footer extends Component {
@@ -31,13 +31,13 @@ class Footer extends Component {
     }
 
     next() {
-        const { index, total } = this.props;
-        this.props.router.push(nextPage({index, total}));
+        const { dispatch, index, total } = this.props;
+        dispatch(nextPage({index, total}))
     }
 
     previous() {
-        const { index, total } = this.props;
-        this.props.router.push(previousPage({index, total}));
+        const { dispatch, index, total } = this.props;
+        dispatch(previousPage({index, total}))
     }
 
     render() {
@@ -46,15 +46,15 @@ class Footer extends Component {
         return (
             <div className="Footer">
                 <div className="arrow">
-                    <Link to={previousPage({index, total})}>&larr; Back</Link>
+                    <a onClick={this.previous}>&larr; Back</a>
                 </div>
                 <div><span className="current">{index}</span>&nbsp;<span className="total">/&nbsp;{total}</span></div>
                 <div className="arrow">
-                    <Link to={nextPage({index, total})}>Next &rarr;</Link>
+                    <a onClick={this.next}>Next &rarr;</a>
                 </div>
             </div>
         );
     }
 }
 
-export default withRouter(Footer)
+export default connect()(Footer)

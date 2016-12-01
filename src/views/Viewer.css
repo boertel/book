@@ -8,8 +8,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 }
 
-.Viewer .Row {
-    width: 70%;
+.Viewer .Content {
+    flex-basis: 70%;
 }

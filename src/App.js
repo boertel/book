@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import './App.css';
-import {
-    loadPages,
-} from './actions';
 
 import {
     Header,
@@ -13,11 +10,6 @@ import {
 
 
 class App extends Component {
-    componentDidMount() {
-        const { dispatch } = this.props;
-        dispatch(loadPages());
-    }
-
     render() {
         if (!this.props.loaded) {
             return null;
@@ -36,11 +28,10 @@ class App extends Component {
 }
 
 function select(store, props) {
-    const total = Object.keys(store.pages).length;
     return {
-        loaded: !!total,
+        loaded: true,
         index: parseInt(props.params.index, 10),
-        total: total,
+        total: 0,
     }
 }
 

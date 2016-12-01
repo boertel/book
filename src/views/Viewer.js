@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { push } from 'react-router-redux';
 
 import './Viewer.css';
-import { nextMedium, previousMedium } from '../navigation';
+import { nextMedium, previousMedium } from '../actions';
 
-import Picture from '../components/Picture';
-import Row from '../components/Row';
+import Content from '../components/Content';
 
 
 class Viewer extends Component {
@@ -15,6 +14,7 @@ class Viewer extends Component {
         this.onKeydown = this.onKeydown.bind(this);
         this.next = this.next.bind(this);
         this.previous = this.previous.bind(this);
+        this.close = this.close.bind(this);
     }
 
     componentDidMount() {
@@ -38,51 +38,59 @@ class Viewer extends Component {
     }
 
     close() {
-        const { index } = this.props;
-        this.props.router.push(`/pages/${index}`);
+        const { dispatch, index } = this.props;
+        dispatch(push(`/pages/${index}`));
     }
 
     next() {
-        const { index, total, mediumIndex, mediumTotal } = this.props;
-        this.props.router.push(nextMedium({index, total}, {index: mediumIndex, total: mediumTotal}));
+        const { dispatch, index, total, mediumIndex, mediumTotal } = this.props;
+        dispatch(nextMedium({index, total}, {index: mediumIndex, total: mediumTotal}));
     }
 
     previous() {
-        const { index, total, mediumIndex, mediumTotal } = this.props;
-        this.props.router.push(previousMedium({index, total}, {index: mediumIndex, total: mediumTotal}));
+        const { index, total, mediumIndex, mediumTotal, dispatch } = this.props;
+        dispatch(previousMedium({index, total}, {index: mediumIndex, total: mediumTotal}));
     }
 
     render() {
-        const { medium } = this.props;
-        const style = {
-            width: window.innerHeight
-        };
+        const { nodes, mediumIndex } = this.props;
         return (
-            <div className="Viewer">
-                <Row style={style}>
-                    <Picture {...medium} />
-                </Row>
+            <div className="Viewer" onClick={this.close}>
+                <Content nodes={nodes} index={mediumIndex} />
             </div>
         );
     }
 }
 
+import _ from 'lodash';
+
 function select(store, props) {
     const index = parseInt(props.params.index, 10);
     const mediumIndex = parseInt(props.params.medium, 10);
-    const page = store.pages[index];
     // TODO(boertel) selector in case `reselect` is used
-    const media = page.media.reduce((flat, row) => {
-        return flat.concat(row);
-    }, []);
+    const media = _.chain(store.blocks)
+        .pick(store.pages[index].blocks)
+        .pickBy((block) => block.data && block.data.viewer)
+        .values()
+        .value();
 
+    // TODO(boertel) media is only one node right now, and always picture
     return {
-        medium: media[mediumIndex],
+        nodes: [
+            {
+                type: 'row',
+                kind: 'block',
+                path: `v${index}:${mediumIndex}`,
+                nodes: [
+                    media[mediumIndex]
+                ]
+            }
+        ],
         index,
-        total: Object.keys(store.pages).length,
+        total: media.length,
         mediumIndex,
         mediumTotal: media.length,
     };
 }
 
-export default connect(select)(withRouter(Viewer));
+export default connect(select)(Viewer);

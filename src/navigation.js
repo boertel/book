@@ -1,3 +1,5 @@
+// TODO(boertel) move to actions/navigation.js
+//
 function nextPage(page) {
     let url = `/pages/${page.index + 1}`;
     if (page.index > page.total) {
@@ -16,7 +18,6 @@ function previousPage(page) {
 
 function nextMedium(page, medium) {
     let url = `/pages/${page.index}/${medium.index + 1}`;
-    console.log(medium.index, medium.total);
     if (medium.index + 1 > medium.total - 1) {
         url = `/pages/${page.index}`;
     }
@@ -25,7 +26,6 @@ function nextMedium(page, medium) {
 
 function previousMedium(page, medium) {
     let url = `/pages/${page.index}/${medium.index - 1}`;
-    console.log(medium.index, medium.total);
     if (medium.index === 0) {
         url = `/pages/${page.index}`;
     }
