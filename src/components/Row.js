@@ -20,6 +20,10 @@ export default class Row extends Component {
         this.resize = this.resize.bind(this);
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextState.width > 0;
+    }
+
     componentWillUnmount() {
         window.removeEventListener('resize', this.resize);
     }
@@ -30,12 +34,14 @@ export default class Row extends Component {
     }
 
     resize() {
+        console.log(this._row.offsetWidth);
         this.setState({
             width: this._row.offsetWidth,
         });
     }
 
     render() {
+        const { active, offset } = this.props;
         const ratio = React.Children.toArray(this.props.children).reduce((ratio, image) => {
             return ratio + aspectRatio(image.props);
         }, 0);
@@ -45,12 +51,17 @@ export default class Row extends Component {
                 ratio,
                 aspectRatio: aspectRatio(child.props),
                 widthContainer: this.state.width,
-                i: (i + this.props.offset),
+                i: (i + offset),
             });
         });
 
+        let classNames = ['Row'];
+        if (active) {
+            classNames.push('active');
+        }
+
         return (
-            <div className="Row" ref={(row) => { this._row = row }}>
+            <div className={classNames.join(' ')} ref={(row) => { this._row = row }}>
                 {children}
             </div>
         );

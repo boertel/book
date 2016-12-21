@@ -5,3 +5,11 @@
     width: 100%;
     padding: 2em 2em 0 2em;
 }
+
+.Content {
+    flex-basis: 60%;
+}
+
+.Map {
+    flex-basis: 40%;
+}

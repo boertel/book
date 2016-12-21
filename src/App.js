@@ -20,7 +20,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Header title="Header" />
-                <div>{this.props.children}</div>
+                {this.props.children}
                 <Footer index={index} total={total} />
             </div>
         );

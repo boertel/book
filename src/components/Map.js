@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
+import ReactMapboxGl, { Layer } from 'react-mapbox-gl';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import _ from 'lodash';
 
 import './Map.css';
+
+import Marker from './Marker';
 
 import {
     activate,
@@ -18,8 +20,9 @@ const config = {
 };
 
 const containerStyle = {
-  height: "100vh",
-  width: "100vw"
+    height: '100%',
+    width: '100%',
+    margin: '20px',
 };
 
 class Map extends Component {
@@ -35,22 +38,19 @@ class Map extends Component {
 
     onMouseOver(marker) {
         const { dispatch } = this.props;
-        if (marker.data.anchor) {
-            dispatch(activate(marker.path));
-        }
+        dispatch(activate(marker.path));
     }
 
     onMouseOut(marker) {
         const { dispatch } = this.props;
-        if (marker.data.anchor) {
-            dispatch(deactivate(marker.path));
-        }
+        dispatch(deactivate(marker.path));
     }
 
     renderFeatures(features) {
         return features.map((marker, index) => {
-            return <Feature
+            return <Marker
                         key={marker.path}
+                        path={marker.path}
                         onClick={this.onClick.bind(this, marker)}
                         onHover={this.onMouseOver.bind(this, marker)}
                         onEndHover={this.onMouseOut.bind(this, marker)}
@@ -61,7 +61,6 @@ class Map extends Component {
     render() {
         const markers = this.renderFeatures(this.props.markers);
         const circles = this.renderFeatures(this.props.circles);
-        console.log(circles, markers);
         return (
             <div className="Map">
                 <ReactMapboxGl

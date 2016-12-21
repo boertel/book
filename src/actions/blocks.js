@@ -9,6 +9,10 @@ const pages = {
             {
                 kind: 'block',
                 type: 'row',
+                data: {
+                    type: 'circle',
+                    coordinates: [ -73.97630277777778, 40.75462777777778 ]
+                },
                 nodes: [
                     {
                         kind: 'block',
@@ -43,8 +47,6 @@ const pages = {
                             src: 'http://placehold.it/350x170',
                             width: 350,
                             height: 170,
-                            type: 'circle',
-                            coordinates: [ -73.97630277777778, 40.75462777777778 ]
                         }
                     }
                 ]
