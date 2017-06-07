@@ -4,14 +4,19 @@ const pages = {
             {
                 kind: 'block',
                 type: 'heading',
-                nodes: [ { kind: 'text', text: 'My Title' } ],
+                nodes: [ { kind: 'text', text: 'Hawaii' } ],
+            },
+            {
+                kind: 'block',
+                type: 'paragraph',
+                nodes: [ { kind: 'text', text: 'In August 2016, I\'ve been to Big Island with my brother. I was my second time in Hawaii after being on Maui in April the same year.' } ]
             },
             {
                 kind: 'block',
                 type: 'row',
                 data: {
                     type: 'circle',
-                    coordinates: [ -73.97630277777778, 40.75462777777778 ]
+                    coordinates: [ -73.7877805556, 40.6446583333 ]
                 },
                 nodes: [
                     {
@@ -35,7 +40,7 @@ const pages = {
                             width: 350,
                             height: 160,
                             type: 'marker',
-                            coordinates: [ -73.97469444444445, 40.764297222222226 ]
+                            coordinates: [ -73.8067083, 40.65416 ]
                         }
                     },
                     {
@@ -47,6 +52,8 @@ const pages = {
                             src: 'http://placehold.it/350x170',
                             width: 350,
                             height: 170,
+                            type: 'marker',
+                            coordinates: [ -74.0066083, 41.7455472 ]
                         }
                     }
                 ]
@@ -60,7 +67,7 @@ const pages = {
                         kind: 'block',
                         type: 'anchor',
                         data: {
-                            reference: '2:1:1',
+                            reference: '2:2:1',
                         },
                         nodes: [
                             {
@@ -108,7 +115,7 @@ function serialize(parent, depth) {
     return output;
 }
 
-function loadBlocks(pid) {
+export function loadBlocks(pid) {
     return (dispatch) => {
         const page = pages[pid];
         return dispatch({
@@ -119,39 +126,30 @@ function loadBlocks(pid) {
     };
 }
 
-function activate(bid) {
+export function activate(bid) {
     return {
         type: 'BLOCK_ACTIVATE',
         bid,
     }
 }
 
-function deactivate(bid) {
+export function deactivate(bid) {
     return {
         type: 'BLOCK_DEACTIVATE',
         bid,
     }
 }
 
-function register(bid) {
+export function register(bid) {
     return {
         type: 'ANCHOR_REGISTERED',
         bid,
     }
 }
 
-function unregister(bid) {
+export function unregister(bid) {
     return {
         type: 'ANCHOR_UNREGISTERED',
         bid,
     }
-}
-
-
-export default {
-    loadBlocks,
-    activate,
-    deactivate,
-    register,
-    unregister,
 }

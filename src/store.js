@@ -1,17 +1,12 @@
-import { createStore, applyMiddleware } from 'redux';
-import { browserHistory } from 'react-router';
-import { routerMiddleware } from 'react-router-redux';
-import thunk from 'redux-thunk';
-import createLogger from 'redux-logger';
+import { createStore, applyMiddleware } from 'redux'
+import { middleware as reduxPackMiddleware } from 'redux-pack'
+import thunk from 'redux-thunk'
 
+import reducers from './reducers'
 
-const logger = createLogger({
-    predicate: process.env.NODE_ENV !== 'production',
-    collapsed: true,
-    colors: {
-        title: false
-    }
-});
-
-const router = routerMiddleware(browserHistory);
-export default applyMiddleware(router, thunk, logger)(createStore);
+const store = createStore(
+    reducers,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+    applyMiddleware(thunk, reduxPackMiddleware)
+)
+export default store

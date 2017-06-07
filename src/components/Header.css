@@ -2,13 +2,13 @@
     position: relative;
     width: 100%;
     text-align: center;
-    padding: 1em 2em 0 2em;
+    margin: 1em 0;
 }
 
 .Header hr {
     position: absolute;
-    left: 2em;
-    right: 2em;
+    left: 0;
+    right: 0;
     bottom: 0;
     border: none;
     border-bottom: 1px solid #000;

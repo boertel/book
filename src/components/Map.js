@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import ReactMapboxGl, { Layer } from 'react-mapbox-gl';
+//import ReactMapboxGl, { Layer } from 'react-mapbox-gl';
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
 import _ from 'lodash';
 
 import './Map.css';
@@ -11,7 +10,7 @@ import Marker from './Marker';
 import {
     activate,
     deactivate,
-} from '../actions';
+} from '../actions/blocks';
 
 
 const config = {
@@ -21,8 +20,8 @@ const config = {
 
 const containerStyle = {
     height: '100%',
-    width: '100%',
-    margin: '20px',
+    width: 'inherit',
+    position: 'fixed',
 };
 
 class Map extends Component {
@@ -33,7 +32,7 @@ class Map extends Component {
 
     onClick(marker) {
         const { index, dispatch } = this.props;
-        dispatch(push(`/pages/${index}/${marker.path}`));
+        //dispatch(push(`/pages/${index}/${marker.path}`));
     }
 
     onMouseOver(marker) {
@@ -46,8 +45,9 @@ class Map extends Component {
         dispatch(deactivate(marker.path));
     }
 
-    renderFeatures(features) {
+    renderFeatures(features, bounds) {
         return features.map((marker, index) => {
+            bounds.push(marker.data.coordinates);
             return <Marker
                         key={marker.path}
                         path={marker.path}
@@ -59,33 +59,41 @@ class Map extends Component {
     }
 
     render() {
-        const markers = this.renderFeatures(this.props.markers);
-        const circles = this.renderFeatures(this.props.circles);
-        return (
-            <div className="Map">
-                <ReactMapboxGl
-                    center={[ -73.97469444444445, 40.764297222222226 ]}
-                    accessToken={config.accessToken}
-                    style={config.style}
-                    containerStyle={containerStyle}>
-                    <Layer
-                        type="symbol"
-                        id="marker"
-                        layout={{'icon-image': 'marker-15', }}>
-                        {markers}
-                    </Layer>
+        let bounds = [];
 
-                    <Layer
-                        type="circle"
-                        id="circle"
-                        paint={{'circle-radius': 100, 'circle-color': 'rgba(0, 255, 0, 0.3)' }}>
-                        {circles}
-                    </Layer>
-                </ReactMapboxGl>
-            </div>
+        const markers = this.renderFeatures(this.props.markers, bounds);
+        const circles = this.renderFeatures(this.props.circles, []);
+
+        return (
+            <div className="Map"> </div>
         );
     }
 }
+
+/*
+<ReactMapboxGl
+    center={[-74.50, 40]}
+    fitBounds={bounds}
+    accessToken={config.accessToken}
+    zoom={[13]}
+    style={config.style}
+    containerStyle={containerStyle}>
+    <Layer
+        type="symbol"
+        id="marker"
+        layout={{'icon-image': 'marker-15', }}>
+        {markers}
+    </Layer>
+
+    <Layer
+        type="circle"
+        id="circle"
+        paint={{'circle-radius': 100, 'circle-color': 'rgba(0, 255, 0, 0.3)' }}>
+        {circles}
+    </Layer>
+</ReactMapboxGl>
+*/
+
 
 function select(store, props) {
     const { index } = props;

@@ -1,5 +1,6 @@
 .Picture {
     position: relative;
+    cursor: pointer;
 }
 
 .Picture.anchor:after {
@@ -14,6 +15,7 @@
     bottom: 0px;
     right: 0px;
     margin: 4px;
+    pointer-events: none;
 }
 
 .Picture.anchor:hover {

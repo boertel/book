@@ -1,89 +1,126 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import _ from 'lodash'
 
-import './Viewer.css';
-import { nextMedium, previousMedium } from '../actions';
+import './Viewer.css'
 
-import Content from '../components/Content';
+import Content from '../components/Content'
+
+
+const nextMedium = (page, medium) => {
+    let url = `/pages/${page.index}/${medium.index + 1}`;
+    if (medium.index + 1 > medium.total - 1) {
+        url = `/pages/${page.index}`;
+    }
+    return url;
+}
+
+const previousMedium = (page, medium) => {
+    let url = `/pages/${page.index}/${medium.index - 1}`;
+    if (medium.index === 0) {
+        url = `/pages/${page.index}`;
+    }
+    return url;
+}
 
 
 class Viewer extends Component {
     constructor(props) {
-        super(props);
-        this.onKeydown = this.onKeydown.bind(this);
-        this.next = this.next.bind(this);
-        this.previous = this.previous.bind(this);
-        this.close = this.close.bind(this);
+        super(props)
+        this.onKeydown = this.onKeydown.bind(this)
+        this.next = this.next.bind(this)
+        this.previous = this.previous.bind(this)
+        this.close = this.close.bind(this)
     }
 
     componentDidMount() {
-        window.addEventListener('keydown', this.onKeydown);
+        window.addEventListener('keydown', this.onKeydown)
     }
 
     componentWillUnmount() {
-        window.removeEventListener('keydown', this.onKeydown);
+        window.removeEventListener('keydown', this.onKeydown)
     }
 
     onKeydown(evt) {
         if (evt.key === 'k' || evt.key === 'ArrowRight') {
-            this.next();
+            this.next()
         }
         if (evt.key === 'j' || evt.key === 'ArrowLeft') {
-            this.previous();
+            this.previous()
         }
         if (evt.key === 'Escape') {
-            this.close();
+            this.close()
         }
     }
 
     close() {
-        const { dispatch, index } = this.props;
-        dispatch(push(`/pages/${index}`));
+        const {
+            dispatch,
+            index,
+            history,
+        } = this.props;
+        history.push(`/pages/${index}`)
     }
 
     next() {
-        const { dispatch, index, total, mediumIndex, mediumTotal } = this.props;
-        dispatch(nextMedium({index, total}, {index: mediumIndex, total: mediumTotal}));
+        const {
+            dispatch,
+            index,
+            total,
+            mediumIndex,
+            mediumTotal,
+            history,
+        } = this.props
+        history.push(nextMedium({index, total}, {index: mediumIndex, total: mediumTotal}))
     }
 
     previous() {
-        const { index, total, mediumIndex, mediumTotal, dispatch } = this.props;
-        dispatch(previousMedium({index, total}, {index: mediumIndex, total: mediumTotal}));
+        const {
+            index,
+            total,
+            mediumIndex,
+            mediumTotal,
+            history,
+        } = this.props
+        history.push(previousMedium({index, total}, {index: mediumIndex, total: mediumTotal}))
     }
 
     render() {
-        const { nodes, mediumIndex } = this.props;
+        const {
+            nodes,
+            mediumIndex,
+        } = this.props
         return (
             <div className="Viewer" onClick={this.close}>
                 <Content nodes={nodes} index={mediumIndex} />
             </div>
-        );
+        )
     }
 }
 
-import _ from 'lodash';
 
 function select(store, props) {
-    const index = parseInt(props.params.index, 10);
-    let medium, mediumIndex;
+    const { params } = props.match
+    const index = parseInt(params.index, 10)
+    let medium, mediumIndex
 
     // TODO(boertel) selector in case `reselect` is used
     const media = _.chain(store.blocks)
         .pick(store.pages[index].blocks)
         .pickBy((block) => block.data && block.data.viewer)
         .values()
-        .value();
+        .value()
 
-    if (props.params.medium.indexOf(':') !== -1) {
-        const mediumId = props.params.medium;
-        medium = store.blocks[mediumId];
+    if (params.medium.indexOf(':') !== -1) {
+        const mediumId = params.medium
+        medium = store.blocks[mediumId]
     } else {
-        mediumIndex = parseInt(props.params.medium, 10);
+        mediumIndex = parseInt(params.medium, 10)
         medium = media[mediumIndex]
     }
 
-    mediumIndex = media.indexOf(medium);
+    mediumIndex = media.indexOf(medium)
     // TODO(boertel) media is only one node right now, and always picture
     return {
         nodes: [
@@ -98,7 +135,7 @@ function select(store, props) {
         total: media.length,
         mediumIndex,
         mediumTotal: media.length,
-    };
+    }
 }
 
-export default connect(select)(Viewer);
+export default withRouter(connect(select)(Viewer))

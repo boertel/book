@@ -1,38 +1,19 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
-import './App.css';
+import React from 'react';
 
 import {
-    Header,
-    Footer,
-} from './components';
+    BrowserRouter as Router,
+    Route,
+} from 'react-router-dom'
+
+import {
+    Page,
+} from './views'
 
 
-class App extends Component {
-    render() {
-        if (!this.props.loaded) {
-            return null;
-        }
+const App = () => (
+    <Router>
+        <Route path='/pages/:index' component={Page} />
+    </Router>
+)
 
-        const { index, total } = this.props;
-
-        return (
-            <div className="App">
-                <Header title="Header" />
-                {this.props.children}
-                <Footer index={index} total={total} />
-            </div>
-        );
-    }
-}
-
-function select(store, props) {
-    return {
-        loaded: true,
-        index: parseInt(props.params.index, 10),
-        total: 0,
-    }
-}
-
-export default connect(select)(App);
+export default App;

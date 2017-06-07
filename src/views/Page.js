@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 
-import { loadBlocks } from '../actions';
+import { loadBlocks } from '../actions/blocks';
 
-import {
-    Content,
-    Map,
-} from '../components';
+import { Content, Map, Header, Footer } from '../components';
+
+import { Viewer } from '../views';
 
 import './Page.css';
 
@@ -37,27 +36,38 @@ class Page extends Component {
     }
 
     render() {
-        const { children, blocks, index } = this.props;
+        const {
+            children,
+            blocks,
+            index,
+            total,
+        } = this.props;
         if (!blocks) {
             return <div>Loading...</div>;
         }
         return (
-            <div className="Page">
+            <div style={{ display: "flex", height: "100%" }}>
                 {children}
-                <Content root={blocks[0]} index={index} />
+                <div className="Page">
+                    <Header title="Header" />
+                    <Content root={blocks[0]} index={index} />
+                    <Footer index={index} total={total} />
+                </div>
                 <Map index={index} />
+                <Route path="/pages/:index/:medium" component={Viewer} />
             </div>
         );
     }
 }
 
-
 function select(store, props) {
-    const index = props.params.index;
+    const index = props.match.params.index;
     const page = store.pages[index];
+    const total = Object.keys(store.pages).length;
     return {
         index,
-        ...page,
+        total,
+        ...page
     };
 }
 

@@ -34,7 +34,6 @@ export default class Row extends Component {
     }
 
     resize() {
-        console.log(this._row.offsetWidth);
         this.setState({
             width: this._row.offsetWidth,
         });

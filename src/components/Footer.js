@@ -1,8 +1,24 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 
 import './Footer.css';
-import { nextPage, previousPage } from '../actions';
+
+
+const nextPage = (page) => {
+    let url = `/pages/${page.index + 1}`;
+    if (page.index > page.total) {
+        url = '/end';
+    }
+    return url;
+}
+
+const previousPage = (page) => {
+    let url = `/pages/${page.index - 1}`;
+    if (page.index === 1) {
+        url = '/pages/';
+    }
+    return url;
+}
 
 
 class Footer extends Component {
@@ -31,13 +47,13 @@ class Footer extends Component {
     }
 
     next() {
-        const { dispatch, index, total } = this.props;
-        dispatch(nextPage({index, total}))
+        const { history, index, total } = this.props;
+        history.push(nextPage({index, total}))
     }
 
     previous() {
-        const { dispatch, index, total } = this.props;
-        dispatch(previousPage({index, total}))
+        const { history, index, total } = this.props;
+        history.push(previousPage({index, total}))
     }
 
     render() {
@@ -57,4 +73,4 @@ class Footer extends Component {
     }
 }
 
-export default connect()(Footer)
+export default withRouter(Footer)

@@ -1,15 +1,13 @@
 .Page {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     height: 100%;
-    width: 100%;
+    flex-basis: 60%;
     padding: 2em 2em 0 2em;
 }
 
-.Content {
-    flex-basis: 60%;
-}
-
 .Map {
-    flex-basis: 40%;
+    position: relative;
+    height: 100%;
+    width: 40%;
 }

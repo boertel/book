@@ -1,3 +1,7 @@
+.Content h2 {
+    margin-bottom: 1em;
+}
+
 .ref {
     border-bottom: 1px dotted orange;
     cursor: pointer;

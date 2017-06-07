@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Feature } from 'react-mapbox-gl';
+//import { Feature } from 'react-mapbox-gl';
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
 
 import {
     activate,
@@ -23,7 +22,7 @@ class Marker extends Component {
 
     onClick() {
         const { index, dispatch, path } = this.props;
-        dispatch(push(`/pages/${index}/${path}`));
+        //dispatch(push(`/pages/${index}/${path}`));
     }
 
     onMouseOver() {
@@ -48,12 +47,15 @@ class Marker extends Component {
         console.log('render');
         const { path, coordinates } = this.props;
 
+        /*
         return <Feature
             key={path}
             onClick={this.onClick}
             onHover={this.onMouseOver}
             onEndHover={this.onMouseOut}
             coordinates={coordinates} />
+            */
+        return null
     }
 }
 
