@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-
-import './Picture.css'
+import styled from 'styled-components'
 
 
 class Picture extends Component {
@@ -13,6 +12,9 @@ class Picture extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         // TODO(boertel) when update window.height, it could need to be resize
+        // it's actually widthContainer which CANNOT shrink and make the pictures
+        // bigger and bigger when resizing. The container width should be agnostic
+        // from the picture width
         return nextState.loaded !== this.state.loaded || nextProps.active !== this.props.active
     }
 
@@ -42,6 +44,7 @@ class Picture extends Component {
             widthContainer,
             aspectRatio,
             ratio,
+            className,
         } = this.props
 
         const width = Math.floor((widthContainer / ratio) * aspectRatio)
@@ -52,7 +55,7 @@ class Picture extends Component {
             height,
         }
 
-        let classNames = ['Picture']
+        let classNames = ['Picture', className]
         if (active) {
             classNames.push('active')
         }
@@ -71,4 +74,36 @@ class Picture extends Component {
     }
 }
 
-export default Picture
+export default styled(Picture)`
+    position: relative;
+    cursor: pointer;
+
+    &.anchor:after {
+        content: " ";
+        width: 8px;
+        height: 8px;
+        background-color: rgba(255, 165, 0, 0.4);
+        border-radius: 8px;
+        border: 2px solid orange;
+        display: block;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        margin: 4px;
+        pointer-events: none;
+    }
+
+    &.anchor:hover {
+        cursor: pointer;
+    }
+
+    &.anchor.active:after, &.anchor:hover:after {
+        background-color: orange;
+    }
+
+    img {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+`

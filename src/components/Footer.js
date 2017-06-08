@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
-
-import './Footer.css';
 
 
 const nextPage = (page) => {
@@ -57,10 +56,14 @@ class Footer extends Component {
     }
 
     render() {
-        const { index, total } = this.props;
+        const {
+            index,
+            total,
+            className,
+        } = this.props;
 
         return (
-            <div className="Footer">
+            <div className={className}>
                 <div className="arrow">
                     <a onClick={this.previous}>&larr; Back</a>
                 </div>
@@ -73,4 +76,22 @@ class Footer extends Component {
     }
 }
 
-export default withRouter(Footer)
+export default withRouter(styled(Footer)`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2em 0;
+
+    .total {
+        color: #888;
+    }
+
+    .current {
+        font-size: 1.8em;
+    }
+
+    .arrow a {
+        font-size: 0.8em;
+    }
+`)

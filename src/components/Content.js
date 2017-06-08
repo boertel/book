@@ -1,22 +1,23 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
 import Anchor from './Anchor'
 import Row from './Row'
 import Picture from './Picture'
+import Paragraph from './Paragraph'
 
 import {
     activate,
     deactivate,
 } from '../actions/blocks'
 
-import './Content.css'
 
-
+// TODO(boertel) replace native tag with custom one to support active and co
 const mapping = {
     'paragraph': {
-        type: 'p',
+        type: Paragraph,
     },
     'link': {
         type: 'a',
@@ -53,23 +54,24 @@ function generate(nodes, dispatch, index, history, i) {
             const children = generate(node.nodes, dispatch, index, history, i)
             // TODO(boertel) is this supposed to be here? can this be abstracted?
             if (data.viewer) {
-                const url = `/pages/${index}/${i}`
+                // TODO(boertel) can I use path always? instead of i
+                const url = `/pages/${index}/${node.path}`
                 const onClick = () => {
                     // only when not in viewer already
                     history.push(url)
+                    console.log('hello')
                 };
                 i += 1
+                props = Object.assign(props, {onClick})
+            }
+            if (data.anchor || data.coordinates) {
                 const onMouseOver = () => {
-                    if (data.anchor) {
-                        dispatch(activate(node.path))
-                    }
+                    dispatch(activate(node.path))
                 }
                 const onMouseOut = () => {
-                    if (data.anchor) {
-                        dispatch(deactivate(node.path))
-                    }
+                    dispatch(deactivate(node.path))
                 }
-                props = Object.assign({}, props, {onClick, onMouseOver, onMouseOut})
+                props = Object.assign(props, {onMouseOver, onMouseOut})
             }
             return React.createElement(options.type, props, children)
         } else if (node.kind === 'text') {
@@ -86,10 +88,11 @@ class Content extends Component {
             index,
             dispatch,
             history,
+            className,
         } = this.props
         const children = generate(nodes, dispatch, index, history)
         return (
-            <div className="Content">{children}</div>
+            <div className={['Content', className].join(' ')}>{children}</div>
         )
     }
 }
@@ -114,4 +117,17 @@ function select(store, props) {
     }
 }
 
-export default withRouter(connect(select)(Content))
+export default withRouter(connect(select)(styled(Content)`
+    h2 {
+        margin-bottom: 1em;
+    }
+
+    .ref {
+        border-bottom: 1px dotted orange;
+        cursor: pointer;
+    }
+
+    .ref.active, .ref:hover {
+        color: orange;
+    }
+`))

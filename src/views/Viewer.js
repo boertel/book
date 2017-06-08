@@ -1,28 +1,10 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import _ from 'lodash'
 
-import './Viewer.css'
-
 import Content from '../components/Content'
-
-
-const nextMedium = (page, medium) => {
-    let url = `/pages/${page.index}/${medium.index + 1}`;
-    if (medium.index + 1 > medium.total - 1) {
-        url = `/pages/${page.index}`;
-    }
-    return url;
-}
-
-const previousMedium = (page, medium) => {
-    let url = `/pages/${page.index}/${medium.index - 1}`;
-    if (medium.index === 0) {
-        url = `/pages/${page.index}`;
-    }
-    return url;
-}
 
 
 class Viewer extends Component {
@@ -56,7 +38,6 @@ class Viewer extends Component {
 
     close() {
         const {
-            dispatch,
             index,
             history,
         } = this.props;
@@ -65,34 +46,28 @@ class Viewer extends Component {
 
     next() {
         const {
-            dispatch,
-            index,
-            total,
-            mediumIndex,
-            mediumTotal,
             history,
+            nextPath
         } = this.props
-        history.push(nextMedium({index, total}, {index: mediumIndex, total: mediumTotal}))
+        history.push(nextPath)
     }
 
     previous() {
         const {
-            index,
-            total,
-            mediumIndex,
-            mediumTotal,
             history,
+            previousPath,
         } = this.props
-        history.push(previousMedium({index, total}, {index: mediumIndex, total: mediumTotal}))
+        history.push(previousPath)
     }
 
     render() {
         const {
             nodes,
             mediumIndex,
+            className,
         } = this.props
         return (
-            <div className="Viewer" onClick={this.close}>
+            <div className={['Viewer', className].join(' ')} onClick={this.close}>
                 <Content nodes={nodes} index={mediumIndex} />
             </div>
         )
@@ -115,12 +90,30 @@ function select(store, props) {
     if (params.medium.indexOf(':') !== -1) {
         const mediumId = params.medium
         medium = store.blocks[mediumId]
-    } else {
-        mediumIndex = parseInt(params.medium, 10)
-        medium = media[mediumIndex]
     }
 
     mediumIndex = media.indexOf(medium)
+    let previousPath
+    let nextPath
+
+    if (mediumIndex === 0) {
+        previousPath = `/pages/${index - 1}`;
+    }
+
+    if (mediumIndex > 0) {
+        const previous = media[mediumIndex - 1]
+        previousPath = `/pages/${index}/${previous.path}`
+    }
+
+    if (mediumIndex < media.length - 1) {
+        const next = media[mediumIndex + 1]
+        nextPath = `/pages/${index}/${next.path}`
+    }
+
+    if (mediumIndex + 1 > media.length - 1) {
+        nextPath = `/pages/${index + 1}`;
+    }
+
     // TODO(boertel) media is only one node right now, and always picture
     return {
         nodes: [
@@ -131,11 +124,25 @@ function select(store, props) {
                 nodes: [ medium ]
             }
         ],
+        previousPath,
+        nextPath,
         index,
-        total: media.length,
-        mediumIndex,
-        mediumTotal: media.length,
     }
 }
 
-export default withRouter(connect(select)(Viewer))
+export default withRouter(connect(select)(styled(Viewer)`
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    .Content {
+        flex-basis: 70%;
+    }
+`))

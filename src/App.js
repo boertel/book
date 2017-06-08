@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components'
 
 import {
     BrowserRouter as Router,
@@ -16,4 +17,6 @@ const App = () => (
     </Router>
 )
 
-export default App;
+export default styled(App)`
+    height: 100%;
+`

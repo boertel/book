@@ -9,22 +9,23 @@ const pages = {
             {
                 kind: 'block',
                 type: 'paragraph',
-                nodes: [ { kind: 'text', text: 'In August 2016, I\'ve been to Big Island with my brother. I was my second time in Hawaii after being on Maui in April the same year.' } ]
-            },
-            {
-                kind: 'block',
-                type: 'row',
                 data: {
                     type: 'circle',
                     coordinates: [ -73.7877805556, 40.6446583333 ]
                 },
+                nodes: [
+                    { kind: 'text', text: 'In August 2016, I\'ve been to Big Island with my brother. I was my second time in Hawaii after being on Maui in April the same year.' }
+                ]
+            },
+            {
+                kind: 'block',
+                type: 'row',
                 nodes: [
                     {
                         kind: 'block',
                         type: 'picture',
                         data: {
                             viewer: true,
-                            id: 6,
                             src: 'http://placehold.it/350x150',
                             width: 350,
                             height: 150,
@@ -35,7 +36,6 @@ const pages = {
                         type: 'picture',
                         data: {
                             viewer: true,
-                            id: 7,
                             src: 'http://placehold.it/350x160',
                             width: 350,
                             height: 160,
@@ -48,7 +48,6 @@ const pages = {
                         type: 'picture',
                         data: {
                             viewer: true,
-                            id: 8,
                             src: 'http://placehold.it/350x170',
                             width: 350,
                             height: 170,

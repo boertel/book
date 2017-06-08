@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import { connect } from 'react-redux'
+import { Route } from 'react-router-dom'
 
-import { loadBlocks } from '../actions/blocks';
+import { loadBlocks } from '../actions/blocks'
 
-import { Content, Map, Header, Footer } from '../components';
+import { Content, Map, Header, Footer } from '../components'
 
-import { Viewer } from '../views';
-
-import './Page.css';
+import { Viewer } from '../views'
 
 
 class Page extends Component {
@@ -41,6 +40,7 @@ class Page extends Component {
             blocks,
             index,
             total,
+            className,
         } = this.props;
         if (!blocks) {
             return <div>Loading...</div>;
@@ -48,7 +48,7 @@ class Page extends Component {
         return (
             <div style={{ display: "flex", height: "100%" }}>
                 {children}
-                <div className="Page">
+                <div className={['Page', className].join(' ')}>
                     <Header title="Header" />
                     <Content root={blocks[0]} index={index} />
                     <Footer index={index} total={total} />
@@ -71,4 +71,10 @@ function select(store, props) {
     };
 }
 
-export default connect(select)(Page);
+export default connect(select)(styled(Page)`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-basis: 60%;
+    padding: 2em 2em 0 2em;
+`);

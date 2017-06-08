@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-
-import './Row.css';
+import React, { Component } from 'react'
+import styled from 'styled-components'
 
 
 function aspectRatio(props) {
@@ -8,7 +7,7 @@ function aspectRatio(props) {
 }
 
 
-export default class Row extends Component {
+class Row extends Component {
     constructor(props) {
         super(props);
 
@@ -40,7 +39,11 @@ export default class Row extends Component {
     }
 
     render() {
-        const { active, offset } = this.props;
+        const {
+            active,
+            offset,
+            className,
+        } = this.props;
         const ratio = React.Children.toArray(this.props.children).reduce((ratio, image) => {
             return ratio + aspectRatio(image.props);
         }, 0);
@@ -54,7 +57,7 @@ export default class Row extends Component {
             });
         });
 
-        let classNames = ['Row'];
+        let classNames = ['Row', className];
         if (active) {
             classNames.push('active');
         }
@@ -66,3 +69,21 @@ export default class Row extends Component {
         );
     }
 }
+
+export default styled(Row)`
+    display: flex;
+    width: 100%;
+    margin: 1em 0;
+
+    &.active {
+        border: 4px solid orange;
+    }
+
+    & > div {
+        margin-right: 1em;
+    }
+
+    & > div:last-child {
+        margin-right: 0;
+    }
+`

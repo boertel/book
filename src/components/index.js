@@ -4,6 +4,7 @@ import Footer from './Footer';
 import Header from './Header';
 import Map from './Map';
 import Picture from './Picture';
+import Paragraph from './Paragraph';
 import Row from './Row';
 
 
@@ -14,5 +15,6 @@ export {
     Header,
     Map,
     Picture,
+    Paragraph,
     Row,
 };
