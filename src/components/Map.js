@@ -204,4 +204,8 @@ export default withRouter(connect(select)(styled(Map)`
     position: relative;
     height: 100%;
     width: 40%;
+
+    canvas {
+        outline: none;
+    }
 `))
