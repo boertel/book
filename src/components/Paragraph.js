@@ -19,5 +19,6 @@ const Paragraph = (props) => {
 }
 
 export default styled(Paragraph)`
+    text-align: justify;
     background-color: ${props => props.active ? 'orange' : 'initial'};
 `

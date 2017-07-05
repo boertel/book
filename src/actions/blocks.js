@@ -1,4 +1,13 @@
 const pages = {
+    '1': {
+        nodes: [
+            {
+                kind: 'block',
+                type: 'heading',
+                nodes: [ { kind: 'text', text: 'Aloha!' } ],
+            },
+        ]
+    },
     '2': {
         nodes: [
             {
@@ -116,7 +125,7 @@ function serialize(parent, depth) {
 
 export function loadBlocks(pid) {
     return (dispatch) => {
-        const page = pages[pid];
+        const page = JSON.parse(JSON.stringify(pages[pid]))
         return dispatch({
             type: 'BLOCKS_LOADED',
             blocks: serialize(page, pid),
@@ -152,3 +161,4 @@ export function unregister(bid) {
         bid,
     }
 }
+

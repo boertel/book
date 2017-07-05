@@ -12,18 +12,25 @@ import { Viewer } from '../views'
 
 class Page extends Component {
     constructor(props) {
-        super(props);
-        this.onKeydown = this.onKeydown.bind(this);
+        super(props)
+        this.onKeydown = this.onKeydown.bind(this)
     }
 
     componentDidMount() {
-        const { dispatch, index } = this.props;
-        dispatch(loadBlocks(index));
-        window.addEventListener('keydown', this.onKeydown);
+        const { dispatch, index } = this.props
+        dispatch(loadBlocks(index))
+        window.addEventListener('keydown', this.onKeydown)
     }
 
     componentWillUnmount() {
-        window.removeEventListener('keydown', this.onKeydown);
+        window.removeEventListener('keydown', this.onKeydown)
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const { dispatch, index } = nextProps
+        if (nextProps.index !== this.props.index) {
+            dispatch(loadBlocks(index))
+        }
     }
 
     onKeydown(evt) {
@@ -42,15 +49,17 @@ class Page extends Component {
             total,
             className,
         } = this.props;
-        if (!blocks) {
-            return <div>Loading...</div>;
+        let content = <div>Loading...</div>
+        if (blocks) {
+            content = <Content root={blocks[0]} index={index} />
         }
+
         return (
             <div style={{ display: "flex", height: "100%" }}>
                 {children}
                 <div className={['Page', className].join(' ')}>
                     <Header title="Header" />
-                    <Content root={blocks[0]} index={index} />
+                    {content}
                     <Footer index={index} total={total} />
                 </div>
                 <Map index={index} />
@@ -61,9 +70,9 @@ class Page extends Component {
 }
 
 function select(store, props) {
-    const index = props.match.params.index;
-    const page = store.pages[index];
-    const total = Object.keys(store.pages).length;
+    const index = parseInt(props.match.params.index, 10)
+    const page = store.pages[index]
+    const total = Object.keys(store.pages).length
     return {
         index,
         total,

@@ -5,8 +5,10 @@ import { withRouter } from 'react-router-dom'
 
 import Anchor from './Anchor'
 import Row from './Row'
-import Picture from './Picture'
+import ResponsivePicture from './ResponsivePicture'
 import Paragraph from './Paragraph'
+
+import Edit from './Edit'
 
 import {
     activate,
@@ -32,7 +34,7 @@ const mapping = {
         type: Row,
     },
     'picture': {
-        type: Picture,
+        type: ResponsivePicture,
     },
     'root': {
         type: 'div',
@@ -59,7 +61,6 @@ function generate(nodes, dispatch, index, history, i) {
                 const onClick = () => {
                     // only when not in viewer already
                     history.push(url)
-                    console.log('hello')
                 };
                 i += 1
                 props = Object.assign(props, {onClick})
@@ -92,7 +93,9 @@ class Content extends Component {
         } = this.props
         const children = generate(nodes, dispatch, index, history)
         return (
-            <div className={['Content', className].join(' ')}>{children}</div>
+            <div className={['Content', className].join(' ')}>
+                {children}
+            </div>
         )
     }
 }

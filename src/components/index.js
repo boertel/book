@@ -1,4 +1,5 @@
 import Anchor from './Anchor';
+import Edit from './Edit';
 import Content from './Content';
 import Footer from './Footer';
 import Header from './Header';
@@ -10,6 +11,7 @@ import Row from './Row';
 
 export {
     Anchor,
+    Edit,
     Content,
     Footer,
     Header,

@@ -143,6 +143,7 @@ export default withRouter(connect(select)(styled(Viewer)`
     z-index: 1;
 
     .Content {
-        flex-basis: 70%;
+        width: 100%;
+        height: 100%;
     }
 `))
