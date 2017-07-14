@@ -117,7 +117,7 @@ function select(store, props) {
         nextPath = `/pages/${index + 1}`;
     }
 
-    const title = medium.data.title
+    const { title, location } = medium.data
     const text = {
         'kind': 'block',
         'type': 'paragraph',
@@ -125,7 +125,10 @@ function select(store, props) {
             'width': 200,
             'height': window.innerHeight,
         },
-        'nodes': [ {'kind': 'text', 'text': title || ''} ]
+        'nodes': [
+            {'kind': 'text', 'text': title || ''},
+            {'kind': 'text', 'text': location || ''}
+        ]
     }
 
     // TODO(boertel) media is only one node right now, and always picture
@@ -169,6 +172,7 @@ export default withRouter(connect(select)(styled(Viewer)`
     p {
         color: #fff;
         padding-left: 1em;
+        margin-bottom: 5em;
         align-self: flex-end;
     }
 `))

@@ -70,11 +70,11 @@ class Footer extends Component {
         return (
             <div className={className}>
                 <div className="arrow">
-                    <a onClick={this.previous}><ArrowLeft /> Back</a>
+                    <a onClick={this.previous}><ArrowLeft /> Précedent</a>
                 </div>
                 <div><span className="current">{index}</span>&nbsp;<span className="total">/&nbsp;{total}</span></div>
                 <div className="arrow">
-                    <a onClick={this.next}>Next <ArrowRight /></a>
+                    <a onClick={this.next}>Suivant <ArrowRight /></a>
                 </div>
             </div>
         );
@@ -93,6 +93,7 @@ export default withRouter(styled(Footer)`
     }
 
     .arrow a {
+        cursor: pointer;
         display: inline-flex;
         font-size: 0.8em;
 

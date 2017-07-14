@@ -67,6 +67,8 @@ class Page extends Component {
             viewer = <Route path="/pages/:index/:medium" component={Viewer} />
         }
 
+        const edit = this.props.editMode ? <Edit /> : null
+
         return (
             <div className={className}>
                 {children}
@@ -77,7 +79,7 @@ class Page extends Component {
                 </div>
                 <Map index={index} />
                 {viewer}
-                <Edit />
+                {edit}
             </div>
         );
     }
@@ -87,10 +89,11 @@ function select(store, props) {
     const index = parseInt(props.match.params.index, 10)
     const page = store.pages[index]
     //const total = Object.keys(store.pages).length
-    const total = 3
+    const total = 5
 
     // TODO(boertel) hardcoded
     return {
+        editMode: props.location.search.indexOf('edit') !== -1,
         index,
         total,
         title: 'Rome',

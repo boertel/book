@@ -42,6 +42,7 @@ class Edit extends Component {
     onkeydown(evt) {
         if (evt.key === 'Meta') {
             this.setState({
+                selection: [this.state.current],
                 selectionable: true,
             })
         }
@@ -91,6 +92,7 @@ class Edit extends Component {
     componentDidMount() {
         window.addEventListener('keydown', this.onkeydown)
         window.addEventListener('keyup', this.onkeyup)
+        //window.localStorage.clear()
         if (window.localStorage.getItem('pictures')) {
             this.setState({
                 pictures: JSON.parse(window.localStorage.getItem('pictures'))

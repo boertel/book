@@ -3,42 +3,639 @@
         {
             "kind": "block",
             "type": "title",
-            "nodes": [ { "kind": "text", "text": "L'Église" } ]
+            "nodes": [ { "kind": "text", "text": "Les vielles pierres" } ]
         },
         {
             "kind": "block",
             "type": "paragraph",
             "nodes": [
-                { "kind": "text", "text": "Comment parler de Rome sans aborder l'Église. On y trouve des églises à tous les coins de rues et surtout le Vatican." }
+                { "kind": "text", "text": "Rome, c'est quand même la ville des romains et à l'école on apprend qu'il reste pas mal de vestiges de leur époque mais quand on les voit en vrai, c'est quand même balaise." }
             ]
         },
         {
             "kind": "block",
             "type": "heading",
-            "nodes": [ { "kind": "text", "text": "Le Vatican" } ]
+            "nodes": [ { "kind": "text", "text": "Thermes de Caracalla" } ]
         },
         {
             "kind": "block",
             "type": "paragraph",
-            "data": {
-                "type": "circle",
-                "coordinates": [12.457272134835534, 41.90222216410652]
-            },
             "nodes": [
-                { "kind": "text", "text": "Autre endroit incourtenable de Rome, nous avons juste visité l'intérieur et le dôme de la basilique Saint-Pierre." }
+                { "kind": "text", "text": "Rome, c'est quand même la ville des romains et à l'école on apprend qu'il reste des vestiges de leur époque mais quand on les voit en vrai, c'est quand même balaise." }
             ]
         },
         {
             "kind": "block",
             "type": "heading",
-            "nodes": [ { "kind": "text", "text": "Les églises" } ]
+            "nodes": [ { "kind": "text", "text": "Paladin et Forum romain" } ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "7ec50965f7",
+                            "farm": 5,
+                            "server": "4280",
+                            "secret": "1efce5c04e",
+                            "type": "flickr",
+                            "id": "35779372231"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Forum Romain",
+                        "coordinates": [
+                            12.483327541950928,
+                            41.89465087090184
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
         },
         {
             "kind": "block",
             "type": "paragraph",
             "nodes": [
-                { "kind": "text", "text": "D'un autre style que l'on peut trouver en France où les églises sont plus médiviales, ici, elles sont plus d'un style de la renaissance: plus lumineuse, de grands dômes, des grandes peintures sur les murs." }
+                { "kind": "text", "text": "En plein centre ville, c'est une partie de la Rome Antique qui reste encore accessible. On y trouve des colonnes, des arches, des gros pavés. Il ne reste plusque de porter une toge pour se croire aux temps des romains." }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "d326c10d6d",
+                            "farm": 5,
+                            "server": "4305",
+                            "secret": "bb2d18f46c",
+                            "type": "flickr",
+                            "id": "35741533382"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Paladin",
+                        "coordinates": [
+                            12.482172078814955,
+                            41.89223145971724
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "4b5fd9020f",
+                            "farm": 5,
+                            "server": "4304",
+                            "secret": "52b775b6fd",
+                            "type": "flickr",
+                            "id": "35911103625"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Paladin",
+                        "coordinates": [
+                            12.482172078814955,
+                            41.89223145971724
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "c2e31228ef",
+                            "farm": 5,
+                            "server": "4316",
+                            "secret": "412c6a363e",
+                            "type": "flickr",
+                            "id": "35523046050"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Forum Romain",
+                        "coordinates": [
+                            12.482172078814955,
+                            41.89223145971724
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "heading",
+            "nodes": [ { "kind": "text", "text": "Colisée" } ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "aaeeff96b7",
+                            "farm": 5,
+                            "server": "4216",
+                            "secret": "1fbd405b58",
+                            "type": "flickr",
+                            "id": "35779704471"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "coordinates": [
+                            12.492502030123944,
+                            41.8902253240349
+                        ],
+                        "location": "Colisée",
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "Surement LE bâtiment qui représente Rome, comme la tour Eiffel pour Paris ou Tower Bridge pour Londres. Comme les autres vestiges romains de la ville, Le Colisée est vraiment bien conservé et est immense." }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "6935e72dc9",
+                            "farm": 5,
+                            "server": "4326",
+                            "secret": "6630930324",
+                            "type": "flickr",
+                            "id": "35911177945"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Colisée",
+                        "coordinates": [
+                            12.492505139360247,
+                            41.890217972998784
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "00c8752543",
+                            "farm": 5,
+                            "server": "4229",
+                            "secret": "f79cacb40d",
+                            "type": "flickr",
+                            "id": "35870740606"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Colisée",
+                        "coordinates": [
+                            12.492505139360247,
+                            41.890217972998784
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "27daa5eaa7",
+                            "farm": 5,
+                            "server": "4329",
+                            "secret": "190c7e78e9",
+                            "type": "flickr",
+                            "id": "35102276453"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Colisée",
+                        "coordinates": [
+                            12.492505139360247,
+                            41.890217972998784
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "8f5a49b555",
+                            "farm": 5,
+                            "server": "4281",
+                            "secret": "345e62a869",
+                            "type": "flickr",
+                            "id": "35911283085"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Colisée",
+                        "coordinates": [
+                            12.492470620839555,
+                            41.890241774596774
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "1fff57ab97",
+                            "farm": 5,
+                            "server": "4237",
+                            "secret": "491d94ab34",
+                            "type": "flickr",
+                            "id": "35523221480"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Colisée",
+                        "coordinates": [
+                            12.492525042438757,
+                            41.89022564196475
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "55ef20933c",
+                            "farm": 5,
+                            "server": "4319",
+                            "secret": "e1e213c9b0",
+                            "type": "flickr",
+                            "id": "35102234313"
+                        },
+                        "height": 4736,
+                        "width": 3157,
+                        "location": "Colisée",
+                        "coordinates": [
+                            12.492525042438757,
+                            41.89022564196475
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "6935e72dc9",
+                            "farm": 5,
+                            "server": "4326",
+                            "secret": "6630930324",
+                            "type": "flickr",
+                            "id": "35911177945"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Colisée",
+                        "coordinates": [
+                            12.492525042438757,
+                            41.89022564196475
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "5299d0dffd",
+                            "farm": 5,
+                            "server": "4230",
+                            "secret": "375abcb8e0",
+                            "type": "flickr",
+                            "id": "35071437984"
+                        },
+                        "height": 3050,
+                        "width": 4575,
+                        "location": "Colisée",
+                        "coordinates": [
+                            12.492362464137813,
+                            41.88990537039959
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "afae4fa580",
+                            "farm": 5,
+                            "server": "4258",
+                            "secret": "d42b97ce4c",
+                            "type": "flickr",
+                            "id": "35071371554"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Colisée",
+                        "coordinates": [
+                            12.492362464137813,
+                            41.88990537039959
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "235f6d9c54",
+                            "farm": 5,
+                            "server": "4216",
+                            "secret": "cbeb40b98c",
+                            "type": "flickr",
+                            "id": "35071365724"
+                        },
+                        "height": 4896,
+                        "width": 3264,
+                        "coordinates": [
+                            12.492362464137813,
+                            41.88990537039959
+                        ],
+                        "title": "Antiquité ?",
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "6744f20d27",
+                            "farm": 5,
+                            "server": "4205",
+                            "secret": "865ef75394",
+                            "type": "flickr",
+                            "id": "35870660676"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Colisée",
+                        "title": "",
+                        "coordinates": [
+                            12.492362464137813,
+                            41.88990537039959
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "b0fabe739b",
+                            "farm": 5,
+                            "server": "4309",
+                            "secret": "12dd7d6b8f",
+                            "type": "flickr",
+                            "id": "35071283674"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Colisée",
+                        "title": "Vue depuis le Forum Romain",
+                        "coordinates": [
+                            12.492362464137813,
+                            41.88990537039959
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "heading",
+            "nodes": [ { "kind": "text", "text": "Aventino" } ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "Rome est construite sur sept collines, l'Aventin est celle la plus au sud et donne une nouvelle vue sur Rome avec encore la basilique Saint Pierre qui sort du lot." }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "b39cbd35da",
+                            "farm": 5,
+                            "server": "4261",
+                            "secret": "7b3977bb9b",
+                            "type": "flickr",
+                            "id": "35871027196"
+                        },
+                        "height": 2592,
+                        "width": 3888,
+                        "location": "Aventino",
+                        "coordinates": [
+                            12.488658301594882,
+                            41.884243212201625
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "8f8e54da72",
+                            "farm": 5,
+                            "server": "4308",
+                            "secret": "ea16b40c1b",
+                            "type": "flickr",
+                            "id": "35102521253"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Aventino",
+                        "title": "Répars ton scooter",
+                        "coordinates": [
+                            12.488658301594882,
+                            41.884243212201625
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "b12ea532ba",
+                            "farm": 5,
+                            "server": "4316",
+                            "secret": "1f2c3ab83a",
+                            "type": "flickr",
+                            "id": "35911464865"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "Un campanile",
+                        "location": "Aventino",
+                        "coordinates": [
+                            12.488658301594882,
+                            41.884243212201625
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "36422035f8",
+                            "farm": 5,
+                            "server": "4279",
+                            "secret": "2780b9f79b",
+                            "type": "flickr",
+                            "id": "35779878111"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Aventino",
+                        "coordinates": [
+                            12.480059131340852,
+                            41.88534182710376
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "932b836540",
+                            "farm": 5,
+                            "server": "4300",
+                            "secret": "71e4cd90cf",
+                            "type": "flickr",
+                            "id": "35923668195"
+                        },
+                        "height": 3092,
+                        "width": 4638,
+                        "location": "Aventino",
+                        "coordinates": [
+                            12.480059131340852,
+                            41.88534182710376
+                        ],
+                        "type": "marker"
+                    }
+                }
             ]
         }
     ]
 }
+

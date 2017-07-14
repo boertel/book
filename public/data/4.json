@@ -1,0 +1,412 @@
+{
+    "nodes": [
+        {
+            "kind": "block",
+            "type": "title",
+            "nodes": [ { "kind": "text", "text": "L'Église" } ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "Comment parler de Rome sans aborder l'Église. On y trouve des églises à tous les coins de rues et surtout le Vatican." }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "c45a895c24",
+                            "farm": 5,
+                            "server": "4314",
+                            "secret": "cbd795571e",
+                            "type": "flickr",
+                            "id": "35071911934"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "",
+                        "title": "Un dôme de plus"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "8562648881",
+                            "farm": 5,
+                            "server": "4280",
+                            "secret": "2e43e55634",
+                            "type": "flickr",
+                            "id": "35742145922"
+                        },
+                        "height": 4896,
+                        "width": 3264,
+                        "title": "Un crucifix parmi d'autres"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "55be15c666",
+                            "farm": 5,
+                            "server": "4208",
+                            "secret": "9e880958bb",
+                            "type": "flickr",
+                            "id": "35742205942"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "San Giovanni de' Fiorentini",
+                        "coordinates": [
+                            12.465034772889538,
+                            41.89952698865429
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "heading",
+            "nodes": [ { "kind": "text", "text": "Le Vatican" } ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "815171a0f7",
+                            "farm": 5,
+                            "server": "4309",
+                            "secret": "c21b3fdb22",
+                            "type": "flickr",
+                            "id": "35071587514"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "Vue de dos",
+                        "coordinates": [
+                            12.453460277663964,
+                            41.902083693317934
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "622dd1d007",
+                            "farm": 5,
+                            "server": "4306",
+                            "secret": "fbc2407237",
+                            "type": "flickr",
+                            "id": "35779831041"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "Vue du sommet",
+                        "location": "Basilique Saint-Pierre",
+                        "coordinates": [
+                            12.453460277663964,
+                            41.902083693317934
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "data": {
+                "type": "circle",
+                "coordinates": [12.457272134835534, 41.90222216410652]
+            },
+            "nodes": [
+                { "kind": "text", "text": "Autre endroit incourtenable de Rome, nous avons juste visité l'intérieur et le dôme de la basilique Saint-Pierre." }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "168b8f63c1",
+                            "farm": 5,
+                            "server": "4320",
+                            "secret": "bb8b4e514c",
+                            "type": "flickr",
+                            "id": "35779801341"
+                        },
+                        "height": 3042,
+                        "width": 4563,
+                        "title": "Capitaine Haddock",
+                        "location": "Basilique Saint-Pierre",
+                        "coordinates": [
+                            12.453460277663964,
+                            41.902083693317934
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "cddd615822",
+                            "farm": 5,
+                            "server": "4299",
+                            "secret": "9fa994e6d4",
+                            "type": "flickr",
+                            "id": "35523411620"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Basilique Saint-Pierre",
+                        "coordinates": [
+                            12.453460277663964,
+                            41.902083693317934
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "29ced4ec8b",
+                            "farm": 5,
+                            "server": "4323",
+                            "secret": "275d90f527",
+                            "type": "flickr",
+                            "id": "35102366623"
+                        },
+                        "height": 3137,
+                        "width": 4706,
+                        "location": "Basilique Saint-Pierre",
+                        "coordinates": [
+                            12.453460277663964,
+                            41.902083693317934
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "a416e34d8b",
+                            "farm": 5,
+                            "server": "4310",
+                            "secret": "041db14d41",
+                            "type": "flickr",
+                            "id": "35523390030"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Basilique Saint-Pierre",
+                        "coordinates": [
+                            12.453460277663964,
+                            41.902083693317934
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "heading",
+            "nodes": [ { "kind": "text", "text": "Les églises" } ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "D'un autre style que l'on peut trouver en France où les églises sont plus médiviales, ici, elles sont plus d'un style de la renaissance: plus lumineuse, de grands dômes, des grandes peintures sur les murs." }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "a5c666fa07",
+                            "farm": 5,
+                            "server": "4326",
+                            "secret": "5a19cab27e",
+                            "type": "flickr",
+                            "id": "35910838455"
+                        },
+                        "height": 3264,
+                        "width": 4896
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "5a1811f412",
+                            "farm": 5,
+                            "server": "4284",
+                            "secret": "0d4a4980b1",
+                            "type": "flickr",
+                            "id": "35522882510"
+                        },
+                        "height": 3264,
+                        "width": 4896
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "aa34c0a011",
+                            "farm": 5,
+                            "server": "4325",
+                            "secret": "4b9eed1804",
+                            "type": "flickr",
+                            "id": "35791681421"
+                        },
+                        "height": 2448,
+                        "width": 3264
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "b5d5f24dee",
+                            "farm": 5,
+                            "server": "4290",
+                            "secret": "b1e529a0c4",
+                            "type": "flickr",
+                            "id": "35871075166"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "L'intérieur d'un dôme"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "4a9eeec41a",
+                            "farm": 5,
+                            "server": "4322",
+                            "secret": "e388ccdb2e",
+                            "type": "flickr",
+                            "id": "35791682741"
+                        },
+                        "height": 3264,
+                        "width": 2448,
+                        "coordinates": [
+                            12.453279903439153,
+                            41.90208055392111
+                        ],
+                        "location": "Piazza San Pietro",
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "833cd869f4",
+                            "farm": 5,
+                            "server": "4308",
+                            "secret": "498ff5e843",
+                            "type": "flickr",
+                            "id": "35535011600"
+                        },
+                        "height": 3264,
+                        "width": 2448,
+                        "location": "Piazza San Pietro",
+                        "coordinates": [
+                            12.453279903439153,
+                            41.90208055392111
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "94e2c892b4",
+                            "farm": 5,
+                            "server": "4325",
+                            "secret": "e539f2429b",
+                            "type": "flickr",
+                            "id": "35791678341"
+                        },
+                        "height": 2448,
+                        "width": 3264,
+                        "title": "Étage intermédiaire du dôme",
+                        "coordinates": [
+                            12.453279903439153,
+                            41.90208055392111
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        }
+    ]
+}

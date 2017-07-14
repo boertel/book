@@ -168,7 +168,7 @@ class Map extends Component {
             },
             hoverLayout: {
                 'icon-image': 'marker-15',
-                'icon-size': 1.3,
+                'icon-size': 1.6,
             },
             filter: ['==', 'path', '']
         }, props)

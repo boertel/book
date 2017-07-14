@@ -1,0 +1,231 @@
+{
+    "nodes": [
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "efe369c888",
+                            "farm": 5,
+                            "server": "4312",
+                            "secret": "36549bc535",
+                            "type": "flickr",
+                            "id": "35791679331"
+                        },
+                        "height": 3264,
+                        "width": 2448,
+                        "title": "Super Francisco"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "85713ca7e2",
+                            "farm": 5,
+                            "server": "4319",
+                            "secret": "710ceb2285",
+                            "type": "flickr",
+                            "id": "35870438576"
+                        },
+                        "height": 4701,
+                        "width": 3134,
+                        "coordinates": [
+                            12.48328632691107,
+                            41.90399929687899
+                        ],
+                        "title": "PROPAGANDA",
+                        "location": "Via de Propaganda",
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "454acd00b9",
+                            "farm": 5,
+                            "server": "4294",
+                            "secret": "82ae4c6699",
+                            "type": "flickr",
+                            "id": "35535011190"
+                        },
+                        "height": 3060,
+                        "width": 2448,
+                        "title": "Just do it",
+                        "location": ""
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "35dd3b9677",
+                            "farm": 5,
+                            "server": "4319",
+                            "secret": "a51e8c4671",
+                            "type": "flickr",
+                            "id": "35522879180"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "Peroni"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "81050fae47",
+                            "farm": 5,
+                            "server": "4327",
+                            "secret": "83bc2c26cf",
+                            "type": "flickr",
+                            "id": "35535010140"
+                        },
+                        "height": 2448,
+                        "width": 3264,
+                        "title": "Suppli"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "ae0ee460d2",
+                            "farm": 5,
+                            "server": "4329",
+                            "secret": "957a39636c",
+                            "type": "flickr",
+                            "id": "35870358506"
+                        },
+                        "height": 5096,
+                        "width": 6828,
+                        "title": "Tête en l'air"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "ec33454d13",
+                            "farm": 5,
+                            "server": "4237",
+                            "secret": "f40ce39d7c",
+                            "type": "flickr",
+                            "id": "35870426146"
+                        },
+                        "height": 3264,
+                        "width": 4896
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "31b6ab6a17",
+                            "farm": 5,
+                            "server": "4218",
+                            "secret": "d9a602baa4",
+                            "type": "flickr",
+                            "id": "35779253461"
+                        },
+                        "height": 4896,
+                        "width": 3264,
+                        "coordinates": [
+                            12.480277164672714,
+                            41.900938403034644
+                        ],
+                        "location": "Piazza Colonna",
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "37d58a646e",
+                            "farm": 5,
+                            "server": "4303",
+                            "secret": "0a1742d1d1",
+                            "type": "flickr",
+                            "id": "35779241781"
+                        },
+                        "height": 4896,
+                        "width": 3264,
+                        "title": "Drapeau italien et européen: partout"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "91cd24bf06",
+                            "farm": 5,
+                            "server": "4237",
+                            "secret": "296f948dd7",
+                            "type": "flickr",
+                            "id": "35910871805"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "Vespa"
+                    }
+                }
+            ]
+        }
+    ]
+}
