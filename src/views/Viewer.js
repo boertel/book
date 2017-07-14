@@ -25,6 +25,9 @@ class Viewer extends Component {
     }
 
     onKeydown(evt) {
+        if (evt.target.tagName.toLowerCase() === 'input') {
+            return
+        }
         if (evt.key === 'k' || evt.key === 'ArrowRight') {
             this.next()
         }
@@ -114,6 +117,17 @@ function select(store, props) {
         nextPath = `/pages/${index + 1}`;
     }
 
+    const title = medium.data.title
+    const text = {
+        'kind': 'block',
+        'type': 'paragraph',
+        'data': {
+            'width': 200,
+            'height': window.innerHeight,
+        },
+        'nodes': [ {'kind': 'text', 'text': title || ''} ]
+    }
+
     // TODO(boertel) media is only one node right now, and always picture
     return {
         nodes: [
@@ -121,7 +135,7 @@ function select(store, props) {
                 type: 'row',
                 kind: 'block',
                 path: `v${index}:${mediumIndex}`,
-                nodes: [ medium ]
+                nodes: [ medium, text ]
             }
         ],
         previousPath,
@@ -145,5 +159,16 @@ export default withRouter(connect(select)(styled(Viewer)`
     .Content {
         width: 100%;
         height: 100%;
+
+        .Row {
+            margin-top: 0;
+            height: 100%;
+        }
+    }
+
+    p {
+        color: #fff;
+        padding-left: 1em;
+        align-self: flex-end;
     }
 `))

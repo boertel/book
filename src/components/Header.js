@@ -15,7 +15,8 @@ export default styled(Header)`
     position: relative;
     width: 100%;
     text-align: center;
-    margin: 1em 0;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
 
     hr {
         position: absolute;

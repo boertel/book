@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const pages = {
     '1': {
         nodes: [
@@ -123,14 +125,17 @@ function serialize(parent, depth) {
     return output;
 }
 
+
 export function loadBlocks(pid) {
     return (dispatch) => {
-        const page = JSON.parse(JSON.stringify(pages[pid]))
-        return dispatch({
-            type: 'BLOCKS_LOADED',
-            blocks: serialize(page, pid),
-            pid,
-        });
+        axios.get(`/data/${pid}.json`).then((response) => {
+            const page = response.data
+            return dispatch({
+                type: 'BLOCKS_LOADED',
+                blocks: serialize(page, pid),
+                pid,
+            });
+        })
     };
 }
 

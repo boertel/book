@@ -9,6 +9,7 @@ class ResponsivePicture extends Component {
         return (
             nextProps.active !== this.props.active
             || (this.props.widthContainer === 0 && nextProps.widthContainer !== 0)
+            || (this.props.style !== nextProps.style)
         )
     }
 
@@ -36,11 +37,11 @@ class ResponsivePicture extends Component {
             width = height * aspectRatio
         }
 
-        const style = {
+        const style = Object.assign({}, this.props.style, {
             width,
             height,
             active,
-        }
+        })
 
         let classNames = [className]
         if (active) {

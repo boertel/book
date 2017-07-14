@@ -7,8 +7,8 @@ import Anchor from './Anchor'
 import Row from './Row'
 import ResponsivePicture from './ResponsivePicture'
 import Paragraph from './Paragraph'
-
-import Edit from './Edit'
+import Heading from './Heading'
+import Video from './Video'
 
 import {
     activate,
@@ -27,8 +27,11 @@ const mapping = {
     'anchor': {
         type: Anchor,
     },
+    'title': {
+        type: 'h1',
+    },
     'heading': {
-        type: 'h2',
+        type: Heading,
     },
     'row': {
         type: Row,
@@ -39,6 +42,9 @@ const mapping = {
     'root': {
         type: 'div',
     },
+    'video': {
+        type: Video,
+    }
 }
 
 function generate(nodes, dispatch, index, history, i) {
@@ -121,8 +127,13 @@ function select(store, props) {
 }
 
 export default withRouter(connect(select)(styled(Content)`
+    h1 {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
     h2 {
-        margin-bottom: 1em;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
     }
 
     .ref {

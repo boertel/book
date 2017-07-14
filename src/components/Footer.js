@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
 
+import { ArrowLeft, ArrowRight } from 'react-feather'
+
 
 const nextPage = (page) => {
     let url = `/pages/${page.index + 1}`;
@@ -37,6 +39,9 @@ class Footer extends Component {
     }
 
     onKeydown(evt) {
+        if (evt.target.tagName.toLowerCase() === 'input') {
+            return
+        }
         if (evt.key === 'h') {
             this.previous();
         }
@@ -65,11 +70,11 @@ class Footer extends Component {
         return (
             <div className={className}>
                 <div className="arrow">
-                    <a onClick={this.previous}>&larr; Back</a>
+                    <a onClick={this.previous}><ArrowLeft /> Back</a>
                 </div>
                 <div><span className="current">{index}</span>&nbsp;<span className="total">/&nbsp;{total}</span></div>
                 <div className="arrow">
-                    <a onClick={this.next}>Next &rarr;</a>
+                    <a onClick={this.next}>Next <ArrowRight /></a>
                 </div>
             </div>
         );
@@ -87,11 +92,12 @@ export default withRouter(styled(Footer)`
         color: #888;
     }
 
-    .current {
-        font-size: 1.8em;
-    }
-
     .arrow a {
+        display: inline-flex;
         font-size: 0.8em;
+
+        svg {
+            margin: 0 0.3em;
+        }
     }
 `)

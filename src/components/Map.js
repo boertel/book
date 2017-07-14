@@ -13,13 +13,8 @@ import {
 
 const config = {
     accessToken: 'pk.eyJ1IjoiYm9lcnRlbCIsImEiOiJFV0tXLTQ4In0.4PRhZjzKIuWuhy2ytRi7Eg',
-    style: 'mapbox://styles/mapbox/streets-v8'
-}
-
-const containerStyle = {
-    height: '100%',
-    width: 'inherit',
-    position: 'fixed',
+    //style: 'mapbox://styles/boertel/cj51hkx3g1d4a2rlkx1cner61'
+    style: 'mapbox://styles/boertel/ciqy9y3fl0001bpnohs9hdps8'
 }
 
 const createSource = (data, index) => {
@@ -28,10 +23,12 @@ const createSource = (data, index) => {
         'data': {
             'type': 'FeatureCollection',
             'features': data.map((feature) => {
+                const viewer = feature.data.viewer
                 return {
                     type: 'Feature',
                     properties: {
                         path: feature.path,
+                        viewer,
                         index,
                     },
                     geometry: {
@@ -141,7 +138,6 @@ class Map extends Component {
             filter: options.filter,
         }))
 
-
         const mouseenter = (evt) => {
             const properties = evt.features[0].properties
             dispatch(activate(properties.path))
@@ -154,7 +150,9 @@ class Map extends Component {
 
         const click = (evt) => {
             const properties = evt.features[0].properties
-            history.push(`/pages/${index}/${properties.path}`)
+            if (properties.viewer) {
+                history.push(`/pages/${index}/${properties.path}`)
+            }
         }
 
         this.map.on('click', id, click)
@@ -191,24 +189,34 @@ class Map extends Component {
     }
 
     componentDidMount() {
-        console.log('mount')
         const {
             index,
         } = this.props
+
+        const maxZoom = 16
 
         mapboxgl.accessToken = config.accessToken
         this.map = new mapboxgl.Map({
             keyboard: false,
             container: this.container,
-            center: [-100.486052, 37.830348],
-            zoom: 2,
+            // TODO(boertel) Hardcoded
+            center: [12.483246280572445, 41.89373855205321],
+            zoom: 12,
+            maxZoom,
             style: config.style,
         })
 
         this.map.on('load', () => {
             this.createLayers(index, this.props)
             const bounds = this.getBounds()
-            //this.map.fitBounds(bounds, { padding: 120})
+            this.map.fitBounds(bounds, { padding: 120})
+        })
+
+        this.map.on('click', (evt) => {
+            const coords = [evt.lngLat.lng, evt.lngLat.lat]
+            console.log(coords)
+            // TODO(boertel) redux
+            window.COORDINATES = coords;
         })
     }
 
@@ -216,8 +224,8 @@ class Map extends Component {
         console.log('render map')
         const { className } = this.props
         return (
-            <div className={className}>
-                <div style={containerStyle} ref={(div) => this.container = div}></div>
+            <div className={['Map', className].join(' ')}>
+                <div ref={(div) => this.container = div}></div>
             </div>
         )
     }
@@ -227,7 +235,7 @@ class Map extends Component {
 function select(store, props) {
     const { index } = props;
     let features = []
-    if (Object.keys(store.blocks).length !== 0) {
+    if (Object.keys(store.blocks).length !== 0 && store.pages[index]) {
         features = _.chain(store.blocks)
             .pick(store.pages[index].blocks)
             .pickBy((block) => block.data && block.data.coordinates)
@@ -248,6 +256,14 @@ export default withRouter(connect(select)(styled(Map)`
     position: relative;
     height: 100%;
     width: 40%;
+
+    .mapboxgl-map {
+        height: 100%;
+        @media (min-width: 1000px) {
+            position: fixed;
+            width: inherit;
+        }
+    }
 
     canvas {
         outline: none;

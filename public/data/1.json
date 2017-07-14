@@ -1,0 +1,814 @@
+{
+    "nodes": [
+        {
+            "kind": "block",
+            "type": "title",
+            "nodes": [ { "kind": "text", "text": "Le Vieux Centre" } ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "Je viens de passer une semaine à Rome pendant l'été 2017. Au programme: beaucoup de marche, des églises, de vieilles pierres et quelques bières. Pour un premier aperçu de la ville, commençons par le vieux centre ville." }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "Sous une chaleur méditerranéenne, on arpente les petites rues pavées peuplées principalement de touristes à la recherche d'une ostoria, trattoria ou d'un ristorante." }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {"farm": 5, "secret": "c39a63eb45", "type": "flickr", "id": "35864413856", "server": "4231"},
+                        "width": 4896,
+                        "height": 3264
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "7248e2b12a",
+                            "farm": 5,
+                            "server": "4239",
+                            "secret": "cdf407ff05",
+                            "type": "flickr",
+                            "id": "35742174652"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "Cour intérieur"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "3fbba68a8b",
+                            "farm": 5,
+                            "server": "4259",
+                            "secret": "e0e8d84350",
+                            "type": "flickr",
+                            "id": "35742194982"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "Look at me"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "6857ffa46a",
+                            "farm": 5,
+                            "server": "4210",
+                            "secret": "d5f2c3ba6e",
+                            "type": "flickr",
+                            "id": "35911729705"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Ambassade de France",
+                        "title": "Façade"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "4e2df9b108",
+                            "farm": 5,
+                            "server": "4321",
+                            "secret": "31547e0c11",
+                            "type": "flickr",
+                            "id": "35071940104"
+                        },
+                        "height": 4896,
+                        "width": 3264,
+                        "title": "ITALIE"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "c699d1f6ef",
+                            "farm": 5,
+                            "server": "4305",
+                            "secret": "2c1ab612c0",
+                            "type": "flickr",
+                            "id": "35523705120"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "Italie, what else?"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "a69abe7340",
+                            "farm": 5,
+                            "server": "4216",
+                            "secret": "ed0b1e39fe",
+                            "type": "flickr",
+                            "id": "35871302796"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "Tableau sur les murs"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "04ddd5c5cf",
+                            "farm": 5,
+                            "server": "4265",
+                            "secret": "75c74363f1",
+                            "type": "flickr",
+                            "id": "35071896194"
+                        },
+                        "height": 3148,
+                        "width": 4725,
+                        "title": "Uscita de Emergenza"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "854acc5fe4",
+                            "farm": 5,
+                            "server": "4314",
+                            "secret": "8431051467",
+                            "type": "flickr",
+                            "id": "35071872624"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "Couleurs"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "En décollant les yeux des vitrines, en levant la tête, on y trouve des statues, dômes, campaniles, et drapeaux italiens (et européens)" }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "heading",
+            "data": {
+                "type": "marker",
+                "coordinates": [12.47683836878008, 41.89851080922452]
+            },
+            "nodes": [ { "kind": "text", "text": "Panthéon" } ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "En parlant de dôme, le plus vieux est celui du Panthéon qui a environ 2000 ans! Il recueille les tombes de l'artiste Raphael, Victor-Emmanuel II et Umberlo Ier et son épouse." }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "52168b8647",
+                            "farm": 5,
+                            "server": "4278",
+                            "secret": "8a286ed5b3",
+                            "type": "flickr",
+                            "id": "35518079470"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "L'intérieur",
+                        "location": "Panthéon",
+                        "coordinates": [
+                            12.476870562235632,
+                            41.8985180596531
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "97fa7e67a1",
+                            "farm": 5,
+                            "server": "4236",
+                            "secret": "f68e18c622",
+                            "type": "flickr",
+                            "id": "35774519821"
+                        },
+                        "height": 4896,
+                        "width": 3264,
+                        "title": "",
+                        "location": "Panthéon",
+                        "coordinates": [
+                            12.47681018073186,
+                            41.89850682372875
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "heading",
+            "nodes": [ { "kind": "text", "text": "Fontaine de Trevi" } ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "180d95c1be",
+                            "farm": 5,
+                            "server": "4253",
+                            "secret": "9c55e21580",
+                            "type": "flickr",
+                            "id": "35519508670"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Fontaine de Trevi",
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "C'est ce qui m'a le plus impressionné à Rome: habitué aux fontaines rondes, la fontaine de Trevi est un demi cercle, l'eau est d'un bleu azur, on se croirait sur une île paradisiaque, en plus de ça, la façade derrière est gigantesque, des statues d'hommes, de femmes, de chevaux." }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "cc9ece31d1",
+                            "farm": 5,
+                            "server": "4323",
+                            "secret": "19b04060be",
+                            "type": "flickr",
+                            "id": "35522942470"
+                        },
+                        "height": 4896,
+                        "width": 3264,
+                        "coordinates": [
+                            12.483314089792287,
+                            41.900972902028826
+                        ],
+                        "location": "Fontaine de Trevi",
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "cb21704941",
+                            "farm": 5,
+                            "server": "4229",
+                            "secret": "2cfacbba5e",
+                            "type": "flickr",
+                            "id": "35071133104"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Fontaine de Trevi",
+                        "coordinates": [
+                            12.483314089792287,
+                            41.900972902028826
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "47bf2878b5",
+                            "farm": 5,
+                            "server": "4259",
+                            "secret": "7b2c662eee",
+                            "type": "flickr",
+                            "id": "35071156564"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "La mouette",
+                        "location": "Fontaine de Trevi",
+                        "coordinates": [
+                            12.483318259581324,
+                            41.90094876294174
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "347ef705b2",
+                            "farm": 5,
+                            "server": "4304",
+                            "secret": "c77a96f984",
+                            "type": "flickr",
+                            "id": "35522533710"
+                        },
+                        "height": 4896,
+                        "width": 3264,
+                        "coordinates": [
+                            12.48335957145133,
+                            41.901148268538265
+                        ],
+                        "location": "Fontaine de Trevi",
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "9283d3aa47",
+                            "farm": 5,
+                            "server": "4281",
+                            "secret": "59f2bb4155",
+                            "type": "flickr",
+                            "id": "35071177074"
+                        },
+                        "height": 4896,
+                        "width": 3264,
+                        "coordinates": [
+                            12.483163331671165,
+                            41.900828767211266
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "heading",
+            "nodes": [ { "kind": "text", "text": "Piazza di Spagna" } ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "La place d'Espagne où est situé l'ambassade d'Espagne et un escalier monumental qui mène à l'église Trinità dei Monti." }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "heading",
+            "nodes": [ { "kind": "text", "text": "Villa Borghese" } ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "Sur le plateau, on trouve aussi la Villa Borghese et ses jardins. Depuis ceux-ci, nous avons une belle vue sur Rome avec plus proéminente qu'elle ne paraît, la basilique Saint-Pierre. Pour échapper à la chaleur et se reposer de déjà beaucoup de marche, le musée d'art moderne où sont mélangés des statues antiques (ou tout du moins qui le paraissent) avec de l'art moderne. Le musée en lui même est dans un très beau bâtiment, très lumineux." }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "d6edb67d58",
+                            "farm": 5,
+                            "server": "4284",
+                            "secret": "978582f638",
+                            "type": "flickr",
+                            "id": "35071843064"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "Vue sur Rome",
+                        "location": "Villa Borghese",
+                        "coordinates": [
+                            12.482441044826771,
+                            41.907954821876785
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "017315cca2",
+                            "farm": 5,
+                            "server": "4298",
+                            "secret": "ca94c8f441",
+                            "type": "flickr",
+                            "id": "35071834184"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "Vue sur Rome",
+                        "location": "Villa Borghese",
+                        "coordinates": [
+                            12.48241245353421,
+                            41.90795482186678
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "f5e4466dd6",
+                            "farm": 5,
+                            "server": "4210",
+                            "secret": "720176b2e7",
+                            "type": "flickr",
+                            "id": "35911628395"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "Pitagora",
+                        "location": "Villa Borghese",
+                        "coordinates": [
+                            12.480528267885148,
+                            41.909795818688025
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "a80649feaa",
+                            "farm": 5,
+                            "server": "4262",
+                            "secret": "7b26643587",
+                            "type": "flickr",
+                            "id": "35523674730"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "LE lac",
+                        "coordinates": [
+                            12.482955518539939,
+                            41.914420894172736
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "6da2c9a818",
+                            "farm": 5,
+                            "server": "4321",
+                            "secret": "90e47c0ee5",
+                            "type": "flickr",
+                            "id": "35523614100"
+                        },
+                        "height": 2744,
+                        "width": 4116,
+                        "title": "Musée d'art moderne",
+                        "location": "Galleria Nazionale d'Arte Moderna",
+                        "coordinates": [
+                            12.483462631307304,
+                            41.919993090730856
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "dc67801cdd",
+                            "farm": 5,
+                            "server": "4205",
+                            "secret": "d461a65cbe",
+                            "type": "flickr",
+                            "id": "35071779624"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "title": "",
+                        "coordinates": [
+                            12.483429709981323,
+                            41.920029834802904
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "cce0342a53",
+                            "farm": 5,
+                            "server": "4320",
+                            "secret": "f239013428",
+                            "type": "flickr",
+                            "id": "35911573785"
+                        },
+                        "height": 4896,
+                        "width": 3264,
+                        "coordinates": [
+                            12.483429709981323,
+                            41.920029834802904
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "b3d487a699",
+                            "farm": 5,
+                            "server": "4262",
+                            "secret": "964488391e",
+                            "type": "flickr",
+                            "id": "35523629250"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "coordinates": [
+                            12.483429709981323,
+                            41.920029834802904
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "6395e82bd2",
+                            "farm": 5,
+                            "server": "4322",
+                            "secret": "7275703d27",
+                            "type": "flickr",
+                            "id": "35071758064"
+                        },
+                        "height": 4896,
+                        "width": 3264,
+                        "location": "Galleria Nazionale d'Arte Moderna",
+                        "coordinates": [
+                            12.483445539459012,
+                            41.92007232724097
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "8eda046d6d",
+                            "farm": 5,
+                            "server": "4322",
+                            "secret": "6b3310a585",
+                            "type": "flickr",
+                            "id": "35071793764"
+                        },
+                        "height": 3159,
+                        "width": 4740,
+                        "location": "Galleria Nazionale d'Arte Moderna",
+                        "coordinates": [
+                            12.483487878457765,
+                            41.92010273889875
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "1a8e3ae44d",
+                            "farm": 5,
+                            "server": "4236",
+                            "secret": "ef8afb17b1",
+                            "type": "flickr",
+                            "id": "35871127476"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Galleria Nazionale d'Arte Moderna",
+                        "coordinates": [
+                            12.483487878457765,
+                            41.92010273889875
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "7c3edd2f06",
+                            "farm": 5,
+                            "server": "4257",
+                            "secret": "8b841a63cd",
+                            "type": "flickr",
+                            "id": "35742054822"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Galleria Nazionale d'Arte Moderna",
+                        "coordinates": [
+                            12.483487878457765,
+                            41.92010273889875
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "8d73e4f53b",
+                            "farm": 5,
+                            "server": "4312",
+                            "secret": "f4645ef73e",
+                            "type": "flickr",
+                            "id": "35523666710"
+                        },
+                        "height": 3264,
+                        "width": 4896,
+                        "location": "Galleria Nazionale d'Arte Moderna",
+                        "coordinates": [
+                            12.483423370637581,
+                            41.92001137523741
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "video",
+            "data": {
+                "url": "https://vimeo.com/12171944"
+            }
+        },
+        {
+            "kind": "block",
+            "type": "video",
+            "data": {
+                "url": "https://vimeo.com/225487892",
+                "title": "How to drink water from a fountain"
+            }
+        }
+
+    ]
+}

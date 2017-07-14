@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 
 
 const buildFlickrUrl = (photo, size) => {
@@ -13,6 +12,8 @@ const buildFlickrUrl = (photo, size) => {
     }
     return base + '.' + extension;
 }
+
+let _cache = {}
 
 const threshold = (width, height) => {
     let limits = [
@@ -29,10 +30,14 @@ const threshold = (width, height) => {
     var max = Math.max(width, height),
         i = 0;
 
-    while (i > limits.length - 1 || max >= limits[i].pixels) {
-        i += 1;
+
+    if (!_cache[max]) {
+        while (i > limits.length - 1 || max >= limits[i].pixels) {
+            i += 1;
+        }
+        _cache[max] = limits[i].ext
     }
-    return limits[i].ext;
+    return _cache[max]
 }
 
 

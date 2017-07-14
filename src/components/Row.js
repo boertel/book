@@ -6,6 +6,8 @@ function aspectRatio(props) {
     return props.width / props.height
 }
 
+const MARGIN = 20
+
 
 class Row extends Component {
     constructor(props) {
@@ -33,10 +35,10 @@ class Row extends Component {
     }
 
     resize() {
-        // FIXME(boertel) margin-right is causing trouble :(
+        const offset = (React.Children.count(this.props.children) - 1) * MARGIN
         this.setState({
-            width: this._row.offsetWidth,
-            height: window.innerHeight,
+            width: this._row.offsetWidth - offset,
+            height: window.innerHeight * 0.8,
         });
     }
 
@@ -86,6 +88,8 @@ export default styled(Row)`
     }
 
     & > div {
+        margin-right: ${MARGIN}px;
+        align-self: center;
     }
 
     & > div:last-child {
