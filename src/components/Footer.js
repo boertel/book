@@ -98,6 +98,7 @@ export default withRouter(styled(Footer)`
         font-size: 0.8em;
 
         svg {
+            width: 18px;
             margin: 0 0.3em;
         }
     }

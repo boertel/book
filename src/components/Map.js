@@ -17,74 +17,43 @@ const config = {
     style: 'mapbox://styles/boertel/ciqy9y3fl0001bpnohs9hdps8'
 }
 
-const createSource = (data, index) => {
+const createSource = (features) => {
     return {
         'type': 'geojson',
         'data': {
             'type': 'FeatureCollection',
-            'features': data.map((feature) => {
-                const viewer = feature.data.viewer
-                return {
-                    type: 'Feature',
-                    properties: {
-                        path: feature.path,
-                        viewer,
-                        index,
-                    },
-                    geometry: {
-                        type: 'Point',
-                        coordinates: feature.data.coordinates,
-                    }
-                }
-            })
+            'features': features
         }
     }
 }
 
-// TODO(boertel) split up this file
-const createLayer = (id, options) => {
-    options = options || {}
-
-    let layer = {
-        id,
-        type: options.type,
-        source: id,
-    }
-
-    const optional = ['paint', 'layout', 'filter']
-    optional.forEach((attr) => {
-        if (options[attr]) {
-            layer[attr] = options[attr]
+const createFeatures = (data) => {
+    return data.map((feature) => {
+        const viewer = feature.data.viewer
+        const index = parseInt(feature.path.split(':')[0], 10)
+        return {
+            type: 'Feature',
+            properties: {
+                path: feature.path,
+                viewer,
+                index,
+            },
+            geometry: {
+                type: 'Point',
+                coordinates: feature.data.coordinates,
+            }
         }
     })
-
-    return layer
-}
-
-const generateFilter = (data) => {
-    const activeFeatures = data
-        .filter((feature) => feature.data && feature.data.active === true)
-        .map(({path}) => path)
-    if (activeFeatures.length > 0) {
-        return ['in', 'path'].concat(activeFeatures)
-    } else {
-        return ['==', 'path', '']
-    }
 }
 
 
 class Map extends Component {
     constructor(props) {
         super(props)
-        console.log('constructor map')
-        this._layers = []
     }
 
     getBounds() {
         let bounds = new mapboxgl.LngLatBounds();
-        this._layers.forEach((layer) => {
-            this.props[layer].map(({data}) => bounds.extend(data.coordinates))
-        })
         return bounds
     }
 
@@ -93,104 +62,47 @@ class Map extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.index !== this.props.index) {
-            if (this._layers.indexOf(`markers-${nextProps.index}`) === -1) {
-                this.createLayers(nextProps.index, nextProps)
+        if (this.map.isStyleLoaded() && nextProps.markers.length) {
+            // wait until markers have been fetch or next page
+            if (this.props.markers.length !== nextProps.markers.length || nextProps.index !== this.props.index) {
+                this.updateSource(nextProps)
+                this.map.setFilter('markers', ['==', 'index', nextProps.index])
+                this.map.setFilter('markers-hover', ['all',
+                    ['==', 'index', nextProps.index], ['==', 'path', '']
+                ])
             }
-            this._layers.forEach((layer) => {
-                this.map.setFilter(`${layer}-hover`, ['==', 'index', nextProps.index])
-                this.map.setFilter(`${layer}`, ['==', 'index', nextProps.index])
-            })
-        } else {
-            this._layers.forEach((layer) => {
-                if (nextProps[layer]) {
-                    const filter = generateFilter(nextProps[layer])
-                    this.map.setFilter(`${layer}-hover`, filter)
-                }
-            })
+            const actives = nextProps.markers.filter((m) => m.data && m.data.active === true).map(({path}) => path)
+            this.map.setFilter('markers-hover', [
+                'all',
+                ['==', 'index', nextProps.index],
+                ['in', 'path', ...actives],
+            ])
         }
     }
 
-    createHoveredLayers(id, options, props) {
+    updateSource(props) {
         const {
-            dispatch,
-            history,
             index,
+            markers,
         } = props
-        const data = props[id]
 
-        this._layers.push(id)
-        const source = createSource(data, index)
+        const features = createFeatures(markers, index) || []
+        const source = createSource(features)
 
-        this.map.addSource(id, source)
-        this.map.addLayer(createLayer(id, {
-            type: options.type,
-            paint: options.paint,
-            layout: options.layout
-        }))
-
-        const hoverId = `${id}-hover`
-        this.map.addSource(hoverId, source)
-        this.map.addLayer(createLayer(hoverId, {
-            type: options.type,
-            paint: options.hoverPaint,
-            layout: options.hoverLayout,
-            filter: options.filter,
-        }))
-
-        const mouseenter = (evt) => {
-            const properties = evt.features[0].properties
-            dispatch(activate(properties.path))
-            this.map.setFilter(hoverId, ['==', 'path', properties.path])
-        }
-        const mouseleave = (evt) => {
-            dispatch(deactivate())
-            this.map.setFilter(hoverId, ['==', 'path', ''])
-        }
-
-        const click = (evt) => {
-            const properties = evt.features[0].properties
-            if (properties.viewer) {
-                history.push(`/pages/${index}/${properties.path}`)
+        if (this.map.getSource('markers')) {
+            if (features.length) {
+                this.map.getSource('markers').setData(source.data)
             }
+        } else {
+            this.map.addSource('markers', source)
         }
-
-        this.map.on('click', id, click)
-        this.map.on('mouseenter', id, mouseenter)
-        this.map.on('mouseleave', id, mouseleave)
-    }
-
-    createLayers(index, props) {
-        this.createHoveredLayers(`markers-${index}`, {
-            type: 'symbol',
-            layout: {
-                'icon-image': 'marker-15'
-            },
-            hoverLayout: {
-                'icon-image': 'marker-15',
-                'icon-size': 1.6,
-            },
-            filter: ['==', 'path', '']
-        }, props)
-
-        // TODO(boertel) color comes from styled theme
-        this.createHoveredLayers(`circles-${index}`, {
-            type: 'circle',
-            paint: {
-                'circle-radius': 100,
-                'circle-color': 'rgba(255, 165, 0, 0.3)',
-            },
-            hoverPaint: {
-                'circle-radius': 100,
-                'circle-color': 'rgba(255, 165, 0, 0.8)',
-            },
-            filter: ['==', 'path', '']
-        }, props)
     }
 
     componentDidMount() {
         const {
             index,
+            dispatch,
+            history,
         } = this.props
 
         const maxZoom = 16
@@ -207,21 +119,57 @@ class Map extends Component {
         })
 
         this.map.on('load', () => {
-            this.createLayers(index, this.props)
             const bounds = this.getBounds()
-            this.map.fitBounds(bounds, { padding: 120})
+            this.updateSource(this.props)
+
+            this.map.addLayer({
+                id: 'markers',
+                type: 'symbol',
+                source: 'markers',
+                layout: { 'icon-image': 'marker-15' },
+            })
+
+            this.map.addLayer({
+                id: 'markers-hover',
+                type: 'symbol',
+                source: 'markers',
+                layout: {
+                    'icon-image': 'marker-15',
+                    'icon-size': 1.6
+                },
+                filter: ['==', 'path', '']
+            })
+
+            this.map.on('mouseenter', 'markers', (evt) => {
+                const {
+                    path,
+                } = evt.features[0].properties
+                dispatch(activate(path))
+                this.map.setFilter('markers-hover', ['==', 'path', path])
+            })
+
+            this.map.on('mouseleave', 'markers-hover', (evt) => {
+                dispatch(deactivate())
+                this.map.setFilter('markers-hover', ['==', 'path', ''])
+            })
+
+            this.map.on('click', 'markers-hover', (evt) => {
+                const { viewer, index, path } = evt.features[0].properties
+                if (viewer) {
+                    history.push(`/pages/${index}/${path}`)
+                }
+            })
+            //this.map.fitBounds(bounds, { padding: 120})
         })
 
+        // TODO(boertel) redux
         this.map.on('click', (evt) => {
             const coords = [evt.lngLat.lng, evt.lngLat.lat]
-            console.log(coords)
-            // TODO(boertel) redux
             window.COORDINATES = coords;
         })
     }
 
     render() {
-        console.log('render map')
         const { className } = this.props
         return (
             <div className={['Map', className].join(' ')}>
@@ -237,7 +185,7 @@ function select(store, props) {
     let features = []
     if (Object.keys(store.blocks).length !== 0 && store.pages[index]) {
         features = _.chain(store.blocks)
-            .pick(store.pages[index].blocks)
+            //.pick(store.pages[index].blocks)
             .pickBy((block) => block.data && block.data.coordinates)
             .values()
             .value();
@@ -246,10 +194,9 @@ function select(store, props) {
     const markers = features.filter((feature) => feature.data.type === 'marker');
     const circles = features.filter((feature) => feature.data.type === 'circle');
 
-    let output = {}
-    output[`markers-${index}`] = markers
-    output[`circles-${index}`] = circles
-    return output
+    return {
+        markers,
+    }
 }
 
 export default withRouter(connect(select)(styled(Map)`

@@ -169,7 +169,7 @@ export default withRouter(connect(select)(styled(Viewer)`
         }
     }
 
-    p {
+    .legend {
         color: #fff;
         padding-left: 1em;
         margin-bottom: 5em;

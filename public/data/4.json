@@ -139,10 +139,6 @@
         {
             "kind": "block",
             "type": "paragraph",
-            "data": {
-                "type": "circle",
-                "coordinates": [12.457272134835534, 41.90222216410652]
-            },
             "nodes": [
                 { "kind": "text", "text": "Autre endroit incourtenable de Rome, nous avons juste visité l'intérieur et le dôme de la basilique Saint-Pierre." }
             ]
@@ -248,6 +244,81 @@
         },
         {
             "kind": "block",
+            "type": "row",
+            "nodes": [
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "4a9eeec41a",
+                            "farm": 5,
+                            "server": "4322",
+                            "secret": "e388ccdb2e",
+                            "type": "flickr",
+                            "id": "35791682741"
+                        },
+                        "height": 3264,
+                        "width": 2448,
+                        "coordinates": [
+                            12.453279903439153,
+                            41.90208055392111
+                        ],
+                        "location": "Piazza San Pietro",
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "833cd869f4",
+                            "farm": 5,
+                            "server": "4308",
+                            "secret": "498ff5e843",
+                            "type": "flickr",
+                            "id": "35535011600"
+                        },
+                        "height": 3264,
+                        "width": 2448,
+                        "location": "Piazza San Pietro",
+                        "coordinates": [
+                            12.453279903439153,
+                            41.90208055392111
+                        ],
+                        "type": "marker"
+                    }
+                },
+                {
+                    "kind": "block",
+                    "type": "picture",
+                    "data": {
+                        "viewer": true,
+                        "src": {
+                            "originalsecret": "94e2c892b4",
+                            "farm": 5,
+                            "server": "4325",
+                            "secret": "e539f2429b",
+                            "type": "flickr",
+                            "id": "35791678341"
+                        },
+                        "height": 3264,
+                        "width": 2448,
+                        "title": "Étage intermédiaire du dôme",
+                        "coordinates": [
+                            12.453279903439153,
+                            41.90208055392111
+                        ],
+                        "type": "marker"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "block",
             "type": "heading",
             "nodes": [ { "kind": "text", "text": "Les églises" } ]
         },
@@ -329,81 +400,6 @@
                         "height": 3264,
                         "width": 4896,
                         "title": "L'intérieur d'un dôme"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "block",
-            "type": "row",
-            "nodes": [
-                {
-                    "kind": "block",
-                    "type": "picture",
-                    "data": {
-                        "viewer": true,
-                        "src": {
-                            "originalsecret": "4a9eeec41a",
-                            "farm": 5,
-                            "server": "4322",
-                            "secret": "e388ccdb2e",
-                            "type": "flickr",
-                            "id": "35791682741"
-                        },
-                        "height": 3264,
-                        "width": 2448,
-                        "coordinates": [
-                            12.453279903439153,
-                            41.90208055392111
-                        ],
-                        "location": "Piazza San Pietro",
-                        "type": "marker"
-                    }
-                },
-                {
-                    "kind": "block",
-                    "type": "picture",
-                    "data": {
-                        "viewer": true,
-                        "src": {
-                            "originalsecret": "833cd869f4",
-                            "farm": 5,
-                            "server": "4308",
-                            "secret": "498ff5e843",
-                            "type": "flickr",
-                            "id": "35535011600"
-                        },
-                        "height": 3264,
-                        "width": 2448,
-                        "location": "Piazza San Pietro",
-                        "coordinates": [
-                            12.453279903439153,
-                            41.90208055392111
-                        ],
-                        "type": "marker"
-                    }
-                },
-                {
-                    "kind": "block",
-                    "type": "picture",
-                    "data": {
-                        "viewer": true,
-                        "src": {
-                            "originalsecret": "94e2c892b4",
-                            "farm": 5,
-                            "server": "4325",
-                            "secret": "e539f2429b",
-                            "type": "flickr",
-                            "id": "35791678341"
-                        },
-                        "height": 2448,
-                        "width": 3264,
-                        "title": "Étage intermédiaire du dôme",
-                        "coordinates": [
-                            12.453279903439153,
-                            41.90208055392111
-                        ],
-                        "type": "marker"
                     }
                 }
             ]
