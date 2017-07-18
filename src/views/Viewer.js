@@ -56,7 +56,11 @@ class Viewer extends Component {
             history,
             nextPath
         } = this.props
-        history.replace(nextPath)
+        if (nextPath) {
+            history.replace(nextPath)
+        } else {
+            this.close()
+        }
     }
 
     previous() {
@@ -64,7 +68,11 @@ class Viewer extends Component {
             history,
             previousPath,
         } = this.props
-        history.replace(previousPath)
+        if (previousPath) {
+            history.replace(previousPath)
+        } else {
+            this.close()
+        }
     }
 
     render() {
@@ -113,7 +121,7 @@ function select(store, props) {
 
     const { album } = params
 
-    if (mediumIndex === 0) {
+    if (mediumIndex === 0 && index !== 1) {
         previousPath = `/${album}/${index - 1}`;
     }
 
@@ -127,13 +135,8 @@ function select(store, props) {
         nextPath = `/${album}/${index}/${next.path}`
     }
 
-    if (mediumIndex + 1 > media.length - 1) {
+    if (mediumIndex + 1 > media.length - 1 && index < store.albums[params.album].pages) {
         nextPath = `/${album}/${index + 1}`
-        console.log(index, store.albums[params.album])
-        if (index >= store.albums[params.album].pages) {
-            // TODO(boertel) have a end page
-            //nextPath = `/${album}/end`
-        }
     }
 
     const { title, location } = medium.data
@@ -155,13 +158,17 @@ function select(store, props) {
         'nodes': nodes,
     }
 
+    const clone = Object.assign({}, medium, {
+        data: Object.assign({}, medium.data, { viewer: false })
+    })
+
     return {
         nodes: [
             {
                 type: 'row',
                 kind: 'block',
                 path: `v${index}:${mediumIndex}`,
-                nodes: [ medium, text ]
+                nodes: [ clone, text ]
             }
         ],
         total: media.length,
