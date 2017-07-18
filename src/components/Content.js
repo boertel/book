@@ -21,6 +21,9 @@ const mapping = {
     'paragraph': {
         type: Paragraph,
     },
+    'div': {
+        type: 'div',
+    },
     'link': {
         type: 'a',
     },

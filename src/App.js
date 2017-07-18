@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 
 import {
-    Page,
+    Album,
 } from './views'
 
 import theme from './theme'
@@ -16,7 +16,7 @@ import theme from './theme'
 const App = () => (
     <ThemeProvider theme={theme}>
         <Router>
-            <Route path='/:album/:index' component={Page} />
+            <Route path='/:album' component={Album} />
         </Router>
     </ThemeProvider>
 )

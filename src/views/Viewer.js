@@ -128,20 +128,25 @@ function select(store, props) {
     }
 
     if (mediumIndex + 1 > media.length - 1) {
-        nextPath = `/${album}/${index + 1}`;
+        nextPath = `/${album}/${index + 1}`
+        console.log(index, store.albums[params.album])
+        if (index >= store.albums[params.album].pages) {
+            // TODO(boertel) have a end page
+            //nextPath = `/${album}/end`
+        }
     }
 
     const { title, location } = medium.data
 
     let nodes = []
-    nodes.push({ 'kind': 'block', 'type': 'paragraph', 'nodes': [ {'kind': 'text', 'text': title || ''} ] })
+    nodes.push({ 'kind': 'block', 'type': 'paragraph','path': `v${index}:${mediumIndex}:0:0`, 'nodes': [ {'kind': 'text', 'text': title || ''} ] })
     if (location) {
-        nodes.push({ 'kind': 'block', 'type': 'paragraph', 'nodes': [ {'kind': 'text', 'text': `– ${location}`} ] })
+        nodes.push({ 'kind': 'block', 'type': 'paragraph','path': `v${index}:${mediumIndex}:0:1`, 'nodes': [ {'kind': 'text', 'text': `– ${location}`} ] })
     }
 
     const text = {
         'kind': 'block',
-        'type': 'paragraph',
+        'type': 'div',
         'path': `v${index}:${mediumIndex}:0`,
         'data': {
             'width': 300,

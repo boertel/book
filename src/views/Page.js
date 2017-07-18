@@ -87,17 +87,20 @@ class Page extends Component {
 }
 
 function select(store, props) {
-    const index = parseInt(props.match.params.index, 10)
+    const {
+        params
+    } = props.match
+    const index = parseInt(params.index, 10)
     const page = store.pages[index]
     //const total = Object.keys(store.pages).length
-    const total = 5
+    const album = store.albums[params.album]
 
     // TODO(boertel) hardcoded
     return {
         editMode: props.location.search.indexOf('edit') !== -1,
         index,
-        total,
-        title: 'Rome',
+        total: album.pages,
+        title: album.title,
         ...page
     };
 }

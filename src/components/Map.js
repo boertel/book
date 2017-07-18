@@ -48,10 +48,6 @@ const createFeatures = (data) => {
 
 
 class Map extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     getBounds(props) {
         props = props || this.props
         let bounds = new mapboxgl.LngLatBounds();
