@@ -52,8 +52,10 @@ class Map extends Component {
         super(props)
     }
 
-    getBounds() {
+    getBounds(props) {
+        props = props || this.props
         let bounds = new mapboxgl.LngLatBounds();
+        props.markers.forEach(({ data }) => bounds.extend(data.coordinates))
         return bounds
     }
 
@@ -70,6 +72,9 @@ class Map extends Component {
                 this.map.setFilter('markers-hover', ['all',
                     ['==', 'index', nextProps.index], ['==', 'path', '']
                 ])
+
+                const bounds = this.getBounds(nextProps)
+                this.map.fitBounds(bounds, { padding: 120 })
             }
             const actives = nextProps.markers.filter((m) => m.data && m.data.active === true).map(({path}) => path)
             this.map.setFilter('markers-hover', [
@@ -100,7 +105,6 @@ class Map extends Component {
 
     componentDidMount() {
         const {
-            index,
             dispatch,
             history,
         } = this.props
@@ -119,7 +123,6 @@ class Map extends Component {
         })
 
         this.map.on('load', () => {
-            const bounds = this.getBounds()
             this.updateSource(this.props)
 
             this.map.addLayer({
@@ -153,13 +156,16 @@ class Map extends Component {
                 this.map.setFilter('markers-hover', ['==', 'path', ''])
             })
 
+            const { album } = this.props.match.params
             this.map.on('click', 'markers-hover', (evt) => {
                 const { viewer, index, path } = evt.features[0].properties
                 if (viewer) {
-                    history.push(`/pages/${index}/${path}`)
+                    history.push(`/${album}/${index}/${path}`)
                 }
             })
-            //this.map.fitBounds(bounds, { padding: 120})
+
+            const bounds = this.getBounds()
+            this.map.fitBounds(bounds, { padding: 120 })
         })
 
         // TODO(boertel) redux
@@ -192,7 +198,6 @@ function select(store, props) {
     }
 
     const markers = features.filter((feature) => feature.data.type === 'marker');
-    const circles = features.filter((feature) => feature.data.type === 'circle');
 
     return {
         markers,

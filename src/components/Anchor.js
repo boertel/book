@@ -25,7 +25,8 @@ class Anchor extends Component {
             history,
         } = this.props
         const index = 2
-        history.push(`/pages/${index}/${reference}`)
+        const { album } = this.props.match.params
+        history.push(`/${album}/${index}/${reference}`)
     }
 
     onMouseOver() {

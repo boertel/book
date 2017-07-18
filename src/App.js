@@ -16,7 +16,7 @@ import theme from './theme'
 const App = () => (
     <ThemeProvider theme={theme}>
         <Router>
-            <Route path='/pages/:index' component={Page} />
+            <Route path='/:album/:index' component={Page} />
         </Router>
     </ThemeProvider>
 )

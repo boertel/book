@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { transparentize } from 'polished'
 
 import Picture from './Picture'
 
@@ -67,14 +68,15 @@ class ResponsivePicture extends Component {
 export default styled(ResponsivePicture)`
     position: relative;
     cursor: pointer;
+    background-color: ${props => props.theme.placeholder};
 
     &.anchor:after {
         content: " ";
         width: 8px;
         height: 8px;
-        background-color: rgba(255, 165, 0, 0.4);
+        background-color: ${props => transparentize(0.4, props.theme.active)};
         border-radius: 8px;
-        border: 2px solid orange;
+        border: 2px solid ${props => props.theme.active};
         display: block;
         position: absolute;
         bottom: 0px;
@@ -88,7 +90,7 @@ export default styled(ResponsivePicture)`
     }
 
     &.anchor.active:after, &.anchor:hover:after {
-        background-color: orange;
+        background-color: ${props => props.theme.active};
     }
 
     img {

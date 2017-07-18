@@ -7,19 +7,21 @@ const Heading = (props) => {
         active,
         className,
         coordinates,
+        anchor,
         type,
         ...rest,
     } = props
-    let classNames = [className]
 
-    if (active) {
-        classNames.push('active')
-    }
-    return <h2 className={classNames.join(' ')} {...rest}>{props.children}</h2>
+    return <h2 className={className} {...rest}>{props.children}</h2>
 }
 
 export default styled(Heading)`
     text-align: justify;
     background-color: ${props => props.active ? props.theme.active : 'initial'};
+    border-color: ${props => props.theme.active};
+    border-style: solid;
+    border-width: 0;
+    border-left-width: ${props => props.anchor ? '4px' : 0};
+    padding-left: ${props => props.anchor ? '1em' : 0 };
 `
 

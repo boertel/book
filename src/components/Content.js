@@ -63,7 +63,7 @@ function generate(nodes, dispatch, index, history, i) {
             // TODO(boertel) is this supposed to be here? can this be abstracted?
             if (data.viewer) {
                 // TODO(boertel) can I use path always? instead of i
-                const url = `/pages/${index}/${node.path}`
+                const url = `${index}/${node.path}`
                 const onClick = () => {
                     // only when not in viewer already
                     history.push(url)
@@ -78,7 +78,7 @@ function generate(nodes, dispatch, index, history, i) {
                 const onMouseOut = () => {
                     dispatch(deactivate(node.path))
                 }
-                props = Object.assign(props, {onMouseOver, onMouseOut})
+                props = Object.assign(props, {onMouseOver, onMouseOut, anchor: true})
             }
             return React.createElement(options.type, props, children)
         } else if (node.kind === 'text') {

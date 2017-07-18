@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 import _ from 'lodash'
 
 import Content from '../components/Content'
+import ViewerNavigation from '../components/ViewerNavigation'
 
 
 class Viewer extends Component {
@@ -43,8 +44,11 @@ class Viewer extends Component {
         const {
             index,
             history,
-        } = this.props;
-        history.push(`/pages/${index}`)
+            match,
+        } = this.props
+
+        const { album } = match.params
+        history.replace(`/${album}/${index}`)
     }
 
     next() {
@@ -52,7 +56,7 @@ class Viewer extends Component {
             history,
             nextPath
         } = this.props
-        history.push(nextPath)
+        history.replace(nextPath)
     }
 
     previous() {
@@ -60,18 +64,23 @@ class Viewer extends Component {
             history,
             previousPath,
         } = this.props
-        history.push(previousPath)
+        history.replace(previousPath)
     }
 
     render() {
         const {
             nodes,
-            mediumIndex,
             className,
+            mediumIndex,
+            total,
         } = this.props
         return (
-            <div className={['Viewer', className].join(' ')} onClick={this.close}>
+            <div className={['Viewer', className].join(' ')}>
+                <button className="button close-button" onClick={this.close}>
+                    <i className="icon"></i>
+                </button>
                 <Content nodes={nodes} index={mediumIndex} />
+                <ViewerNavigation next={this.next} previous={this.previous} counter={mediumIndex} total={total} />
             </div>
         )
     }
@@ -81,7 +90,6 @@ class Viewer extends Component {
 function select(store, props) {
     const { params } = props.match
     const index = parseInt(params.index, 10)
-    let medium, mediumIndex
 
     // TODO(boertel) selector in case `reselect` is used
     const media = _.chain(store.blocks)
@@ -90,48 +98,58 @@ function select(store, props) {
         .values()
         .value()
 
-    if (params.medium.indexOf(':') !== -1) {
-        const mediumId = params.medium
-        medium = store.blocks[mediumId]
-    }
+    let mediumIndex = media.indexOf(store.blocks[params.medium])
+    let medium = store.blocks[params.medium]
+    /*
+    medium.data = Object.assign(medium.data, {
+        viewer: false,
+        coordinates: false,
+        anchor: false,
+    })
+    */
 
-    mediumIndex = media.indexOf(medium)
     let previousPath
     let nextPath
 
+    const { album } = params
+
     if (mediumIndex === 0) {
-        previousPath = `/pages/${index - 1}`;
+        previousPath = `/${album}/${index - 1}`;
     }
 
     if (mediumIndex > 0) {
         const previous = media[mediumIndex - 1]
-        previousPath = `/pages/${index}/${previous.path}`
+        previousPath = `/${album}/${index}/${previous.path}`
     }
 
     if (mediumIndex < media.length - 1) {
         const next = media[mediumIndex + 1]
-        nextPath = `/pages/${index}/${next.path}`
+        nextPath = `/${album}/${index}/${next.path}`
     }
 
     if (mediumIndex + 1 > media.length - 1) {
-        nextPath = `/pages/${index + 1}`;
+        nextPath = `/${album}/${index + 1}`;
     }
 
     const { title, location } = medium.data
+
+    let nodes = []
+    nodes.push({ 'kind': 'block', 'type': 'paragraph', 'nodes': [ {'kind': 'text', 'text': title || ''} ] })
+    if (location) {
+        nodes.push({ 'kind': 'block', 'type': 'paragraph', 'nodes': [ {'kind': 'text', 'text': `– ${location}`} ] })
+    }
+
     const text = {
         'kind': 'block',
         'type': 'paragraph',
+        'path': `v${index}:${mediumIndex}:0`,
         'data': {
-            'width': 200,
+            'width': 300,
             'height': window.innerHeight,
         },
-        'nodes': [
-            {'kind': 'text', 'text': title || ''},
-            {'kind': 'text', 'text': location || ''}
-        ]
+        'nodes': nodes,
     }
 
-    // TODO(boertel) media is only one node right now, and always picture
     return {
         nodes: [
             {
@@ -141,6 +159,8 @@ function select(store, props) {
                 nodes: [ medium, text ]
             }
         ],
+        total: media.length,
+        mediumIndex,
         previousPath,
         nextPath,
         index,
@@ -153,26 +173,80 @@ export default withRouter(connect(select)(styled(Viewer)`
     bottom: 0;
     right: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.95);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
+
+    -webkit-font-smoothing: antialiased;
+
+    button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 26px;
+        height: 26px;
+        padding: 0;
+        background-color: #666;
+        border-radius: 50%;
+        border: none;
+        transition: background-color .2s ease-in;
+        z-index: 1;
+        cursor: pointer;
+        outline: none;
+        text-transform: uppercase;
+        font-size: 22px;
+
+        .icon::before {
+            content: "×";
+            position: static;
+            display: inline;
+            background-color: transparent;
+            font-style: normal;
+            font-family: arial, helvetica, sans-serif;
+            font-weight: 700;
+        }
+    }
 
     .Content {
         width: 100%;
         height: 100%;
 
         .Row {
-            margin-top: 0;
-            height: 100%;
-        }
-    }
+            margin: 0;
+            padding-top: 2em;
+            color: #ddd;
 
-    .legend {
-        color: #fff;
-        padding-left: 1em;
-        margin-bottom: 5em;
-        align-self: flex-end;
+            @media (max-width: 1000px) {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            & > div {
+                background-color: transparent;
+            }
+
+            & > p {
+                padding-left: 1em;
+                margin-top: 1em;
+
+                @media (min-width: 1000px) {
+                    margin-top: 0;
+                    align-self: flex-end;
+                }
+
+                & > p {
+                    text-align: left;
+                    color: #ddd;
+                    font-size: 0.8em;
+
+                    &:first-child {
+                        font-size: 1em;
+                        color: #fff;
+                    }
+                }
+            }
+        }
     }
 `))

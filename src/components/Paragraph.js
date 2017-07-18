@@ -8,6 +8,11 @@ const Paragraph = (props) => {
         className,
         coordinates,
         type,
+        aspectRatio,
+        ratio,
+        widthContainer,
+        heightContainer,
+        i,
         ...rest,
     } = props
     let classNames = [className]
@@ -15,6 +20,7 @@ const Paragraph = (props) => {
     if (active) {
         classNames.push('active')
     }
+
     return <p className={classNames.join(' ')} {...rest}>{props.children}</p>
 }
 

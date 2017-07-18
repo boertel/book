@@ -45,7 +45,9 @@ class Picture extends Component {
     constructor(props) {
         super(props)
 
-        let size = threshold(props.width, props.height)
+        this._image = new Image()
+        this.onload = this.onload.bind(this)
+        const size = threshold(props.width, props.height)
         this.state = {
             loaded: false,
             size,
@@ -66,10 +68,6 @@ class Picture extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        // TODO(boertel) when update window.height, it could need to be resize
-        // it's actually widthContainer which CANNOT shrink and make the pictures
-        // bigger and bigger when resizing. The container width should be agnostic
-        // from the picture width
         return nextState.loaded !== this.state.loaded
     }
 
@@ -84,13 +82,18 @@ class Picture extends Component {
             loaded: false,
         })
 
-        var image = new Image()
-        image.onload = () => {
-            this.setState({
-                loaded: true,
-            })
-        }
-        image.src = this.getUrl()
+        this._image.addEventListener('load', this.onload)
+        this._image.src = this.getUrl()
+    }
+
+    onload() {
+        this.setState({
+            loaded: true,
+        })
+    }
+
+    componentWillUnmount() {
+        this._image.removeEventListener('load', this.onload)
     }
 
     componentDidMount() {

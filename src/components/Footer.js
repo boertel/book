@@ -6,7 +6,7 @@ import { ArrowLeft, ArrowRight } from 'react-feather'
 
 
 const nextPage = (page) => {
-    let url = `/pages/${page.index + 1}`;
+    let url = `${page.index + 1}`;
     if (page.index > page.total) {
         url = '/end';
     }
@@ -14,9 +14,9 @@ const nextPage = (page) => {
 }
 
 const previousPage = (page) => {
-    let url = `/pages/${page.index - 1}`;
+    let url = `${page.index - 1}`;
     if (page.index === 1) {
-        url = '/pages/';
+        url = '/';
     }
     return url;
 }
@@ -67,14 +67,17 @@ class Footer extends Component {
             className,
         } = this.props;
 
+
+        const previous = index !== 1 ? <a onClick={this.previous}><ArrowLeft /> Précedent</a> : null
+        const next = index !== total ? <a onClick={this.next}>Suivant <ArrowRight /></a> : null
         return (
             <div className={className}>
                 <div className="arrow">
-                    <a onClick={this.previous}><ArrowLeft /> Précedent</a>
+                    {previous}
                 </div>
                 <div><span className="current">{index}</span>&nbsp;<span className="total">/&nbsp;{total}</span></div>
                 <div className="arrow">
-                    <a onClick={this.next}>Suivant <ArrowRight /></a>
+                    {next}
                 </div>
             </div>
         );
@@ -96,6 +99,10 @@ export default withRouter(styled(Footer)`
         cursor: pointer;
         display: inline-flex;
         font-size: 0.8em;
+
+        &:hover {
+            color: ${props => props.theme.active};
+        }
 
         svg {
             width: 18px;

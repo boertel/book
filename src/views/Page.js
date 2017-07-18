@@ -43,10 +43,11 @@ class Page extends Component {
         if (evt.target.tagName.toLowerCase() === 'input') {
             return
         }
-        if (evt.key === 'j') {
+        if (evt.key === 'j' || evt.key === 'ArrowLeft') {
             // TODO(boertel) open viewer from start/end
+            // something like: history.push(`/${album}/${index}/${path}`)
         }
-        if (evt.key === 'k') {
+        if (evt.key === 'k' || evt.key === 'ArrowRight') {
         }
     }
 
@@ -64,7 +65,7 @@ class Page extends Component {
 
         if (blocks) {
             content = <Content root={blocks[0]} index={index} />
-            viewer = <Route path="/pages/:index/:medium" component={Viewer} />
+            viewer = <Route path="/:album/:index/:medium" component={Viewer} />
         }
 
         const edit = this.props.editMode ? <Edit /> : null
