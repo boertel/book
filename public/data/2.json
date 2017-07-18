@@ -9,7 +9,7 @@
             "kind": "block",
             "type": "paragraph",
             "nodes": [
-                { "kind": "text", "text": "La place d'Espagne où est situé l'ambassade d'Espagne et un escalier monumental qui mène à l'église Trinità dei Monti." }
+                { "kind": "text", "text": "Maintenant aventurons nous plus au nord de la ville. La place d'Espagne où est situé l'ambassade d'Espagne et un escalier monumental qui mène à l'église Trinità dei Monti et à la Villa Borghese et ses jardins." }
             ]
         },
         {
@@ -50,7 +50,7 @@
             "kind": "block",
             "type": "paragraph",
             "nodes": [
-                { "kind": "text", "text": "Sur le plateau, on trouve aussi la Villa Borghese et ses jardins. Depuis ceux-ci, nous avons une belle vue sur Rome avec plus proéminente qu'elle ne paraît, la basilique Saint-Pierre. Pour échapper à la chaleur et se reposer de déjà beaucoup de marche, le musée d'art moderne où sont mélangés des statues antiques (ou tout du moins qui le paraissent) avec de l'art moderne. Le musée en lui même est dans un très beau bâtiment, très lumineux." }
+                { "kind": "text", "text": "Depuis la terrasse, nous avons une belle vue sur Rome avec plus proéminente qu'elle ne paraît: la basilique Saint-Pierre. Pour échapper à la chaleur et se reposer de déjà beaucoup de marche, les jardins sont agréables sans être bien entretenu mais offrent un endroit calme et avec un petit goût de nature." }
             ]
         },
         {
@@ -151,6 +151,16 @@
                         ],
                         "type": "marker"
                     }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Pour continuer dans les activités plus reposantes, le musée d'art moderne où sont mélangés des statues antiques (ou tout du moins qui le paraissent) avec de l'art moderne. Le musée en lui-même est dans un très beau bâtiment, très lumineux."
                 }
             ]
         },
@@ -305,6 +315,7 @@
                         },
                         "height": 3159,
                         "width": 4740,
+                        "title": "Taper l'incruste",
                         "location": "Galleria Nazionale d'Arte Moderna",
                         "coordinates": [
                             12.483487878457765,
@@ -392,9 +403,20 @@
         },
         {
             "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "En voici une oeuvre classique que l'on peut trouver dans les musées d'art moderne: 21 minutes de bruitage de machines à écrire. La vidéo represente l'interaction entre les humains et les machines."
+                }
+            ]
+        },
+        {
+            "kind": "block",
             "type": "video",
             "data": {
-                "url": "https://vimeo.com/12171944"
+                "url": "https://vimeo.com/12171944",
+                "title": "History of the typewriter recited by Michael Winslow"
             }
         },
         {
@@ -404,6 +426,16 @@
                 {
                     "kind": "text",
                     "text": "Retour dans le Centre"
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Et on retrouve les statues, les colonnes, et les murs colorées près de la Piazza del Popolo"
                 }
             ]
         },

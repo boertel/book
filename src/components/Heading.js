@@ -22,6 +22,6 @@ export default styled(Heading)`
     border-style: solid;
     border-width: 0;
     border-left-width: ${props => props.anchor ? '4px' : 0};
-    padding-left: ${props => props.anchor ? '1em' : 0 };
+    padding-left: ${props => props.anchor ? '0.5em' : 0 };
 `
 

@@ -232,7 +232,7 @@ export default withRouter(connect(select)(styled(Viewer)`
                 background-color: transparent;
             }
 
-            & > p {
+            & > div:nth-child(2) {
                 padding-left: 1em;
                 margin-top: 1em;
 
