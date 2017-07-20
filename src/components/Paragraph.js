@@ -13,6 +13,8 @@ const Paragraph = (props) => {
         widthContainer,
         heightContainer,
         i,
+        path,
+        dispatch,
         ...rest,
     } = props
     let classNames = [className]

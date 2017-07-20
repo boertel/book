@@ -9,6 +9,8 @@ const Heading = (props) => {
         coordinates,
         anchor,
         type,
+        dispatch,
+        path,
         ...rest,
     } = props
 

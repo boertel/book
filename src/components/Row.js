@@ -17,7 +17,6 @@ class Row extends Component {
             width: 0,
             height: 0,
         }
-
         this.resize = this.resize.bind(this)
     }
 

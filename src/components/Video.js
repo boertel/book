@@ -5,13 +5,19 @@ import styled from 'styled-components'
 class Video extends Component {
     render() {
         const { className } = this.props
+        const {
+            path,
+            dispatch,
+            ...rest
+        } = this.props
+
         let title = null
         if (this.props.title) {
             title = <p>{this.props.title}</p>
         }
         return (
             <div className={className}>
-                <ReactPlayer {...this.props} width="80%" />
+                <ReactPlayer {...rest} width="80%" />
                 {title}
             </div>
         )

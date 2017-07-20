@@ -15,11 +15,41 @@ import {
     deactivate,
 } from '../actions/blocks'
 
+const mapStateToProps = (state, props) => {
+    const { data } = state.blocks[props.path]
+    const { active } = state.activation[props.path] || {}
+
+    return {
+        key: props.path,
+        anchor: (data && data.coordinates !== undefined),
+        active,
+        onClick: (data && data.viewer) ? props.onClick : undefined,
+        ...data,
+    }
+}
+
+const mapDispatchToProps = (dispatch, props) => {
+    let onMouseOver, onMouseOut
+
+    if (props.coordinates) {
+        onMouseOver = () => dispatch(activate(props.path))
+        onMouseOut = () => dispatch(deactivate(props.path))
+    }
+    return {
+        onMouseOver,
+        onMouseOut,
+    }
+}
+
+const Title = (props) => <h1 {...props} />
+
+const blockify =connect(mapStateToProps, mapDispatchToProps)
+
 
 // TODO(boertel) replace native tag with custom one to support active and co
 const mapping = {
     'paragraph': {
-        type: Paragraph,
+        type: blockify(Paragraph),
     },
     'div': {
         type: 'div',
@@ -31,22 +61,22 @@ const mapping = {
         type: Anchor,
     },
     'title': {
-        type: 'h1',
+        type: blockify(Title),
     },
     'heading': {
-        type: Heading,
+        type: blockify(Heading),
     },
     'row': {
-        type: Row,
+        type: blockify(Row),
     },
     'picture': {
-        type: ResponsivePicture,
+        type: blockify(ResponsivePicture),
     },
     'root': {
         type: 'div',
     },
     'video': {
-        type: Video,
+        type: blockify(Video),
     }
 }
 
@@ -56,32 +86,12 @@ function generate(nodes, dispatch, index, history, i) {
     return nodes.map((node) => {
         if (node.kind === 'block') {
             const options = mapping[node.type]
-            const data = node.data || {}
-
-            let props = Object.assign({}, {
-                key: node.path,
-            }, data)
-
             const children = generate(node.nodes, dispatch, index, history, i)
-            // TODO(boertel) is this supposed to be here? can this be abstracted?
-            if (data.viewer) {
-                // TODO(boertel) can I use path always? instead of i
-                const url = `${index}/${node.path}`
-                const onClick = () => {
-                    // only when not in viewer already
-                    history.push(url)
-                };
-                i += 1
-                props = Object.assign(props, {onClick})
-            }
-            if (data.anchor || data.coordinates) {
-                const onMouseOver = () => {
-                    dispatch(activate(node.path))
-                }
-                const onMouseOut = () => {
-                    dispatch(deactivate(node.path))
-                }
-                props = Object.assign(props, {onMouseOver, onMouseOut, anchor: true})
+            const props = {
+                key: node.path,
+                path: node.path,
+                onClick: () => history.push(`${index}/${node.path}`),
+                ...node.data
             }
             return React.createElement(options.type, props, children)
         } else if (node.kind === 'text') {
@@ -92,6 +102,10 @@ function generate(nodes, dispatch, index, history, i) {
 }
 
 class Content extends Component {
+    shouldComponentUpdate(nextProps) {
+        return nextProps.index !== this.props.index
+    }
+
     render() {
         const {
             nodes,

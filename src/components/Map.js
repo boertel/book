@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import _ from 'lodash'
+import pickBy from 'lodash/pickBy'
 import mapboxgl from 'mapbox-gl'
 
 import {
@@ -72,11 +73,10 @@ class Map extends Component {
                 const bounds = this.getBounds(nextProps)
                 this.map.fitBounds(bounds, { padding: 120 })
             }
-            const actives = nextProps.markers.filter((m) => m.data && m.data.active === true).map(({path}) => path)
             this.map.setFilter('markers-hover', [
                 'all',
                 ['==', 'index', nextProps.index],
-                ['in', 'path', ...actives],
+                ['in', 'path', ...nextProps.actives],
             ])
         }
     }
@@ -195,8 +195,11 @@ function select(store, props) {
 
     const markers = features.filter((feature) => feature.data.type === 'marker');
 
+    const actives = Object.keys(pickBy(store.activation, (block) => block.active === true))
+
     return {
         markers,
+        actives,
     }
 }
 
