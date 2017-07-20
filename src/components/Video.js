@@ -11,7 +11,7 @@ class Video extends Component {
         }
         return (
             <div className={className}>
-                <ReactPlayer {...this.props} />
+                <ReactPlayer {...this.props} width="80%" />
                 {title}
             </div>
         )

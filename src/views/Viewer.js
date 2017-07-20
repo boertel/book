@@ -233,6 +233,7 @@ export default withRouter(connect(select)(styled(Viewer)`
             @media (max-width: 1000px) {
                 flex-direction: column;
                 align-items: center;
+                height: 100%;
             }
 
             & > div {
