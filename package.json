@@ -30,6 +30,9 @@
     "eject": "react-scripts eject",
     "now-start": "serve -s build/"
   },
+  "now": {
+    "alias": "ranger-oertel"
+  },
   "eslintConfig": {
     "extends": "./node_modules/react-scripts/config/eslint.js"
   }
