@@ -168,6 +168,7 @@ class Map extends Component {
         this.map.on('click', (evt) => {
             const coords = [evt.lngLat.lng, evt.lngLat.lat]
             window.COORDINATES = coords;
+            console.log(window.COORDINATES)
         })
     }
 

@@ -2,6 +2,16 @@
     "nodes": [
         {
             "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Retour dans les rues de Rome, on nous avons croisé Super Franciscus"
+                }
+            ]
+        },
+        {
+            "kind": "block",
             "type": "row",
             "nodes": [
                 {
@@ -19,7 +29,7 @@
                         },
                         "height": 3264,
                         "width": 2448,
-                        "title": "Super Francisco"
+                        "title": "Super Franciscus"
                     }
                 }
             ]
@@ -75,6 +85,16 @@
         },
         {
             "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Spécialité de Rome, les Supplis: boule de riz frite avec à l'interieur de la tomate, des champignons ou de la viande"
+                }
+            ]
+        },
+        {
+            "kind": "block",
             "type": "row",
             "nodes": [
                 {
@@ -108,10 +128,20 @@
                             "type": "flickr",
                             "id": "35535010140"
                         },
-                        "height": 2448,
-                        "width": 3264,
+                        "height": 3264,
+                        "width": 2448,
                         "title": "Suppli"
                     }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Et  il n'y a rien de mieux que d'arpenter les rues d'une ville pour y découvrir les différents quartiers."
                 }
             ]
         },
@@ -149,15 +179,15 @@
                     "data": {
                         "viewer": true,
                         "src": {
-                            "originalsecret": "ec33454d13",
+                            "originalsecret": "4d5b1a1a14",
                             "farm": 5,
-                            "server": "4237",
-                            "secret": "f40ce39d7c",
+                            "server": "4323",
+                            "secret": "2278832722",
                             "type": "flickr",
-                            "id": "35870426146"
+                            "id": "35745690780"
                         },
-                        "height": 3264,
-                        "width": 4896
+                        "height": 3148,
+                        "width": 4048
                     }
                 },
                 {
@@ -198,8 +228,20 @@
                         },
                         "height": 4896,
                         "width": 3264,
+                        "type": "marker",
+                        "coordinates": [12.475480576694736, 41.89944367597636],
                         "title": "Drapeau italien et européen: partout"
                     }
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "En pensant Italie, j'avais en tête les scooters et leurs conduites endiablées, Rome est peut-être un peu à part comme toutes capitales, elle n'est peut-être pas représentative du pays mais tout de même, les Vespas y sont bien présents."
                 }
             ]
         },

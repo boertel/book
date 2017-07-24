@@ -22,15 +22,15 @@
                     "data": {
                         "viewer": true,
                         "src": {
-                            "originalsecret": "7f9391f348",
+                            "originalsecret": "bebbd1320b",
                             "farm": 5,
                             "server": "4281",
-                            "secret": "20dc42a810",
+                            "secret": "7a638c8a90",
                             "type": "flickr",
                             "id": "35102654553"
                         },
-                        "height": 3264,
-                        "width": 4896,
+                        "height": 3238,
+                        "width": 4864,
                         "location": "Piazza di Spagna",
                         "coordinates": [
                             12.482117008505014,
