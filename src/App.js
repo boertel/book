@@ -3,20 +3,27 @@ import styled, { ThemeProvider } from 'styled-components'
 
 import {
     BrowserRouter as Router,
+    Link,
+    Switch,
     Route,
 } from 'react-router-dom'
 
 import {
     Album,
+    Home,
 } from './views'
 
 import theme from './theme'
 
 
+
 const App = () => (
     <ThemeProvider theme={theme}>
         <Router>
-            <Route path='/:album' component={Album} />
+            <Switch>
+                <Route path='/:album' component={Album} />
+                <Route path='/' component={Home} />
+            </Switch>
         </Router>
     </ThemeProvider>
 )

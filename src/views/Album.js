@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Route } from 'react-router-dom'
+import {
+    Switch,
+    Route,
+    Redirect,
+} from 'react-router-dom'
 
 import {
     loadAlbum,
@@ -34,14 +38,20 @@ class Album extends Component {
     render() {
         const {
             pages,
+            match,
         } = this.props
 
         if (pages === undefined) {
             return <div>Loading...</div>
         }
 
+        const { album } = match.params
+
         return (
-            <Route path='/:album/:index' component={Page} />
+            <Switch>
+                <Route path='/:album/:index' component={Page} />
+                <Redirect from='/:album' to={`/${album}/1`} />
+            </Switch>
         )
     }
 }
