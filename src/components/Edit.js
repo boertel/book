@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components'
 
 import axios from 'axios'
@@ -6,6 +7,10 @@ import chunk from 'lodash/chunk'
 
 import ResponsivePicture from './ResponsivePicture'
 import Row from './Row'
+
+import {
+    loadPhotos,
+} from '../resources/photos';
 
 
 class Edit extends Component {
@@ -15,7 +20,6 @@ class Edit extends Component {
             current: 0,
             selection: [],
             selectionable: false,
-            pictures: [],
         }
 
         this.copy = this.copy.bind(this)
@@ -26,16 +30,11 @@ class Edit extends Component {
     }
 
     onChange(attr) {
-        const { pictures } = this.state
+        const { pictures } = this.props;
         return (evt) => {
             const target = evt.target
             const value = target.type === 'checkbox' ? target.checked : target.value
             const { current } = this.state
-            pictures[current][attr] = value
-            window.localStorage.setItem('pictures', JSON.stringify(pictures))
-            this.setState({
-                pictures,
-            })
         }
     }
 
@@ -89,26 +88,22 @@ class Edit extends Component {
         window.removeEventListener('keyup', this.onkeyup)
     }
 
+    load() {
+        const photosetId = this.props.photosetId;
+        this.props.loadPhotos(photosetId);
+    }
+
     componentDidMount() {
         window.addEventListener('keydown', this.onkeydown)
         window.addEventListener('keyup', this.onkeyup)
-        //window.localStorage.clear()
-        if (window.localStorage.getItem('pictures')) {
-            this.setState({
-                pictures: JSON.parse(window.localStorage.getItem('pictures'))
-            })
-        } else {
-            axios.get('/data/flickr.json').then((response) => {
-                this.setState({
-                    pictures: response.data,
-                })
-            })
-        }
+        this.load();
     }
 
     renderRows() {
         const {
             pictures,
+        } = this.props;
+        const {
             current,
             selection,
         } = this.state
@@ -133,7 +128,7 @@ class Edit extends Component {
     }
 
     generatePicture(index) {
-        const picture = this.state.pictures[index]
+        const picture = this.props.pictures[index]
 
         let marker = {}
         if (picture.coordinates) {
@@ -160,9 +155,11 @@ class Edit extends Component {
     }
 
     render() {
-        const { className } = this.props
         const {
+            className,
             pictures,
+        } = this.props
+        const {
             current,
             selection,
         } = this.state
@@ -201,7 +198,22 @@ class Edit extends Component {
     }
 }
 
-export default styled(Edit)`
+const mapStateToProps = (state, ownProps) => {
+    const photosetId = '72157665415084982'
+    const pictures = state.photos.entities[photosetId] || [];
+    return {
+        pictures,
+        photosetId,
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loadPhotos: (photosetId) => dispatch(loadPhotos(photosetId)),
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(styled(Edit)`
     position: fixed;
     bottom: 0;
     left: 0;
@@ -220,4 +232,4 @@ export default styled(Edit)`
         padding: 6px;
         border: none;
     }
-`
+`)
