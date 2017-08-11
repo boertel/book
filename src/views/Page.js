@@ -35,6 +35,7 @@ class Page extends Component {
     componentWillReceiveProps(nextProps) {
         const { dispatch, index } = nextProps
         if (nextProps.index !== this.props.index) {
+            window.scrollTo(0, 0)
             dispatch(loadBlocks(index))
         }
     }
