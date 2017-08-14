@@ -32,8 +32,5 @@
   },
   "now": {
     "alias": "ranger-oertel"
-  },
-  "eslintConfig": {
-    "extends": "./node_modules/react-scripts/config/eslint.js"
   }
 }

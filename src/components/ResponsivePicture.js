@@ -1,68 +1,70 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import { transparentize } from 'polished'
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { transparentize } from 'polished';
 
-import Picture from './Picture'
-
+import Picture from './Picture';
 
 class ResponsivePicture extends Component {
-    shouldComponentUpdate(nextProps) {
-        return (
-            nextProps.active !== this.props.active
-            || (this.props.widthContainer === 0 && nextProps.widthContainer !== 0)
-            || (this.props.style !== nextProps.style)
-        )
+  shouldComponentUpdate(nextProps) {
+    return (
+      nextProps.active !== this.props.active ||
+      nextProps.selected !== this.props.selected ||
+      nextProps.className !== this.props.className ||
+      (this.props.widthContainer === 0 && nextProps.widthContainer !== 0) ||
+      this.props.style !== nextProps.style
+    );
+  }
+
+  render() {
+    const {
+      active,
+      anchor,
+      widthContainer,
+      heightContainer,
+      aspectRatio,
+      ratio,
+      src,
+      className,
+    } = this.props;
+
+    if (widthContainer === 0) {
+      return null;
     }
 
-    render() {
-        const {
-            active,
-            anchor,
-            widthContainer,
-            heightContainer,
-            aspectRatio,
-            ratio,
-            src,
-            className,
-        } = this.props
+    let width = Math.floor(widthContainer / ratio * aspectRatio);
+    let height = Math.floor(widthContainer / ratio);
 
-        if (widthContainer === 0) {
-            return null
-        }
-
-        let width = Math.floor((widthContainer / ratio) * aspectRatio)
-        let height = Math.floor(widthContainer / ratio)
-
-        if (height > heightContainer) {
-            height = Math.floor(heightContainer)
-            width = height * aspectRatio
-        }
-
-        const style = Object.assign({}, this.props.style, {
-            width,
-            height,
-            active,
-        })
-
-        let classNames = [className]
-        if (active) {
-            classNames.push('active')
-        }
-        if (anchor) {
-            classNames.push('anchor')
-        }
-
-        return (
-            <div className={classNames.join(' ')}
-                style={style}
-                onClick={this.props.onClick}
-                onMouseOver={this.props.onMouseOver}
-                onMouseOut={this.props.onMouseOut}>
-                <Picture src={src} width={width} height={height} />
-            </div>
-        )
-
+    if (height > heightContainer) {
+      height = Math.floor(heightContainer);
+      width = height * aspectRatio;
     }
+
+    const style = Object.assign({}, this.props.style, {
+      width,
+      height,
+      active,
+    });
+
+    let classNames = [className];
+    if (active) {
+      classNames.push('active');
+    }
+    if (anchor) {
+      classNames.push('anchor');
+    }
+
+    return (
+      <div
+        className={classNames.join(' ')}
+        style={style}
+        onClick={this.props.onClick}
+        onMouseOver={this.props.onMouseOver}
+        onMouseOut={this.props.onMouseOut}
+      >
+        <Picture src={src} width={width} height={height} />
+      </div>
+    );
+  }
 }
 
 export default styled(ResponsivePicture)`
@@ -98,4 +100,4 @@ export default styled(ResponsivePicture)`
         width: 100%;
         height: 100%;
     }
-`
+`;

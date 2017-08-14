@@ -1,27 +1,47 @@
 import { handle } from 'redux-pack';
-
+import { PHOTOS_LOAD, PHOTOS_SELECT } from './actionTypes';
 
 const initialState = {
-    isLoading: false,
-    error: undefined,
-    entities: {},
-}
+  isLoading: false,
+  error: undefined,
+  order: {},
+  entities: {},
+};
 
+export default function reducer(state = initialState, action = {}) {
+  const { type, payload } = action;
+  switch (type) {
+    case PHOTOS_LOAD:
+      return handle(state, action, {
+        start: prevState => ({ ...prevState, isLoading: true, error: null }),
+        finish: prevState => ({ ...prevState, isLoading: false }),
+        success: prevState => {
+          let entities = {};
+          const order = payload.photo.map(photo => {
+            const { id } = photo.src;
+            entities[id] = photo;
+            return id;
+          });
+          return {
+            ...prevState,
+            order: Object.assign({}, prevState.order, {
+              [payload.id]: order,
+            }),
+            entities: Object.assign({}, prevState.entities, entities),
+          };
+        },
+      });
 
-export default function reducer(state=initialState, action={}) {
-    const { type, payload } = action;
-    switch(type) {
-        case 'PHOTOS_LOAD':
-            console.log(action)
-            return handle(state, action, {
-                start: prevState => ({...prevState, isLoading: true, error: null}),
-                finish: prevState => ({...prevState, isLoading: false}),
-                success: prevState => {
-                    console.log('success', payload);
-                    return {...prevState, entities: Object.assign({}, prevState.entities, {[payload.id]: payload.photo})};
-                }
-            });
-        default:
-            return state;
-    }
+    case PHOTOS_SELECT:
+      const id = action.id;
+      const entity = Object.assign({}, state.entities[id], { selected: !state.entities[id].selected });
+      const entities = { ...state.entities, [id]: entity };
+      return {
+        ...state,
+        entities: entities,
+      };
+
+    default:
+      return state;
+  }
 }
