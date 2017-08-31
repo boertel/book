@@ -10,6 +10,7 @@ const Paragraph = (props) => {
         type,
         aspectRatio,
         ratio,
+        anchor,
         widthContainer,
         heightContainer,
         i,

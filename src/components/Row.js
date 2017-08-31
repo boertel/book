@@ -44,7 +44,6 @@ class Row extends Component {
     render() {
         const {
             active,
-            offset,
             className,
         } = this.props
 
@@ -58,7 +57,6 @@ class Row extends Component {
                 aspectRatio: aspectRatio(child.props),
                 widthContainer: this.state.width,
                 heightContainer: this.state.height,
-                i: (i + offset),
             })
         });
 

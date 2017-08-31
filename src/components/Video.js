@@ -5,11 +5,6 @@ import styled from 'styled-components'
 class Video extends Component {
     render() {
         const { className } = this.props
-        const {
-            path,
-            dispatch,
-            ...rest
-        } = this.props
 
         let title = null
         if (this.props.title) {
@@ -17,7 +12,7 @@ class Video extends Component {
         }
         return (
             <div className={className}>
-                <ReactPlayer {...rest} width="80%" />
+                <ReactPlayer {...this.props} width="80%" />
                 {title}
             </div>
         )

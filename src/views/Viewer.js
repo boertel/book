@@ -139,38 +139,8 @@ function select(store, props) {
         nextPath = `/${album}/${index + 1}`
     }
 
-    const { title, location } = medium.data
-
-    let nodes = []
-    nodes.push({ 'kind': 'block', 'type': 'paragraph','path': `v${index}:${mediumIndex}:0:0`, 'nodes': [ {'kind': 'text', 'text': title || ''} ] })
-    if (location) {
-        nodes.push({ 'kind': 'block', 'type': 'paragraph','path': `v${index}:${mediumIndex}:0:1`, 'nodes': [ {'kind': 'text', 'text': `– ${location}`} ] })
-    }
-
-    const text = {
-        'kind': 'block',
-        'type': 'div',
-        'path': `v${index}:${mediumIndex}:0`,
-        'data': {
-            'width': 300,
-            'height': window.innerHeight,
-        },
-        'nodes': nodes,
-    }
-
-    const clone = Object.assign({}, medium, {
-        data: Object.assign({}, medium.data, { viewer: false })
-    })
-
     return {
-        nodes: [
-            {
-                type: 'row',
-                kind: 'block',
-                path: `v${index}:${mediumIndex}`,
-                nodes: [ clone, text ]
-            }
-        ],
+        nodes: [medium],
         total: media.length,
         mediumIndex,
         previousPath,
