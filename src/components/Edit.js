@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import styled from "styled-components";
 
-import chunk from 'lodash/chunk';
+import chunk from "lodash/chunk";
 
-import EditPhoto from './EditPhoto';
-import Row from './Row';
+import EditPhoto from "./EditPhoto";
+import Row from "./Row";
 
-import { loadPhotos } from '../resources/photos';
+import { loadPhotos } from "../resources/photos";
 
 class Edit extends Component {
   load() {
@@ -16,8 +16,8 @@ class Edit extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('keydown', this.onkeydown);
-    window.addEventListener('keyup', this.onkeyup);
+    window.addEventListener("keydown", this.onkeydown);
+    window.addEventListener("keyup", this.onkeyup);
     this.load();
   }
 
@@ -28,7 +28,9 @@ class Edit extends Component {
     return rows.map((row, rowIndex) => {
       return (
         <Row key={rowIndex}>
-          {row.map(pictureId => <EditPhoto id={pictureId} key={pictureId} />)}
+          {row.map(pictureId => (
+            <EditPhoto id={pictureId} key={pictureId} />
+          ))}
         </Row>
       );
     });
@@ -43,44 +45,49 @@ class Edit extends Component {
 
     return (
       <div className={className}>
-        <div style={{ width: '80%' }}>{this.renderRows()}</div>
+        <div style={{ width: "80%" }}>{this.renderRows()}</div>
       </div>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const photosetId = '72157665415084982';
+  const photosetId = "72157677661164877";
   const order = state.photos.order[photosetId] || [];
   return {
     pictureIds: order,
-    photosetId,
+    photosetId
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadPhotos: photosetId => dispatch(loadPhotos(photosetId)),
+    loadPhotos: photosetId => dispatch(loadPhotos(photosetId))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(styled(Edit)`
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.95);
-    height: 600px;
-    z-index: 2;
-    display: flex;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(styled(Edit)`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  height: 600px;
+  z-index: 2;
+  display: flex;
 
-    & > div:first-child {
-        overflow-y: auto;
-    }
+  & > div:first-child {
+    overflow-y: auto;
+  }
 
-    input, textarea, button {
-        margin-bottom: 1em;
-        padding: 6px;
-        border: none;
-    }
+  input,
+  textarea,
+  button {
+    margin-bottom: 1em;
+    padding: 6px;
+    border: none;
+  }
 `);

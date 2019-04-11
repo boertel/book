@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
+    "prettier": "^1.16.4",
     "react-scripts": "^1.0.7"
   },
   "dependencies": {

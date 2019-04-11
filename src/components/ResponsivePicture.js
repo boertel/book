@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import { transparentize } from 'polished';
+import React, { Component } from "react";
+import styled from "styled-components";
+import { transparentize } from "polished";
 
-import Picture from './Picture';
+import Picture from "./Picture";
 
 class ResponsivePicture extends Component {
   shouldComponentUpdate(nextProps) {
@@ -24,14 +24,14 @@ class ResponsivePicture extends Component {
       aspectRatio,
       ratio,
       src,
-      className,
+      className
     } = this.props;
 
     if (widthContainer === 0) {
       return null;
     }
 
-    let width = Math.floor(widthContainer / ratio * aspectRatio);
+    let width = Math.floor((widthContainer / ratio) * aspectRatio);
     let height = Math.floor(widthContainer / ratio);
 
     if (height > heightContainer) {
@@ -42,20 +42,20 @@ class ResponsivePicture extends Component {
     const style = Object.assign({}, this.props.style, {
       width,
       height,
-      active,
+      active
     });
 
     let classNames = [className];
     if (active) {
-      classNames.push('active');
+      classNames.push("active");
     }
     if (anchor) {
-      classNames.push('anchor');
+      classNames.push("anchor");
     }
 
     return (
       <div
-        className={classNames.join(' ')}
+        className={classNames.join(" ")}
         style={style}
         onClick={this.props.onClick}
         onMouseOver={this.props.onMouseOver}
@@ -68,36 +68,37 @@ class ResponsivePicture extends Component {
 }
 
 export default styled(ResponsivePicture)`
-    position: relative;
+  position: relative;
+  cursor: pointer;
+  background-color: ${props => props.theme.placeholder};
+
+  &.anchor:after {
+    content: " ";
+    width: 8px;
+    height: 8px;
+    background-color: ${props => transparentize(0.4, props.theme.active)};
+    border-radius: 8px;
+    border: 2px solid ${props => props.theme.active};
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    margin: 4px;
+    pointer-events: none;
+  }
+
+  &.anchor:hover {
     cursor: pointer;
-    background-color: ${props => props.theme.placeholder};
+  }
 
-    &.anchor:after {
-        content: " ";
-        width: 8px;
-        height: 8px;
-        background-color: ${props => transparentize(0.4, props.theme.active)};
-        border-radius: 8px;
-        border: 2px solid ${props => props.theme.active};
-        display: block;
-        position: absolute;
-        bottom: 0px;
-        right: 0px;
-        margin: 4px;
-        pointer-events: none;
-    }
+  &.anchor.active:after,
+  &.anchor:hover:after {
+    background-color: ${props => props.theme.active};
+  }
 
-    &.anchor:hover {
-        cursor: pointer;
-    }
-
-    &.anchor.active:after, &.anchor:hover:after {
-        background-color: ${props => props.theme.active};
-    }
-
-    img {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-    }
+  img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
 `;

@@ -1,11 +1,11 @@
-import { handle } from 'redux-pack';
-import { PHOTOS_LOAD, PHOTOS_SELECT } from './actionTypes';
+import { handle } from "redux-pack";
+import { PHOTOS_LOAD, PHOTOS_SELECT } from "./actionTypes";
 
 const initialState = {
   isLoading: false,
   error: undefined,
   order: {},
-  entities: {},
+  entities: {}
 };
 
 export default function reducer(state = initialState, action = {}) {
@@ -25,20 +25,22 @@ export default function reducer(state = initialState, action = {}) {
           return {
             ...prevState,
             order: Object.assign({}, prevState.order, {
-              [payload.id]: order,
+              [payload.id]: order
             }),
-            entities: Object.assign({}, prevState.entities, entities),
+            entities: Object.assign({}, prevState.entities, entities)
           };
-        },
+        }
       });
 
     case PHOTOS_SELECT:
       const id = action.id;
-      const entity = Object.assign({}, state.entities[id], { selected: !state.entities[id].selected });
+      const entity = Object.assign({}, state.entities[id], {
+        selected: !state.entities[id].selected
+      });
       const entities = { ...state.entities, [id]: entity };
       return {
         ...state,
-        entities: entities,
+        entities: entities
       };
 
     default:

@@ -1,112 +1,114 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import { withRouter } from 'react-router-dom'
+import React, { Component } from "react";
+import styled from "styled-components";
+import { withRouter } from "react-router-dom";
 
-import { ArrowLeft, ArrowRight } from 'react-feather'
+import { ArrowLeft, ArrowRight } from "react-feather";
 
+const nextPage = page => {
+  let url = `${page.index + 1}`;
+  if (page.index > page.total) {
+    url = "/end";
+  }
+  return url;
+};
 
-const nextPage = (page) => {
-    let url = `${page.index + 1}`;
-    if (page.index > page.total) {
-        url = '/end';
-    }
-    return url;
-}
-
-const previousPage = (page) => {
-    let url = `${page.index - 1}`;
-    if (page.index === 1) {
-        url = '/';
-    }
-    return url;
-}
-
+const previousPage = page => {
+  let url = `${page.index - 1}`;
+  if (page.index === 1) {
+    url = "/";
+  }
+  return url;
+};
 
 class Footer extends Component {
-    constructor(props) {
-        super(props);
-        this.next = this.next.bind(this);
-        this.previous = this.previous.bind(this);
-        this.onKeydown = this.onKeydown.bind(this)
+  constructor(props) {
+    super(props);
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
+    this.onKeydown = this.onKeydown.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener("keydown", this.onKeydown);
+  }
+
+  componentWillUnmount() {
+    window.addEventListener("keydown", this.onKeydown);
+  }
+
+  onKeydown(evt) {
+    if (evt.target.tagName.toLowerCase() === "input") {
+      return;
     }
-
-    componentDidMount() {
-        window.addEventListener('keydown', this.onKeydown);
+    if (evt.key === "h") {
+      this.previous();
     }
-
-    componentWillUnmount() {
-        window.addEventListener('keydown', this.onKeydown);
+    if (evt.key === "l") {
+      this.next();
     }
+  }
 
-    onKeydown(evt) {
-        if (evt.target.tagName.toLowerCase() === 'input') {
-            return
-        }
-        if (evt.key === 'h') {
-            this.previous();
-        }
-        if (evt.key === 'l') {
-            this.next();
-        }
-    }
+  next() {
+    const { history, index, total } = this.props;
+    history.push(nextPage({ index, total }));
+  }
 
-    next() {
-        const { history, index, total } = this.props;
-        history.push(nextPage({index, total}))
-    }
+  previous() {
+    const { history, index, total } = this.props;
+    history.push(previousPage({ index, total }));
+  }
 
-    previous() {
-        const { history, index, total } = this.props;
-        history.push(previousPage({index, total}))
-    }
+  render() {
+    const { index, total, className } = this.props;
 
-    render() {
-        const {
-            index,
-            total,
-            className,
-        } = this.props;
-
-
-        const previous = index !== 1 ? <a onClick={this.previous}><ArrowLeft /> Précedent</a> : null
-        const next = index !== total ? <a onClick={this.next}>Suivant <ArrowRight /></a> : null
-        return (
-            <div className={className}>
-                <div className="arrow">
-                    {previous}
-                </div>
-                <div><span className="current">{index}</span>&nbsp;<span className="total">/&nbsp;{total}</span></div>
-                <div className="arrow">
-                    {next}
-                </div>
-            </div>
-        );
-    }
+    const previous =
+      index !== 1 ? (
+        <a onClick={this.previous}>
+          <ArrowLeft /> Précedent
+        </a>
+      ) : null;
+    const next =
+      index !== total ? (
+        <a onClick={this.next}>
+          Suivant <ArrowRight />
+        </a>
+      ) : null;
+    return (
+      <div className={className}>
+        <div className="arrow">{previous}</div>
+        <div>
+          <span className="current">{index}</span>&nbsp;
+          <span className="total">/&nbsp;{total}</span>
+        </div>
+        <div className="arrow">{next}</div>
+      </div>
+    );
+  }
 }
 
 export default withRouter(styled(Footer)`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2em 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2em 0;
 
-    .total {
-        color: #888;
+  .total {
+    color: #888;
+  }
+
+  .arrow a {
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 0.8em;
+
+    &:hover {
+      color: ${props => props.theme.active};
     }
 
-    .arrow a {
-        cursor: pointer;
-        display: inline-flex;
-        font-size: 0.8em;
-
-        &:hover {
-            color: ${props => props.theme.active};
-        }
-
-        svg {
-            width: 18px;
-            margin: 0 0.3em;
-        }
+    svg {
+      width: 18px;
+      margin: 0 0.3em;
     }
-`)
+  }
+`);
