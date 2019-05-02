@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 import _ from "lodash";
 import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 import { activate, deactivate } from "../actions/blocks";
 
@@ -43,45 +43,41 @@ const createFeatures = data => {
   });
 };
 
+const getBounds = (markers) => {
+  let bounds = new mapboxgl.LngLatBounds();
+  markers.forEach(({ data }) => bounds.extend(data.coordinates));
+  return bounds;
+}
+
 class Map extends Component {
-  getBounds(props) {
-    props = props || this.props;
-    let bounds = new mapboxgl.LngLatBounds();
-    props.markers.forEach(({ data }) => bounds.extend(data.coordinates));
-    return bounds;
-  }
-
-  shouldComponentUpdate() {
-    return false;
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.map.isStyleLoaded() && nextProps.markers.length) {
+  shouldComponentUpdate(nextProps) {
+    const { markers, index } = nextProps;
+    if (this.map.isStyleLoaded() && markers.length) {
       // wait until markers have been fetch or next page
       if (
-        this.props.markers.length !== nextProps.markers.length ||
-        nextProps.index !== this.props.index
+        this.props.markers.length !== markers.length ||
+        this.props.index !== index
       ) {
         this.updateSource(nextProps);
-        this.map.setFilter("markers", ["==", "index", nextProps.index]);
+        this.map.setFilter("markers", ["==", "index", index]);
         this.map.setFilter("markers-hover", [
           "all",
-          ["==", "index", nextProps.index],
+          ["==", "index", index],
           ["==", "path", ""]
         ]);
 
-        const bounds = this.getBounds(nextProps);
-        this.map.fitBounds(bounds, { padding: 120 });
+        this.map.fitBounds(getBounds(markers), { padding: 120 });
       }
-      const actives = nextProps.markers
+      const actives = markers
         .filter(m => m.data && m.data.active === true)
         .map(({ path }) => path);
       this.map.setFilter("markers-hover", [
         "all",
-        ["==", "index", nextProps.index],
+        ["==", "index", index],
         ["in", "path", ...actives]
       ]);
     }
+    return false;
   }
 
   updateSource(props) {
@@ -100,7 +96,7 @@ class Map extends Component {
   }
 
   componentDidMount() {
-    const { dispatch, history } = this.props;
+    const { dispatch, center, markers, } = this.props;
 
     const maxZoom = 16;
 
@@ -108,8 +104,7 @@ class Map extends Component {
     this.map = new mapboxgl.Map({
       keyboard: false,
       container: this.container,
-      // TODO(boertel) Hardcoded
-      center: [12.483246280572445, 41.89373855205321],
+      center,
       zoom: 12,
       maxZoom,
       style: config.style
@@ -147,19 +142,18 @@ class Map extends Component {
         this.map.setFilter("markers-hover", ["==", "path", ""]);
       });
 
-      const { album } = this.props.match.params;
+      const { navigate } = this.props;
       this.map.on("click", "markers-hover", evt => {
-        const { viewer, index, path } = evt.features[0].properties;
+        const { viewer, path } = evt.features[0].properties;
         if (viewer) {
-          history.push(`/${album}/${index}/${path}`);
+          navigate(path);
         }
       });
 
-      const bounds = this.getBounds();
-      this.map.fitBounds(bounds, { padding: 120 });
+      this.map.fitBounds(getBounds(markers), { padding: 120 });
     });
 
-    // TODO(boertel) redux
+    // TODO(boertel) edit mode redux
     this.map.on("click", evt => {
       const coords = [evt.lngLat.lng, evt.lngLat.lat];
       window.COORDINATES = coords;
@@ -177,13 +171,19 @@ class Map extends Component {
   }
 }
 
-function select(store, props) {
+const mapStateToProps = (store, props) => {
   const { index } = props;
   let features = [];
   if (Object.keys(store.blocks).length !== 0 && store.pages[index]) {
     features = _.chain(store.blocks)
       //.pick(store.pages[index].blocks)
-      .pickBy(block => block.data && block.data.coordinates)
+      .pickBy(
+        block =>
+          block.data &&
+          block.data.coordinates &&
+          block.data.coordinates[0] !== 0 &&
+          block.data.coordinates[1] !== 0
+      )
       .values()
       .value();
   }
@@ -193,24 +193,22 @@ function select(store, props) {
   return {
     markers
   };
-}
+};
 
-export default withRouter(
-  connect(select)(styled(Map)`
-    position: relative;
+export default connect(mapStateToProps)(styled(Map)`
+  position: relative;
+  height: 100%;
+  width: 40%;
+
+  .mapboxgl-map {
     height: 100%;
-    width: 40%;
-
-    .mapboxgl-map {
-      height: 100%;
-      @media (min-width: 1000px) {
-        position: fixed;
-        width: inherit;
-      }
+    @media (min-width: 1000px) {
+      position: fixed;
+      width: inherit;
     }
+  }
 
-    canvas {
-      outline: none;
-    }
-  `)
-);
+  canvas {
+    outline: none;
+  }
+`);

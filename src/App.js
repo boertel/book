@@ -1,23 +1,20 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import { globalHistory, Router } from "@reach/router";
+import { QueryParamProvider } from "use-query-params";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-import { Album, Home } from "./views";
-
-import theme from "./theme";
+import { Album, Home, Page, Viewer } from "./views";
 
 const App = () => (
-  <ThemeProvider theme={theme}>
+  <QueryParamProvider reachHistory={globalHistory}>
     <Router>
-      <Switch>
-        <Route path="/:album" component={Album} />
-        <Route path="/" component={Home} />
-      </Switch>
-    </Router>
-  </ThemeProvider>
+      <Album path="/:name">
+        <Page path=":index">
+          <Viewer path=":block" />
+        </Page>
+      </Album>
+      <Home path="/" />
+  </Router>
+    </QueryParamProvider>
 );
 
-export default styled(App)`
-  height: 100%;
-`;
+export default App;

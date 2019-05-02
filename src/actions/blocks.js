@@ -27,9 +27,9 @@ function serialize(parent, depth) {
   return output;
 }
 
-export function loadBlocks(pid) {
+export const loadBlocks = (album, pid) => {
   return dispatch => {
-    axios.get(`/data/${pid}.json`).then(response => {
+    axios.get(`/data/${album}/${pid}.json`).then(response => {
       const page = response.data;
       return dispatch({
         type: "BLOCKS_LOADED",
@@ -38,7 +38,7 @@ export function loadBlocks(pid) {
       });
     });
   };
-}
+};
 
 export function activate(bid) {
   return {

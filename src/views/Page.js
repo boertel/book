@@ -1,23 +1,15 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { Route } from "react-router-dom";
 
 import { loadBlocks } from "../actions/blocks";
 
-import { Content, Map, Header, Footer, Edit } from "../components";
+import { Content, Header, Footer, Map, } from "../components";
 
-import { Viewer } from "../views";
 
 class Page extends Component {
-  constructor(props) {
-    super(props);
-    this.onKeydown = this.onKeydown.bind(this);
-  }
-
   componentDidMount() {
-    const { dispatch, index } = this.props;
-    dispatch(loadBlocks(index));
+    this.load();
     window.addEventListener("keydown", this.onKeydown);
   }
 
@@ -25,15 +17,24 @@ class Page extends Component {
     window.removeEventListener("keydown", this.onKeydown);
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { dispatch, index } = nextProps;
-    if (nextProps.index !== this.props.index) {
+  componentDidUpdate(prevProps) {
+    const { index } = this.props;
+    if (prevProps.index !== index) {
       window.scrollTo(0, 0);
-      dispatch(loadBlocks(index));
+      this.load();
     }
   }
 
-  onKeydown(evt) {
+  load = () => {
+    const {
+      name,
+      index,
+      loadBlocks,
+    } = this.props;
+    loadBlocks(name, index);
+  };
+
+  onKeydown = evt => {
     if (evt.target.tagName.toLowerCase() === "input") {
       return;
     }
@@ -43,54 +44,50 @@ class Page extends Component {
     }
     if (evt.key === "k" || evt.key === "ArrowRight") {
     }
-  }
+  };
 
   render() {
-    const { title, children, blocks, index, total, className } = this.props;
+    const { title, children, blocks, index, total, className, navigate, center, } = this.props;
     let content = <div>Loading...</div>;
-    let viewer = null;
 
     if (blocks) {
-      content = <Content root={blocks[0]} index={index} />;
-      viewer = <Route path="/:album/:index/:medium" component={Viewer} />;
+      content = <Content root={blocks[0]} index={index} navigate={navigate} />;
     }
 
-    const edit = this.props.editMode ? <Edit /> : null;
+    const showMap = !!blocks;
 
     return (
       <div className={className}>
-        {children}
         <div className="Page">
           <Header title={title} />
           {content}
-          <Footer index={index} total={total} />
+          <Footer index={index} total={total} navigate={navigate} />
         </div>
-        <Map index={index} />
-        {viewer}
-        {edit}
+        {showMap && <Map index={index} center={center} navigate={navigate} />}
+        {children}
       </div>
     );
   }
 }
 
-function select(store, props) {
-  const { params } = props.match;
-  const index = parseInt(params.index, 10);
+const mapStateToProps = (store, { index, name }) => {
+  index = parseInt(index, 10);
   const page = store.pages[index];
-  //const total = Object.keys(store.pages).length
-  const album = store.albums[params.album];
+  const album = store.albums[name];
 
-  // TODO(boertel) hardcoded
   return {
-    editMode: props.location.search.indexOf("edit") !== -1,
     index,
     total: album.pages,
     title: album.title,
+    center: album.center,
     ...page
   };
-}
+};
 
-export default connect(select)(styled(Page)`
+export default connect(
+  mapStateToProps,
+  { loadBlocks }
+)(styled(Page)`
   display: flex;
 
   .Page {

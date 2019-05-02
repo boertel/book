@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { transparentize } from "polished";
 
-import Picture from "./Picture";
 
-class ResponsivePicture extends Component {
+class Responsive extends Component {
   shouldComponentUpdate(nextProps) {
     return (
       nextProps.active !== this.props.active ||
@@ -23,8 +22,7 @@ class ResponsivePicture extends Component {
       heightContainer,
       aspectRatio,
       ratio,
-      src,
-      className
+      className,
     } = this.props;
 
     if (widthContainer === 0) {
@@ -53,6 +51,10 @@ class ResponsivePicture extends Component {
       classNames.push("anchor");
     }
 
+    const child = React.cloneElement(this.props.children, {
+      width, height,
+    })
+
     return (
       <div
         className={classNames.join(" ")}
@@ -60,14 +62,12 @@ class ResponsivePicture extends Component {
         onClick={this.props.onClick}
         onMouseOver={this.props.onMouseOver}
         onMouseOut={this.props.onMouseOut}
-      >
-        <Picture src={src} width={width} height={height} />
-      </div>
+      >{child}</div>
     );
   }
 }
 
-export default styled(ResponsivePicture)`
+export default styled(Responsive)`
   position: relative;
   cursor: pointer;
   background-color: ${props => props.theme.placeholder};

@@ -4,14 +4,18 @@ import styled from "styled-components";
 
 class Video extends Component {
   render() {
-    const { className } = this.props;
+    const { className, width, height, url, } = this.props;
     let title = null;
     if (this.props.title) {
       title = <p>{this.props.title}</p>;
     }
+    const style = {
+      width,
+      height,
+    };
     return (
-      <div className={className}>
-        <ReactPlayer {...this.props} width="80%" />
+      <div className={className} style={style}>
+        <ReactPlayer url={url} width="80%" {...style} />
         {title}
       </div>
     );
@@ -19,7 +23,6 @@ class Video extends Component {
 }
 
 export default styled(Video)`
-  margin: 1em auto;
   p {
     text-align: center;
     font-style: italic;

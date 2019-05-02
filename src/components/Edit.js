@@ -10,10 +10,10 @@ import Row from "./Row";
 import { loadPhotos } from "../resources/photos";
 
 class Edit extends Component {
-  load() {
-    const photosetId = this.props.photosetId;
+  load = () => {
+    const { photosetId } = this.props;
     this.props.loadPhotos(photosetId);
-  }
+  };
 
   componentDidMount() {
     window.addEventListener("keydown", this.onkeydown);
@@ -52,7 +52,7 @@ class Edit extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const photosetId = "72157677661164877";
+  const photosetId = "72157708111593184";
   const order = state.photos.order[photosetId] || [];
   return {
     pictureIds: order,

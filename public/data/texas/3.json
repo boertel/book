@@ -1,0 +1,78 @@
+{
+    "nodes": [
+        {
+            "kind": "block",
+            "type": "title",
+            "nodes": [{ "kind": "text", "text": "Austin" }]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Austin, capitale du Texas avec le capitole qui ressemble à tous les autres et avec une petite reference au royaume de France sur le sol."
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7807","id":"47534839902","secret":"afe6db43d8","originalsecret":"fcefee1fe0","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-97.740762,30.272983],"location":"","title":""}},
+                {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7922","id":"47534839622","secret":"f624fb2287","originalsecret":"d225e1f601","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-97.740517,30.274324],"location":"","title":""}},
+                {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7914","id":"47534840382","secret":"a99023fcd6","originalsecret":"07d75492f3","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-97.740531,30.274313],"location":"","title":""}}
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Le festival SXSW se passe pendant que nous sommes à Austin, les restaurants et bars sont réservés pour les festivaliés ou blindés de monde. Il nous faut s'écarter un peu de la grande artère pour trouver un bon restaurant de BBQ, spécialité du Texas"
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7913","id":"46863916734","secret":"735c3598e3","originalsecret":"182cbb43f4","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-97.747795,30.265041],"location":"","title":""}}
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "heading",
+            "nodes": [ { "kind": "text", "text": "Jefferson, TX" } ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": ""
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":66,"server":"65535","id":"32774350827","secret":"f2c32659a0","originalsecret":"653a26df28","type":"flickr"},"width":1200,"height":1600,"type":"marker","coordinates":[0,0],"location":"","title":""}}
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7866","id":"47534837822","secret":"3bd1da0ca2","originalsecret":"4e67f7a520","type":"flickr"},"width":4032,"height":3024,"type":"marker","coordinates":[-94.345353,32.756041],"location":"","title":""}},
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7819","id":"47534838132","secret":"6b0e1ed6c0","originalsecret":"ea6f165e56","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-94.345964,32.755311],"location":"","title":""}},
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7811","id":"47534841092","secret":"8d7fa5790b","originalsecret":"7808c94eb2","type":"flickr"},"width":3024,"height":3024,"type":"marker","coordinates":[-94.34375,32.757288],"location":"","title":""}},
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7927","id":"47534838062","secret":"43fdaaca9b","originalsecret":"5208605dca","type":"flickr"},"width":4032,"height":3024,"type":"marker","coordinates":[-94.344398,32.757144],"location":"","title":""}}
+            ]
+        }
+    ]
+}
+

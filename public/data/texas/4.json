@@ -1,0 +1,61 @@
+{
+    "nodes": [
+        {
+            "kind": "block",
+            "type": "title",
+            "nodes": [{ "kind": "text", "text": "Dallas" }]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "À 2 heures de route de Houston, les grandes attractions sont le Riverwalk et le Fort Alamo. Nous ne attendons pas à grand chose."
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7899","id":"47534839182","secret":"b6e1a10c76","originalsecret":"4264ca0f4c","type":"flickr"},"width":4032,"height":3024,"type":"marker","coordinates":[-97.34925,32.788813],"location":"","title":""}},
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7891","id":"46672344695","secret":"715f1afb4b","originalsecret":"20f9f3352e","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-97.347962,32.788958],"location":"","title":""}},
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7862","id":"46672344915","secret":"67cfef7382","originalsecret":"f014c2c456","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-97.344987,32.788144],"location":"","title":""}},
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7908","id":"46863916104","secret":"4c49d4a889","originalsecret":"fdab3d79f9","type":"flickr"},"width":4032,"height":3024,"type":"marker","coordinates":[-97.345331,32.787972],"location":"","title":""}},
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7833","id":"47534840582","secret":"b020798200","originalsecret":"01af63024e","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-97.345987,32.788927],"location":"","title":""}}
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7911","id":"47534838732","secret":"cd04599902","originalsecret":"e827fe192d","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-96.810212,32.79045],"location":"","title":""}},
+              {
+                "kind": "block",
+                "type": "video",
+                "data": {
+                    "url": "https://vimeo.com/332891832",
+                    "title": "",
+                    "width":200,
+                    "height":360
+                }
+            }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "heading",
+            "nodes": [ { "kind": "text", "text": "Saint Francisville, LA" } ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7859","id":"47534841102","secret":"f3c0aaf27f","originalsecret":"4206153ee5","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-91.38482,30.774988],"location":"","title":""}},
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7801","id":"47534841202","secret":"387a914216","originalsecret":"99d228db8b","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-91.377975,30.779249],"location":"","title":""}},
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7848","id":"46672344725","secret":"8622a583a1","originalsecret":"fda7528db5","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-91.378281,30.779163],"location":"","title":""}}
+            ]
+        }
+    ]
+}

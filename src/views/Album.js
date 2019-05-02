@@ -1,55 +1,43 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 
 import { loadAlbum } from "../actions/albums";
-
-import Page from "./Page";
+import defaultTheme from "../theme";
 
 class Album extends Component {
-  constructor(props) {
-    super(props);
-
-    this.load = this.load.bind(this);
-  }
-
-  load(props) {
-    props = props || this.props;
-
-    const { dispatch, match } = props;
-
-    dispatch(loadAlbum(match.params.album));
-  }
+  load = () => {
+    const { loadAlbum, name } = this.props;
+    loadAlbum(name);
+  };
 
   componentDidMount() {
     this.load();
   }
 
   render() {
-    const { pages, match } = this.props;
+    const { pages, color, } = this.props;
 
     if (pages === undefined) {
       return <div>Loading...</div>;
     }
 
-    const { album } = match.params;
+    const theme = {
+      ...defaultTheme,
+      active: color
+    };
 
-    return (
-      <Switch>
-        <Route path="/:album/:index" component={Page} />
-        <Redirect from="/:album" to={`/${album}/1`} />
-      </Switch>
-    );
+    return <ThemeProvider theme={theme}>{this.props.children}</ThemeProvider>;
   }
 }
 
-const mapStateToProps = (state, props) => {
-  const { album } = props.match.params;
-
+const mapStateToProps = (state, { name }) => {
   return {
-    album,
-    ...state.albums[album]
+    ...state.albums[name]
   };
 };
 
-export default connect(mapStateToProps)(Album);
+export default connect(
+  mapStateToProps,
+  { loadAlbum }
+)(Album);

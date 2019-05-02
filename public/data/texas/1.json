@@ -1,0 +1,140 @@
+{
+    "nodes": [
+        {
+            "kind": "block",
+            "type": "title",
+            "nodes": [ { "kind": "text", "text": "Houston" } ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "Il est midi le samedi 9 mars 2019, j'attends avec patience pendant une bonne heure que mes amis arrivent de France. La journée s'annonce longue, je me suis réveillé à 4h pour prendre mon avion à 7h, pour l'annecdote, je me rencontre par la suite que mon avion était un Boeing 737 MAX 😱. " }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":66,"server":"65535","id":"32774334797","secret":"ed4db7f58a","originalsecret":"b51458a414","type":"flickr"},"width":3024,"height":4032,"type":"marker","location":"","title":""}},
+               {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7802","id":"47534839072","secret":"39d2749da6","originalsecret":"f5f38306fc","type":"flickr"},"width":"3024","height":"4032","type":"marker","coordinates":[-95.338592,29.987641],"location":"","title":""}}
+              ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "Prochaine étape: récuperer la voiture de location, simple sur le papier, plus compliquée en pratique. Direction les agences de locations, 45 minutes de queue avant de pouvoir accès à un employé, une fois devant la personne, surprise, il ne trouve pas la réservation...j'ai réservé la voiture à l'autre aéroport de Houston: 45 minutes en voiture!" }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "Ca ne s'arrête pas là, on commande donc un Uber pour rejoindre l'autre aéroport, il se perd dans les parkings, nous mettons 20 minutes à le rechercher mais sans succés, nous en commandons un nouveau: il faut qu'il fasse le plein d'essence! Surement 30 minutes de perdu, nous voilà en route pour l'autre aéroport, le chausseur est sympa, il se plaint du temps, du trafic, des autres chauffeurs. Il nous raconte des annecdotes: le port d'arme est autorisé (avec un permis), mais quand même. L'autre agence de location est dans un autre plsu ghetto, le chauffeur nous propose qu'il nous attende pour être sûr que tout se passe bien. Tout ira bien, nous recupérons la voiture, et nous voilà en route pour passer la nuit à Galveston." }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7815","id":"46672344935","secret":"7f946bb42f","originalsecret":"11d2bb4263","type":"flickr"},"width":3024,"height":3028,"type":"marker","coordinates":[-94.825578,29.265397],"location":"","title":""}}
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "Et pendant toute cette aventure, nous n'avons pas mangé, il est tard, le décalage horaire commence à faire son effet, direction le \"restaurant\" le plus près: Golden Corral. Buffet illimité avec de la nourriture médiocre mais une très bonne introduction au Texas et à la population." }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7927","id":"46863915514","secret":"ea13e8964f","originalsecret":"7f63534a13","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-94.828025,29.266247],"location":"","title":""}},
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7911","id":"47534838512","secret":"fa171ff48d","originalsecret":"17374c1a7d","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-94.828025,29.266247],"location":"","title":""}}
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "heading",
+            "nodes": [ { "kind": "text", "text": "Johnson Space Center" } ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "Le dimanche, nous retournons sur Houston pour visiter le Johnson Space Center où se trouve la NASA." }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7914","id":"47587844831","secret":"779f9a61f3","originalsecret":"040c31a0f0","type":"flickr"},"width":4032,"height":3024,"type":"marker","coordinates":[-95.096978,29.551708],"location":"","title":""}},
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7839","id":"47534838192","secret":"ea13e8964f","originalsecret":"3702bb33b1","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-95.093789,29.554583],"location":"","title":""}}
+            ]
+        },
+
+        {
+          "kind": "block",
+          "type": "row",
+          "nodes": [
+            {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7867","id":"47534840642","secret":"a9eafe3c8d","originalsecret":"6c4d749afa","type":"flickr"},"width":6846,"height":3862,"type":"marker","coordinates":[-95.093881,29.554461],"location":"","title":"Saturn V"}}
+          ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "Ce n'est pas tellement un musée car ce sont les vrais bureaux de la NASA. Des petits trains nous baladent d'endroits en endroits: la fusée Saturn V pour commencer, puis le Mission Control Center et pour finir une salle d'entrainement pour les astronautes." }
+            ]
+        },
+        {
+          "kind": "block",
+          "type": "row",
+          "nodes": [
+            {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":66,"server":"65535","id":"40751268873","secret":"a8d4287feb","originalsecret":"4ca54bb625","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-95.089159,29.557988],"location":"","title":""}}
+          ]
+        },
+        {
+          "kind": "block",
+          "type": "row",
+          "nodes": [
+            {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7862","id":"47534842602","secret":"6ecb8933f8","originalsecret":"fb2f26cc00","type":"flickr"},"width":4032,"height":3024,"type":"marker","coordinates":[-95.078562,29.559702],"location":"","title":""}},
+            {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7844","id":"47534843112","secret":"e3d8a96ab7","originalsecret":"d36951aa4b","type":"flickr"},"width":4032,"height":3024,"type":"marker","coordinates":[-95.089548,29.558008],"location":"","title":""}}
+          ]
+        },
+        {
+          "kind": "block",
+          "type": "row",
+          "nodes": [
+            {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7828","id":"46863916254","secret":"543e9f16ff","originalsecret":"810d629fef","type":"flickr"},"width":9812,"height":3738,"type":"marker","coordinates":[-95.085328,29.560638],"location":"","title":""}}
+          ]
+        },
+
+        {
+          "kind": "block",
+          "type": "row",
+          "nodes": [
+            {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7875","id":"47534837642","secret":"2ebceba751","originalsecret":"f745e70ace","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-95.09732,29.551966],"location":"","title":""}},
+            {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":66,"server":"65535","id":"40751255213","secret":"3c3f2b6990","originalsecret":"7517dea5c8","type":"flickr"},"width":4032,"height":3024,"type":"marker","coordinates":[-95.097223,29.551972],"location":"","title":""}}
+          ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                { "kind": "text", "text": "Nous y avons passé la journée, il est 17h, il est temps de reprendre la route direction: San Antonio." }
+            ]
+        },
+        {
+          "kind": "block",
+          "type": "row",
+          "nodes": [
+        {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7919","id":"47534840142","secret":"38a4dd9880","originalsecret":"f0e3fd9798","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-95.093309,29.553438],"location":"","title":""}}
+          ]
+        }
+    ]
+}

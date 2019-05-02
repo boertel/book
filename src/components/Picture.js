@@ -45,22 +45,21 @@ class Picture extends Component {
     super(props);
 
     this._image = new Image();
-    this.onload = this.onload.bind(this);
-    const size = threshold(props.width, props.height);
     this.state = {
       loaded: false,
-      size
+      url: this.getUrl(),
     };
   }
 
-  getUrl(props) {
+  getUrl = (props, refresh) => {
     props = props || this.props;
+    const size = threshold(props.width, props.height);
     let url;
     if (typeof props.src === "string") {
       url = props.src;
     } else {
       if (props.src.type === "flickr") {
-        url = buildFlickrUrl(props.src, this.state.size);
+        url = buildFlickrUrl(props.src, refresh ? undefined : size);
       }
     }
     return url;
@@ -70,29 +69,41 @@ class Picture extends Component {
     return nextState.loaded !== this.state.loaded;
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.getUrl(nextProps) !== this.getUrl()) {
+  componentDidUpdate(prevProps) {
+    if (this.getUrl(prevProps) !== this.getUrl()) {
       this.load();
     }
   }
 
-  load() {
+  load = (refresh) => {
     this.setState({
       loaded: false
     });
 
-    this._image.addEventListener("load", this.onload);
-    this._image.src = this.getUrl();
+    this._image.addEventListener("load", this.onLoad);
+    this._image.addEventListener("error", this.onError);
+    const url = this.getUrl(this.props, refresh);
+    this._image.src = url;
+    if (this.state.url !== url) {
+      this.setState({
+        url,
+      })
+    }
   }
 
-  onload() {
+  onError = () => {
+    this.load(true);
+  }
+
+  onLoad = () => {
     this.setState({
       loaded: true
     });
   }
 
   componentWillUnmount() {
-    this._image.removeEventListener("load", this.onload);
+    this._image.removeEventListener("load", this.onLoad);
+    this._image.removeEventListener("error", this.onError);
   }
 
   componentDidMount() {
@@ -100,10 +111,8 @@ class Picture extends Component {
   }
 
   render() {
-    const url = this.getUrl();
-
     if (this.state.loaded) {
-      return <img src={url} alt={url} onClick={this.props.onClick} />;
+      return <img src={this.state.url} alt={this.state.url} onClick={this.props.onClick} />;
     }
     return null;
   }

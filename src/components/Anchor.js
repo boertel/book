@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 
 import { deactivate, activate, register, unregister } from "../actions/blocks";
 
@@ -60,9 +59,7 @@ function actions(dispatch, props) {
   };
 }
 
-export default withRouter(
-  connect(
-    null,
-    actions
-  )(Anchor)
-);
+export default connect(
+  null,
+  actions
+)(Anchor);

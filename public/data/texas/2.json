@@ -1,0 +1,141 @@
+{
+    "nodes": [
+        {
+            "kind": "block",
+            "type": "title",
+            "nodes": [{ "kind": "text", "text": "San Antonio" }]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "À 2 heures de route de Houston, les grandes attractions sont le Riverwalk et le Fort Alamo. Nous ne attendons pas à grand chose."
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":66,"server":"65535","id":"40751024773","secret":"d54efa5576","originalsecret":"3f5d2b5043","type":"flickr"},"width":1600,"height":1200,"type":"marker","location":"","title":""}},
+                {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":66,"server":"65535","id":"33840244718","secret":"5306c6a400","originalsecret":"0935fa68ee","type":"flickr"},"width":1600,"height":1200,"type":"marker","location":"","title":""}}
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Nous sommes arrivés pendant la soirée donc ça sera d'abord le Riverwalk pour diner, la promenade est très agréable et les restaurants très touristes. Le décalage horaire se fait encore sentir, donc retour au airbnb assez tôt."
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Une des principales attractions des vacances, c'est evidemment la nourriture. Pas une minute à gacher: le petit déjeuner."
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Une fois bien calé, direction le Fort Alamo, le centre ville est très petit et nous pouvons nous déplacer à pieds. Le Fort est le petit passage historique: c'est là où c'est deroulé la bataille entre blablabla et les mexicains."
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7805","id":"47534839352","secret":"ce4e71c8c0","originalsecret":"78fb164b03","type":"flickr"},"width":4032,"height":3024,"type":"marker","coordinates":[-98.486481,29.425727],"location":"","title":""}}
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "heading",
+            "nodes": [ { "kind": "text", "text": "Gruene, TX" } ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Même pas 24 heures dans San Antonio mais ça aura été suffisant, prochaine étape: Austin, plus au nord à seulement 1 heure et demi de route."
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Sur la route, nous nous arretons à notre station essence favorite: Buck-ees!"
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":66,"server":"65535","id":"32774104657","secret":"39d9803a5d","originalsecret":"97fbd26dd6","type":"flickr"},"width":1200,"height":1600,"type":"marker","location":"","title":""}}
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "à 5 minutes de la ville de Gruene qui est dans notre guide, nous décidons d'y aller faire un tour puisque le trajet entre San Antonio et Austin, nous avons donc le temps de gambader."
+                }
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+                {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7877","id":"47534843162","secret":"1ef86a522c","originalsecret":"a34f28c193","type":"flickr"},"width":4032,"height":3024,"type":"marker","coordinates":[-98.103425,29.737172],"location":"","title":""}},
+                {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7807","id":"47534842732","secret":"321b2ef681","originalsecret":"79d15822fe","type":"flickr"},"width":4032,"height":3024,"type":"marker","coordinates":[-98.103912,29.738016],"location":"","title":""}}
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "row",
+            "nodes": [
+              {
+            "kind": "block",
+            "type": "video",
+            "data": {
+                "url": "https://vimeo.com/332891608",
+                "width":200,
+                "height":360,
+                "title": ""
+            }
+        },
+                {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7923","id":"46672345265","secret":"4937c77e90","originalsecret":"7e1c9791b4","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-98.104264,29.738588],"location":"","title":""}}
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": ""
+                }
+            ]
+        }
+    ]
+}

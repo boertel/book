@@ -37,6 +37,24 @@ export default function reducer(state = initialState, action = {}) {
       const entity = Object.assign({}, state.entities[id], {
         selected: !state.entities[id].selected
       });
+      const copy = {
+        kind: "block",
+        type: "picture",
+        data: {
+          viewer: true,
+          src: entity.src,
+          width: entity.width,
+          height: entity.height,
+          type: "marker",
+          coordinates: entity.coordinates,
+          location: "",
+          title: ""
+        }
+      };
+      navigator.clipboard
+        .writeText(JSON.stringify(copy))
+        .then(console.log)
+        .catch(console.error);
       const entities = { ...state.entities, [id]: entity };
       return {
         ...state,

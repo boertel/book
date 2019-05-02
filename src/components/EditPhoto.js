@@ -1,21 +1,18 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import ResponsivePicture from "./ResponsivePicture";
+import Responsive from "./Responsive";
+import Picture from './Picture';
 import { selectPhoto } from "../resources/photos";
 
 class EditPhoto extends Component {
-  constructor(props) {
-    super(props);
-    this.onClick = this.onClick.bind(this);
-  }
-
-  onClick() {
+  onClick = () => {
     this.props.select();
-  }
+  };
 
   render() {
-    return <ResponsivePicture {...this.props} onClick={this.onClick} />;
+    const { src, ...etc } = this.props;
+    return <Responsive {...etc} onClick={this.onClick}><Picture src={src} /></Responsive>
   }
 }
 

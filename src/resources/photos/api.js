@@ -13,7 +13,7 @@ export default function(method, params) {
       format: "json",
       nojsoncallback: 1,
       per_page: 150,
-      extras: "o_dims,url_o,original_format"
+      extras: "o_dims,url_o,original_format,geo"
     },
     params
   );
@@ -32,8 +32,12 @@ export default function(method, params) {
         return {
           id: photo.id,
           src,
-          width: photo.width_o,
-          height: photo.height_o
+          width: parseInt(photo.width_o, 10),
+          height: parseInt(photo.height_o, 10),
+          coordinates: [
+            parseFloat(photo.longitude, 10),
+            parseFloat(photo.latitude, 10)
+          ]
         };
       });
 

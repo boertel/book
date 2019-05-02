@@ -8,9 +8,9 @@ export function loadPhotos(photosetId) {
   };
 }
 
-export function selectPhoto(id) {
+export const selectPhoto = id => {
   return {
     type: PHOTOS_SELECT,
     id
   };
-}
+};

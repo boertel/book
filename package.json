@@ -4,25 +4,27 @@
   "private": true,
   "devDependencies": {
     "prettier": "^1.16.4",
-    "react-scripts": "^1.0.7"
+    "react-scripts": "^3.0.0"
   },
   "dependencies": {
-    "axios": "^0.16.2",
+    "@reach/router": "^1.2.1",
+    "axios": "^0.18.0",
     "lodash": "^4.17.4",
-    "mapbox-gl": "^0.37.0",
-    "polished": "^1.3.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "mapbox-gl": "^0.54.0",
+    "polished": "^3.2.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-feather": "^1.0.4",
-    "react-player": "^0.19.0",
-    "react-redux": "^5.0.5",
-    "react-router": "^4.1.1",
-    "react-router-dom": "^4.1.1",
-    "redux": "^3.6.0",
+    "react-player": "^1.11.0",
+    "react-redux": "^7.0.3",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
+    "redux": "^4.0.1",
     "redux-pack": "^0.1.5",
     "redux-thunk": "^2.2.0",
-    "serve": "^6.0.2",
-    "styled-components": "^2.0.1"
+    "serve": "^11.0.0",
+    "styled-components": "^4.2.0",
+    "use-query-params": "^0.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,5 +35,17 @@
   },
   "now": {
     "alias": "ranger-oertel"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

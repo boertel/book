@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "@reach/router";
 import styled from "styled-components";
 
-const Header = ({ className, title }) => {
+const Header = ({ className, title, }) => {
   return (
     <div className={className}>
-      <span>{title}</span>
+      <Link to="../1">{title}</Link>
       <hr />
     </div>
   );
@@ -26,8 +27,14 @@ export default styled(Header)`
     border-bottom: 1px solid #000;
     z-index: -1;
   }
-  span {
+  a {
     background-color: #fff;
+    text-decoration: none;
+    color: #000;
     padding: 0 1em;
+  }
+  a:hover {
+    color: ${props => props.theme.active};
+    text-decoration: underline;
   }
 `;

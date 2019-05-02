@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import { Link } from '@reach/router';
 import styled from "styled-components";
-import { withRouter } from "react-router-dom";
 
 import { ArrowLeft, ArrowRight } from "react-feather";
 
 const nextPage = page => {
-  let url = `${page.index + 1}`;
+  let url = `../${page.index + 1}`;
   if (page.index > page.total) {
     url = "/end";
   }
@@ -13,7 +13,7 @@ const nextPage = page => {
 };
 
 const previousPage = page => {
-  let url = `${page.index - 1}`;
+  let url = `../${page.index - 1}`;
   if (page.index === 1) {
     url = "/";
   }
@@ -21,13 +21,6 @@ const previousPage = page => {
 };
 
 class Footer extends Component {
-  constructor(props) {
-    super(props);
-    this.next = this.next.bind(this);
-    this.previous = this.previous.bind(this);
-    this.onKeydown = this.onKeydown.bind(this);
-  }
-
   componentDidMount() {
     window.addEventListener("keydown", this.onKeydown);
   }
@@ -36,7 +29,7 @@ class Footer extends Component {
     window.addEventListener("keydown", this.onKeydown);
   }
 
-  onKeydown(evt) {
+  onKeydown = (evt) => {
     if (evt.target.tagName.toLowerCase() === "input") {
       return;
     }
@@ -48,14 +41,14 @@ class Footer extends Component {
     }
   }
 
-  next() {
-    const { history, index, total } = this.props;
-    history.push(nextPage({ index, total }));
+  next = () => {
+    const { index, total, navigate, } = this.props;
+    navigate(nextPage({ index, total }));
   }
 
-  previous() {
-    const { history, index, total } = this.props;
-    history.push(previousPage({ index, total }));
+  previous = () => {
+    const { index, total, navigate,} = this.props;
+    navigate(previousPage({ index, total }));
   }
 
   render() {
@@ -63,15 +56,15 @@ class Footer extends Component {
 
     const previous =
       index !== 1 ? (
-        <a onClick={this.previous}>
+        <Link to={previousPage({ index, total})}>
           <ArrowLeft /> Précedent
-        </a>
+        </Link>
       ) : null;
     const next =
       index !== total ? (
-        <a onClick={this.next}>
+        <Link to={nextPage({ index, total})}>
           Suivant <ArrowRight />
-        </a>
+        </Link>
       ) : null;
     return (
       <div className={className}>
@@ -86,7 +79,7 @@ class Footer extends Component {
   }
 }
 
-export default withRouter(styled(Footer)`
+export default styled(Footer)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -102,6 +95,10 @@ export default withRouter(styled(Footer)`
     display: inline-flex;
     font-size: 0.8em;
 
+    &:visited {
+      color: #000;
+    }
+
     &:hover {
       color: ${props => props.theme.active};
     }
@@ -111,4 +108,4 @@ export default withRouter(styled(Footer)`
       margin: 0 0.3em;
     }
   }
-`);
+`;
