@@ -94,6 +94,7 @@ export default styled(Footer)`
     cursor: pointer;
     display: inline-flex;
     font-size: 0.8em;
+    color: #000;
 
     &:visited {
       color: #000;
