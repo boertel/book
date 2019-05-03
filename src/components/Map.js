@@ -10,7 +10,6 @@ import { activate, deactivate } from "../actions/blocks";
 const config = {
   accessToken:
     "pk.eyJ1IjoiYm9lcnRlbCIsImEiOiJFV0tXLTQ4In0.4PRhZjzKIuWuhy2ytRi7Eg",
-  //style: 'mapbox://styles/boertel/cj51hkx3g1d4a2rlkx1cner61'
   style: "mapbox://styles/boertel/ciqy9y3fl0001bpnohs9hdps8"
 };
 
@@ -43,11 +42,11 @@ const createFeatures = data => {
   });
 };
 
-const getBounds = (markers) => {
+const getBounds = markers => {
   let bounds = new mapboxgl.LngLatBounds();
   markers.forEach(({ data }) => bounds.extend(data.coordinates));
   return bounds;
-}
+};
 
 class Map extends Component {
   shouldComponentUpdate(nextProps) {
@@ -55,7 +54,7 @@ class Map extends Component {
     if (this.map.isStyleLoaded() && markers.length) {
       // wait until markers have been fetch or next page
       if (
-        this.props.markers.length !== markers.length ||
+        !_.isEqual(this.props.markers, markers.length) ||
         this.props.index !== index
       ) {
         this.updateSource(nextProps);
@@ -95,8 +94,53 @@ class Map extends Component {
     }
   }
 
+  onMapLoad = () => {
+    const { dispatch, markers, navigate } = this.props;
+    this.updateSource(this.props);
+
+    this.map.addLayer({
+      id: "markers",
+      type: "symbol",
+      source: "markers",
+      layout: { "icon-image": "marker-15" }
+    });
+
+    this.map.addLayer({
+      id: "markers-hover",
+      type: "symbol",
+      source: "markers",
+      layout: {
+        "icon-image": "marker-15",
+        "icon-size": 1.6
+      },
+      filter: ["==", "path", ""]
+    });
+
+    this.map.on("mouseenter", "markers", evt => {
+      const { path } = evt.features[0].properties;
+      dispatch(activate(path));
+      this.map.setFilter("markers-hover", ["==", "path", path]);
+    });
+
+    this.map.on("mouseleave", "markers-hover", evt => {
+      dispatch(deactivate());
+      this.map.setFilter("markers-hover", ["==", "path", ""]);
+    });
+
+    this.map.on("click", "markers-hover", evt => {
+      const { viewer, path } = evt.features[0].properties;
+      if (viewer) {
+        navigate(path);
+      }
+    });
+
+    if (markers.length) {
+      this.map.fitBounds(getBounds(markers), { padding: 120 });
+    }
+  };
+
   componentDidMount() {
-    const { dispatch, center, markers, } = this.props;
+    const { center, } = this.props;
 
     const maxZoom = 16;
 
@@ -110,48 +154,7 @@ class Map extends Component {
       style: config.style
     });
 
-    this.map.on("load", () => {
-      this.updateSource(this.props);
-
-      this.map.addLayer({
-        id: "markers",
-        type: "symbol",
-        source: "markers",
-        layout: { "icon-image": "marker-15" }
-      });
-
-      this.map.addLayer({
-        id: "markers-hover",
-        type: "symbol",
-        source: "markers",
-        layout: {
-          "icon-image": "marker-15",
-          "icon-size": 1.6
-        },
-        filter: ["==", "path", ""]
-      });
-
-      this.map.on("mouseenter", "markers", evt => {
-        const { path } = evt.features[0].properties;
-        dispatch(activate(path));
-        this.map.setFilter("markers-hover", ["==", "path", path]);
-      });
-
-      this.map.on("mouseleave", "markers-hover", evt => {
-        dispatch(deactivate());
-        this.map.setFilter("markers-hover", ["==", "path", ""]);
-      });
-
-      const { navigate } = this.props;
-      this.map.on("click", "markers-hover", evt => {
-        const { viewer, path } = evt.features[0].properties;
-        if (viewer) {
-          navigate(path);
-        }
-      });
-
-      this.map.fitBounds(getBounds(markers), { padding: 120 });
-    });
+    this.map.on("load", this.onMapLoad);
 
     // TODO(boertel) edit mode redux
     this.map.on("click", evt => {
@@ -176,7 +179,7 @@ const mapStateToProps = (store, props) => {
   let features = [];
   if (Object.keys(store.blocks).length !== 0 && store.pages[index]) {
     features = _.chain(store.blocks)
-      //.pick(store.pages[index].blocks)
+      .pick(store.pages[index].blocks)
       .pickBy(
         block =>
           block.data &&

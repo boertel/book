@@ -11,7 +11,7 @@
             "nodes": [
                 {
                     "kind": "text",
-                    "text": "À 2 heures de route de Houston, les grandes attractions sont le Riverwalk et le Fort Alamo. Nous ne attendons pas à grand chose."
+                    "text": "Dallas - la Nouvelle Orléans aura pris 2 jours (8 heures sur le papier mais nous avons décidé de prendre notre temps). Nous allons traîner dans le quartier de Treme-Laftitte avec beaucoup de maisons colorées mais l'infrastructure: routes et trouttoirs sont dans un état effrayant."
                 }
             ]
         },
@@ -28,7 +28,22 @@
             "kind": "block",
             "type": "row",
             "nodes": [
-              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7829","id":"47534841512","secret":"562287ca7e","originalsecret":"68c211a696","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-90.064592,29.961516],"location":"","title":""}}
+              {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7829","id":"47534841512","secret":"562287ca7e","originalsecret":"68c211a696","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-90.064592,29.961516],"location":"Treme-Lafitte","title":"Boston?"}}
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "title",
+            "nodes": [{ "kind": "text", "text": "French Quarter" }]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Et evidemment, le French Quarter avec ces immeubles atypiques avec leurs terrasses. Nous nous croyons dans un autre temps, ça fait du bien de voir quelque chose que les villes texanes assez modernes."
+                }
             ]
         },
         {
@@ -42,20 +57,36 @@
         },
         {
             "kind": "block",
-            "type": "video",
-            "data": {
-                "url": "https://vimeo.com/332892621",
-                "width":200,
-                "height":360,
-                "title": ""
-            }
-        },
-        {
-            "kind": "block",
             "type": "row",
             "nodes": [
               {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7812","id":"47534841822","secret":"fedd11270c","originalsecret":"660d2754f8","type":"flickr"},"width":3024,"height":4032,"type":"marker","coordinates":[-90.061792,29.956641],"location":"","title":""}}
             ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Au détour d'une rue, nous tombons sur la parade pour Saint Patrick, sous la pluie."
+                }
+            ]
+        },
+        {
+          "kind": "block",
+          "type": "row",
+          "nodes": [
+              {
+                  "kind": "block",
+                  "type": "video",
+                  "data": {
+                      "url": "https://vimeo.com/332892621",
+                      "width":200,
+                      "height":360,
+                      "title": ""
+                  }
+              }
+          ]
         },
         {
             "kind": "block",
@@ -66,19 +97,35 @@
             ]
         },
         {
-            "kind": "block",
-            "type": "video",
-            "data": {
-                "url": "https://vimeo.com/332892415",
-                "height":200,
-                "width":360,
-                "title": ""
+          "kind": "block",
+          "type": "row",
+          "nodes": [
+            {
+                "kind": "block",
+                "type": "video",
+                "data": {
+                    "url": "https://vimeo.com/332892415",
+                    "height":200,
+                    "width":360,
+                    "title": ""
+                }
             }
+          ]
         },
         {
             "kind": "block",
             "type": "heading",
             "nodes": [ { "kind": "text", "text": "Whitney Plantation" } ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Aventure historique en allant visiter une plantation le long de la rivière. La visite de la plantation ne se focalise pas sur la plantation en elle-même et ils soulignent bien au début que ça ne ressemblait pas à ça à l'époque mais elle se focalise sur la vie des esclaves dans les plantations. Avec les lieux bien nettoyés, avec des belles plantes, difficile de s'imaginer les conditions de vie mais les histoires racontées par la guide donnent un bon aperçu de la vie de l'époque et est assez effrayant."
+                }
+            ]
         },
         {
             "kind": "block",
@@ -95,6 +142,16 @@
             "nodes": [
               {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7889","id":"47534837842","secret":"9af94d8be5","originalsecret":"c8e2000432","type":"flickr"},"width":4032,"height":3024,"type":"marker","coordinates":[-90.650939,30.038519],"location":"","title":""}},
               {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":8,"server":"7817","id":"47534842562","secret":"bb90e45fd1","originalsecret":"2924a28942","type":"flickr"},"width":4032,"height":3024,"type":"marker","coordinates":[-90.649881,30.039694],"location":"","title":""}}
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Pour reprendre nos esprits et retourner dans la vie actuelle, restaurant local où voici ma portion d'écrevisses. C'est plus impressionant que ça en a l'air, il y a plus de coquilles que de viande."
+                }
             ]
         },
         {

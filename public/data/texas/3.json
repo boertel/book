@@ -52,7 +52,7 @@
             "nodes": [
                 {
                     "kind": "text",
-                    "text": ""
+                    "text": "Et c'est reparti, maintenant direction encore au Nord: Dallas et à notre habitude, on sort de l'autoroute pour aller découvrir la campagne et un autre Buck-ees!"
                 }
             ]
         },
@@ -61,6 +61,16 @@
             "type": "row",
             "nodes": [
               {"kind":"block","type":"picture","data":{"viewer":true,"src":{"farm":66,"server":"65535","id":"32774350827","secret":"f2c32659a0","originalsecret":"653a26df28","type":"flickr"},"width":1200,"height":1600,"type":"marker","coordinates":[0,0],"location":"","title":""}}
+            ]
+        },
+        {
+            "kind": "block",
+            "type": "paragraph",
+            "nodes": [
+                {
+                    "kind": "text",
+                    "text": "Le temps est pluvieux et nous n'avons pas vraiment eu la météo qu'on pourrait croire au Texas: chaud. Ca a été plutôt nuageux et temperé. Pas grand chose de spécial à voir à Jefferson, petite ville à l'esprit cowboy, on se detend les jambes, et c'est reparti pour la route."
+                }
             ]
         },
         {

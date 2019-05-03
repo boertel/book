@@ -6,12 +6,21 @@ import { loadBlocks } from "../actions/blocks";
 
 import { Content, Header, Footer, Map, } from "../components";
 
+import { useQueryParam, } from 'use-query-params';
+
+const BooleanParam = {
+  encode: (bool) => bool ? 'true' : 'false',
+  decode: (str) => str === 'true',
+}
+
+
 
 class Page extends Component {
   componentDidMount() {
     this.load();
     window.addEventListener("keydown", this.onKeydown);
   }
+
 
   componentWillUnmount() {
     window.removeEventListener("keydown", this.onKeydown);
@@ -47,14 +56,12 @@ class Page extends Component {
   };
 
   render() {
-    const { title, children, blocks, index, total, className, navigate, center, } = this.props;
+    const { title, children, blocks, index, total, className, navigate, center, showMap, } = this.props;
     let content = <div>Loading...</div>;
 
     if (blocks) {
       content = <Content root={blocks[0]} index={index} navigate={navigate} />;
     }
-
-    const showMap = !!blocks;
 
     return (
       <div className={className}>
@@ -63,7 +70,7 @@ class Page extends Component {
           {content}
           <Footer index={index} total={total} navigate={navigate} />
         </div>
-        {showMap && <Map index={index} center={center} navigate={navigate} />}
+        <Map index={index} center={center} navigate={navigate} />
         {children}
       </div>
     );
@@ -84,10 +91,15 @@ const mapStateToProps = (store, { index, name }) => {
   };
 };
 
+const QueryParamsExtraction = (props) => {
+  const [ showMap, ] = useQueryParam('map', BooleanParam);
+  return <Page {...props} showMap={showMap === undefined ? true : showMap} />
+}
+
 export default connect(
   mapStateToProps,
   { loadBlocks }
-)(styled(Page)`
+)(styled(QueryParamsExtraction)`
   display: flex;
 
   .Page {
