@@ -30,11 +30,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "now-build": "react-scripts build"
-  },
-  "now": {
-    "alias": "ranger-oertel"
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [
