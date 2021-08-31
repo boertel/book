@@ -1,49 +1,48 @@
-import React, { Component } from "react";
+import React from "react";
 import ReactPlayer from "react-player";
 import styled, { withTheme } from "styled-components";
 
-class Video extends Component {
-  onReady = (p) => {
-    p.getInternalPlayer().setColor(this.props.theme.active);
-  }
+function Video({ className, width, height, url, theme, title }) {
+  const onReady = p => {
+    p.getInternalPlayer().setColor(theme.active);
+  };
 
-  render() {
-    const { className, width, height, url, theme } = this.props;
-    let title = null;
-    if (this.props.title) {
-      title = <p>{this.props.title}</p>;
-    }
-    const style = {
-      width,
-      height
-    };
+  const style = {
+    width,
+    height
+  };
 
-    const config = {
-      vimeo: {
-        playerOptions: {
-          color: theme.active
-        }
+  const config = {
+    vimeo: {
+      playerOptions: {
+        color: theme.active
       }
-    };
+    }
+  };
 
-    return (
-      <div className={className} style={style}>
-        <ReactPlayer
-          onReady={this.onReady}
-          url={url}
-          width="80%"
-          config={config}
-          {...style}
-          ref={this.ref}
-        />
-        {title}
-      </div>
-    );
-  }
+  return (
+    <div className={className} style={style}>
+      <ReactPlayer
+        onReady={onReady}
+        url={url}
+        width="80%"
+        config={config}
+        {...style}
+      />
+      {title && <p>{title}</p>}
+    </div>
+  );
 }
 
 export default styled(withTheme(Video))`
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   p {
+    margin-top: 8px;
     text-align: center;
     font-style: italic;
   }

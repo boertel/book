@@ -13,8 +13,8 @@ const App = () => (
         </Page>
       </Album>
       <Home path="/" />
-  </Router>
-    </QueryParamProvider>
+    </Router>
+  </QueryParamProvider>
 );
 
 export default App;

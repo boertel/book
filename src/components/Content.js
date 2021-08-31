@@ -54,7 +54,7 @@ function generate(nodes, dispatch, index, navigate) {
 
       let props = {
         key: node.path,
-        ...data,
+        ...data
       };
 
       const children = generate(node.nodes, dispatch, index, navigate);
@@ -64,7 +64,7 @@ function generate(nodes, dispatch, index, navigate) {
           // only when not in viewer already
           navigate(node.path);
         };
-        props = {...props, onClick };
+        props = { ...props, onClick };
       }
       if (data.anchor || data.coordinates) {
         const onMouseOver = () => {
@@ -77,7 +77,7 @@ function generate(nodes, dispatch, index, navigate) {
           ...props,
           onMouseOver,
           onMouseOut,
-          anchor: true,
+          anchor: true
         };
       }
       return React.createElement(options.type, props, children);
@@ -88,12 +88,9 @@ function generate(nodes, dispatch, index, navigate) {
   });
 }
 
-class Content extends Component {
-  render() {
-    const { nodes, index, dispatch, className, navigate } = this.props;
-    const children = generate(nodes, dispatch, index, navigate);
-    return <div className={["Content", className].join(" ")}>{children}</div>;
-  }
+function Content({ nodes, index, dispatch, className, navigate }) {
+  const children = generate(nodes, dispatch, index, navigate);
+  return <div className={["Content", className].join(" ")}>{children}</div>;
 }
 
 function deserialize(root, dict) {
@@ -114,7 +111,7 @@ const mapStateToProps = (state, props) => {
   return {
     nodes
   };
-}
+};
 
 export default connect(mapStateToProps)(styled(Content)`
   h1 {

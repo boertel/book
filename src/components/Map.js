@@ -140,7 +140,7 @@ class Map extends Component {
   };
 
   componentDidMount() {
-    const { center, } = this.props;
+    const { center } = this.props;
 
     const maxZoom = 16;
 
